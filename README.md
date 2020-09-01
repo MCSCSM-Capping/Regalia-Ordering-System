@@ -22,12 +22,13 @@ Step 5. Restore the packages required for running the Angular 10 SPA Client Appl
 > If there are errors run as Admin
 > sudo npm i (enter password)
 
-Step 6. Inorder to run the project you will need to run both projects at the same time
+# Inorder to run the project you will need to run both projects at the same time
+
 > cd Regalia-Ordering-System-WebApi/
 > dotnet watch run - watch run will look for any new changes made to the WebApi and will restart the server if changes are made
 > dotnet run - will run the WebApi, However, any new changes made to the WebApi will require a server restart
 > To restart the WebApi just Control-C and preform another dotnet run 
-# To Run Regalia-Ordering-System-SPA 
+To Run Regalia-Ordering-System-SPA 
 > cd Regalia-Ordering-System-SPA/
 > npm start or ng serve
 
