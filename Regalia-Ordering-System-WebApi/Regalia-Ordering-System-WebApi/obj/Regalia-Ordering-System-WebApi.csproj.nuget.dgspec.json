@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\users\\atrod\\Regalia-Ordering-System\\regalia-ordering-system-webapi\\regalia-ordering-system-webapi\\Regalia-Ordering-System-WebApi.csproj": {}
+    "C:\\Users\\esqdm_000\\Desktop\\Maristassignments\\Capping\\Regalia-Ordering-System\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi.csproj": {}
   },
   "projects": {
-    "C:\\users\\atrod\\Regalia-Ordering-System\\regalia-ordering-system-webapi\\regalia-ordering-system-webapi\\Regalia-Ordering-System-WebApi.csproj": {
+    "C:\\Users\\esqdm_000\\Desktop\\Maristassignments\\Capping\\Regalia-Ordering-System\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\users\\atrod\\Regalia-Ordering-System\\regalia-ordering-system-webapi\\regalia-ordering-system-webapi\\Regalia-Ordering-System-WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\esqdm_000\\Desktop\\Maristassignments\\Capping\\Regalia-Ordering-System\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi.csproj",
         "projectName": "Regalia-Ordering-System-WebApi",
-        "projectPath": "C:\\users\\atrod\\Regalia-Ordering-System\\regalia-ordering-system-webapi\\regalia-ordering-system-webapi\\Regalia-Ordering-System-WebApi.csproj",
-        "packagesPath": "C:\\Users\\atrod\\.nuget\\packages\\",
-        "outputPath": "C:\\users\\atrod\\Regalia-Ordering-System\\regalia-ordering-system-webapi\\regalia-ordering-system-webapi\\obj\\",
+        "projectPath": "C:\\Users\\esqdm_000\\Desktop\\Maristassignments\\Capping\\Regalia-Ordering-System\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi.csproj",
+        "packagesPath": "C:\\Users\\esqdm_000\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\esqdm_000\\Desktop\\Maristassignments\\Capping\\Regalia-Ordering-System\\Regalia-Ordering-System-WebApi\\Regalia-Ordering-System-WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\atrod\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\esqdm_000\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
