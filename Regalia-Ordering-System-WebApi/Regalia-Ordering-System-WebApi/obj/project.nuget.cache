@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "seIb1BXMWfZ1DwlQAOB398amo9xOHjHBd+Th8AzOX4MBqzkfeZYSO7PoI2cB6E0JGBBSxqyQl0uIDxST2R/Vww==",
+  "dgSpecHash": "Zc+DjwzoBTUIoqGAZx7KokV8XsPH8yJwZqtxpC6qr8SAxwdgbRFmIbJ1Kq9b0JBb6lXQusSLb6askgPQVZooNQ==",
   "success": true,
-  "projectFilePath": "C:\\users\\atrod\\Regalia-Ordering-System\\regalia-ordering-system-webapi\\regalia-ordering-system-webapi\\Regalia-Ordering-System-WebApi.csproj",
+  "projectFilePath": "/Users/stevenbuglione/Documents/Fall_2020/Capping/Regalia-Ordering-System/Regalia-Ordering-System-WebApi/Regalia-Ordering-System-WebApi/Regalia-Ordering-System-WebApi.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
