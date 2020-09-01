@@ -58,3 +58,35 @@ Department:
   Upward Bound
   Other
   
+  
+Degree:
+  Associate's Degree
+  Bachelor's Degree
+  Master's Degree
+  Doctoral Degree
+  
+Discipline:
+  Accountancy
+  Arts
+  Business Administration
+  Communications
+  Counseling & Guidance
+  Divinity & Theology
+  Education
+  Fine Arts
+  Health & Rehabilitation
+  Health Administration
+  Hygiene
+  Journalism
+  Juris Doctor
+  Library Science
+  Medicine
+  Music
+  Osteopathy
+  PhD
+  Physical Education
+  Public Administration
+  Public Health
+  Science
+
+  
