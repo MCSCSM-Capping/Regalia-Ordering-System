@@ -1,0 +1,60 @@
+Department:
+  Academic Affairs
+  Academic Enhancement
+  Academic Grants
+  Accommodations Accessibility
+  Advancement Office
+  Advancement Services
+  Advising Academic Services
+  Annual Fund Office
+  Athletics
+  Budget, Planning &amp; Analysis
+  Business Office
+  CFO
+  Campus Ministry
+  Center for Career Services
+  Center for Multicultural Affairs
+  College Activities
+  College Marketing &amp Communications
+  Computer Store
+  Counseling Center
+  Digital Publication Center
+  Dining Services
+  Enrollment Management
+  Executive Affairs
+  First Year Programs Leadership Dev
+  Grounds
+  Health Services
+  Housing Residential Life
+  Human Resources
+  Information Technology
+  Institutional Research Planning
+  International Student Services
+  Learning Center
+  Liberty Partnership
+  Library
+  MIPO
+  Marist International Programs
+  Mechanical Services
+  Media Center
+  NYC Executive Center
+  Payroll
+  Physical Plant
+  Physician Assistant Program
+  Postal Services
+  President's Office
+  Purchasing
+  Registrar's Office
+  School Social Behavioral Sciences
+  School of Communication the Arts
+  School of Computer Science Math
+  School of Liberal Arts
+  School of Management
+  School of Professional Programs
+  School of Science
+  Security
+  Student Affairs
+  Student Financial Services
+  Upward Bound
+  Other
+  
