@@ -56,7 +56,9 @@ The formate of the branch should be as follows
 
 #Current WebStack
 > Angular 10
+
 > Asp.Net.Core 3.1
+
 > Marist Cas Authentication
 
 Additonal Resources:
