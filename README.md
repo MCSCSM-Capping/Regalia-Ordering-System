@@ -22,7 +22,7 @@ Step 5. Restore the packages required for running the Angular 10 SPA Client Appl
 > `npm i `
 > `If there are errors run as Admin`
 
-> `sudo npm i (enter password)`
+> `sudo npm i `
 
 # Inorder to run the project you will need to run both projects at the same time
 
