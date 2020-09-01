@@ -5,71 +5,71 @@ Repository for CMPT475 - CS/ITS Project (Capping)
 # Development Installation Guide
 
 Step 1. Clone the Master repository to your local computer.
-> git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git
+> `git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git`
 
 Step 2. Change directories to Regalia-Ordering-System-WebApi
-> cd Regalia-Ordering-System-WebApi/
+> `cd Regalia-Ordering-System-WebApi/`
 
 Step 3. Restore the packages required for running the Asp.Net.Core WebApi
-> dotnet restore
+> `dotnet restore`
 
 Step 4. Change directories to Regalia-Ordering-System-SPA
-> cd ..
+> `cd ..`
 
-> cd Regalia-Ordering-System-SPA/
+> `cd Regalia-Ordering-System-SPA/`
 
 Step 5. Restore the packages required for running the Angular 10 SPA Client Application
-> npm i 
-> If there are errors run as Admin
+> `npm i `
+> `If there are errors run as Admin`
 
-> sudo npm i (enter password)
+> `sudo npm i (enter password)`
 
 # Inorder to run the project you will need to run both projects at the same time
 
 To Run Regalia-Ordering-System-WebApi
 
-> cd Regalia-Ordering-System-WebApi/
-> dotnet watch run - watch run will look for any new changes made to the WebApi and will restart the server if changes are made
+> `cd Regalia-Ordering-System-WebApi/`
+> `dotnet watch run` - watch run will look for any new changes made to the WebApi and will restart the server if changes are made
 
-> dotnet run - will run the WebApi, However, any new changes made to the WebApi will require a server restart
+> `dotnet run` - will run the WebApi, However, any new changes made to the WebApi will require a server restart
 
 > To restart the WebApi just Control-C and preform another dotnet run 
 
 To Run Regalia-Ordering-System-SPA 
 
-> cd Regalia-Ordering-System-SPA/
+> `cd Regalia-Ordering-System-SPA/`
 
-> npm start or ng serve
+> `npm start or ng serve`
 
 The project should now be up and running
 
 
 # Create a new branch
 The format of the branch should be as follows
->  $ git branch YOUR_MARIST_USERNAME
+>  `$ git branch YOUR_MARIST_USERNAME`
 
->  $ git checkout YOUR_MARIST_USERNAME
+>  `$ git checkout YOUR_MARIST_USERNAME`
 
->  $ git add . 
+>  `$ git add . `
 
->  $ git commit -m"YOUR_MESSAGE"
+>  `$ git commit -m"YOUR_MESSAGE"`
 
->  $ git push origin YOUR_MARIST_USERNAME
+>  `$ git push origin YOUR_MARIST_USERNAME`
 
 Then go to github select your branch and click compare and pull request
 
-> Code Review will occure on Friday
+> `Code Review will occure on Friday`
 
 # Do not Update the Master Branch Until We have a code review
 
-> Update your your own branch and issue a pull request for review
+> `Update your your own branch and issue a pull request for review`
 
 # Current WebStack
-> Angular 10
+> `Angular 10`
 
-> Asp.Net.Core 3.1
+> `Asp.Net.Core 3.1`
 
-> Marist Cas Authentication
+> `Marist Cas Authentication`
 
 
 # Any all homework assignment are to be issued to this repository in the according folder for referance 
