@@ -75,3 +75,11 @@ Additonal Resources:
 >'https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-3.1'
 
 >'https://app.lucidchart.com/documents/edit/9f3bc75f-50ca-4b0f-8ef6-2c42177f211e/0_0?beaconFlowId=40E049242CD471F5'
+
+>'https://auth0.com/docs/tokens/json-web-tokens'
+
+>'https://www.docker.com/'
+
+>'https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/'
+
+>'https://github.com/StevenBuglione/Dating-App'
