@@ -45,21 +45,34 @@ The project should now be up and running
 
 
 # Create a new branch
-The formate of the branch should be as follows
+The format of the branch should be as follows
 >  $ git branch YOUR_MARIST_USERNAME
 
 >  $ git checkout YOUR_MARIST_USERNAME
+
+>  $ git add . 
+
+>  $ git commit -m"YOUR_MESSAGE"
+
+>  $ git push origin YOUR_MARIST_USERNAME
+
+Then go to github select your branch and click compare and pull request
+
+> Code Review will occure on Friday
 
 # Do not Update the Master Branch Until We have a code review
 
 > Update your your own branch and issue a pull request for review
 
-#Current WebStack
+# Current WebStack
 > Angular 10
 
 > Asp.Net.Core 3.1
 
 > Marist Cas Authentication
+
+
+# Any all homework assignment are to be issued to this repository in the according folder for referance 
 
 Additonal Resources:
 >'https://angular.io/'
