@@ -1,0 +1,22 @@
+Faculty Regalia Ordering System
+
+
+  The Marist college registrar team is responsible for (among a lot of other things) taking the orders from
+  the faculty each year for their caps/gowns (aka the Regalia). Currently this is a paper based system.
+  Information is gathered via emails or paper printouts of a form that requests information such as which
+  school the faculty graduated from for their highest degree, what degree they hold, what hat size, what
+  robe size, etc. It also allows faculty to order generic ‘black’ robes instead of the robes from their school.
+
+
+  Your job is to create a web-app (adaptive) that allows faculty to place these orders, view their order,
+  renew their order preferences each year. It should store all the information for each faculty member in a
+  database that also stores information about when the order is reviewed or changed. It should also
+  provide the registrar with a report of those faculty who have not placed an order, and a listing of those
+  who have failed to renew / review their orders each year.
+
+
+  It would be nice to build into the system a way to generate reminder emails.
+
+  The system must be extensible, easy to understand, SUPER easy to use, well documented, easy to
+  maintain and deployed on the Marist network before the end of the semester so that all faculty can
+  access it and use it.
