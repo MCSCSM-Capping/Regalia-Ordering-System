@@ -54,6 +54,11 @@ The formate of the branch should be as follows
 
 > Update your your own branch and issue a pull request for review
 
+#Current WebStack
+> Angular 10
+> Asp.Net.Core 3.1
+> Marist Cas Authentication
+
 Additonal Resources:
 >'https://angular.io/'
 
