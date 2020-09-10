@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Regalia Ordering System</title>
+</head>
+<body>
+<div align="center">
+    <h1>Faculty Order List</h1>
+    <a href="/new">Create New Order Form</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Cap Size</th>
+            <th>College</th>
+            <th>Degree</th>
+            <th>Discipline</th>
+            <th>Height Feet</th>
+            <th>Height Inches</th>
+            <th>Weight</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="faculty : ${listFaculty}">
+            <td th:text="${faculty.email}">Email</td>
+            <td th:text="${faculty.name}">Name</td>
+            <td th:text="${faculty.phonenumber}">Phone Number</td>
+            <td th:text="${faculty.capsize}">Cap Size</td>
+            <td th:text="${faculty.college}">College</td>
+            <td th:text="${faculty.degree}">Degree</td>
+            <td th:text="${faculty.discipline}">Discipline</td>
+            <td th:text="${faculty.heightfeet}">Height Feet</td>
+            <td th:text="${faculty.heightinches}">Height Inches</td>
+            <td th:text="${faculty.weight}">Weight</td>
+            <td>
+                <a th:href="'edit/' + ${faculty.id}">Edit</a>
+
+                <a th:href="'delete/' + ${faculty.id}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
