@@ -23,6 +23,7 @@ public class FacultyService {
         repo.save(faculty);
     }
 
+
     public Faculty get(long id){
         return repo.findById(id).get();
     }
