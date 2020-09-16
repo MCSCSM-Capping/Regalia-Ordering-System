@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/new_faculty_order_form.css" th:href="@{/css/new_faculty_order_form.css}">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+    <script type="text/javascript" th:src="@{/js/new_faculty_order_form.js}" src="../static/js/new_faculty_order_form.js"></script>
 
     <title>Regalia Ordering System</title>
 </head>
@@ -24,54 +25,8 @@
 
     <div class="row">
         <hr class="mb-4">
-        <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between bg-light">
-                    <div class="text-success">
-                        <h6 class="my-0">Promo code</h6>
-                        <small>EXAMPLECODE</small>
-                    </div>
-                    <span class="text-success">-$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-            </ul>
-
-            <form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                    </div>
-                </div>
-            </form>
+        <div class="col-md-2 order-md-2 mb-4">
+            
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">User Order Information</h4>
@@ -81,14 +36,14 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>First Name</label>
-                        <input type="text" th:field="*{FirstName}" class="form-control" placeholder="First Name" value="" required>
+                        <input type="text" th:field="*{FirstName}" class="form-control" placeholder="First Name" value="" id="firstName" required>
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Last Name</label>
-                        <input type="text" th:field="*{LastName}" class="form-control" placeholder="Last Name" value="" required>
+                        <input type="text" th:field="*{LastName}" class="form-control" placeholder="Last Name" id="lastName" value="" required>
                         <div class="invalid-feedback">
                             Valid Last name is required.
                         </div>
@@ -97,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Email</label>
-                        <input type="text" th:field="*{Email}" class="form-control" placeholder="name@domain.com">
+                        <input type="text" th:field="*{Email}" class="form-control" id="email" placeholder="name@domain.com">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -105,7 +60,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label>College</label>
-                        <select th:field="*{College}" class="custom-select d-block w-100" required>
+                        <select th:field="*{College}" class="custom-select d-block w-100" id="college" required>
                             <option value="">Choose...</option>
                             <option value="Accountancy">Accountancy</option>
                             <option value="Arts">Arts</option>
@@ -140,7 +95,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Phone Number</label>
-                        <input type="text" th:field="*{PhoneNumber}" class="form-control" placeholder="914-554-2354" required>
+                        <input type="text" th:field="*{PhoneNumber}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
                         <div class="invalid-feedback">
                             Please enter your Phone Number.
                         </div>
@@ -148,7 +103,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label>Department</label>
-                        <select th:field="*{Department}" class="custom-select d-block w-100" required>
+                        <select th:field="*{Department}" class="custom-select d-block w-100" id="department" required>
                             <option value="">Choose...</option>
                             <option value="Academic Affairs">Academic Affairs</option>
                             <option value="Academic Enhancement">Academic Enhancement</option>
@@ -218,7 +173,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Cap Size</label>
-                        <select th:field="*{CapSize}" class="custom-select d-block w-100"required>
+                        <select th:field="*{CapSize}" class="custom-select d-block w-100" id="capSize" required>
                             <option value="">Choose...</option>
                             <option value="5 7/8">5 ⅞   &ensp;&emsp;&emsp;&emsp; 18 ½ - 18 ⅝</option>
                             <option value="6">6         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 18 ¾ - 19</option>
@@ -245,7 +200,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Degree</label>
-                        <select th:field="*{Degree}" class="custom-select d-block w-100" required>
+                        <select th:field="*{Degree}" class="custom-select d-block w-100" id="degree" required>
                             <option value="">Choose...</option>
                             <option value="Associate Degree">Associate Degree</option>
                             <option value="Bachelors Degree">Bachelor's Degree</option>
@@ -260,7 +215,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Discipline</label>
-                        <select th:field="*{Discipline}" class="custom-select d-block w-100" required>
+                        <select th:field="*{Discipline}" class="custom-select d-block w-100" id="discipline" required>
                             <option value="">Choose...</option>
                             <option value="Accountancy">Accountancy</option>
                             <option value="Arts">Arts</option>
@@ -291,7 +246,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Weight</label>
-                        <input type="text" th:field="*{Weight}" class="form-control" placeholder="Weight" value="" required>
+                        <input type="text" th:field="*{Weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
                         <div class="invalid-feedback">
                             Valid Weight is required.
                         </div>
@@ -301,7 +256,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Height Feet</label>
-                        <select th:field="*{HeightFeet}" class="custom-select d-block w-100" required>
+                        <select th:field="*{HeightFeet}" class="custom-select d-block w-100" id="heightFeet" required>
                             <option value=-1>Choose...</option>
                             <option value=3>3</option>
                             <option value=4>4</option>
@@ -315,7 +270,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Height Inches</label>
-                        <select th:field="*{HeightInches}" class="custom-select d-block w-100" required>
+                        <select th:field="*{HeightInches}" class="custom-select d-block w-100" id="heightInches" required>
                             <option value=-1>Choose...</option>
                             <option value=0>0"</option>
                             <option value=1>1"</option>
@@ -338,7 +293,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution</label>
-                        <input type="text" th:field="*{GrantingInstitution}" class="form-control" placeholder="Granting Institution" value="" required>
+                        <input type="text" th:field="*{GrantingInstitution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" required>
                         <div class="invalid-feedback">
                             Valid Granting Institution is required.
                         </div>
@@ -346,7 +301,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label>Institution State</label>
-                        <select th:field="*{InstitutionState}" class="custom-select d-block w-100" required>
+                        <select th:field="*{InstitutionState}" class="custom-select d-block w-100" id="institutionState" required>
                             <option value="">Choose...</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -408,14 +363,14 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Institution City</label>
-                        <input type="text" th:field="*{InstitutionCity}" class="form-control" placeholder="Institution City" value="" required>
+                        <input type="text" th:field="*{InstitutionCity}" class="form-control" id="institutionCity" placeholder="Institution City" value="" required>
                         <div class="invalid-feedback">
                             Valid Institution City is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Which Ceremony are you attending?</label>
-                        <select th:field="*{CeremonyDate}" class="custom-select d-block w-100" required>
+                        <select th:field="*{CeremonyDate}" class="custom-select d-block w-100" id="ceremonyDate" required>
                             <option value="">Choose...</option>
                             <option value="Friday">Friday Evening (Adult & Masters)</option>
                             <option value="Saturday">Saturday (Traditional Bachelors)</option>
@@ -429,9 +384,141 @@
               
                 <hr class="mb-4">
 
-                
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-danger mr-4">
+                        Rest Form
+                    </button>
+                        <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" data-target="#previewOrderForm">
+                        Preview Order
+                    </button>
+                </div>
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                
+            
+                
+                <!-- Modal -->
+                <div class="modal fade" id="previewOrderForm" tabindex="-1" role="dialog" aria-labelledby="previewOrderFormLable" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="previewOrderFormLable">Regalia Ordering System</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                  <span class="text-muted">Review Your Order</span>
+                                </h4>
+                                <ul class="list-group mb-3">
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                      <h6 class="my-0">First Name</h6>
+                                    </div>
+                                    <span class="text-muted" id="FirstName"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                      <h6 class="my-0">Last Name</h6>
+                                    </div>
+                                    <span class="text-muted" id="LastName"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                      <h6 class="my-0">Email</h6>
+                                    </div>
+                                    <span class="text-muted" id="Email"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">College</h6>
+                                    </div>
+                                    <span class="text-muted" id="College"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Phone Number</h6>
+                                    </div>
+                                    <span class="text-muted" id="PhoneNumber"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Department</h6>
+                                    </div>
+                                    <span class="text-muted" id="Department"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Cap Size</h6>
+                                    </div>
+                                    <span class="text-muted" id="CapSize"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Degree</h6>
+                                    </div>
+                                    <span class="text-muted" id="Degree"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Discipline</h6>
+                                    </div>
+                                    <span class="text-muted" id="Discipline"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Weight</h6>
+                                    </div>
+                                    <span class="text-muted" id="Weight"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Height Feet</h6>
+                                    </div>
+                                    <span class="text-muted" id="HeightFeet"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Height Inches</h6>
+                                    </div>
+                                    <span class="text-muted" id="HeightInches"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Granting Institution</h6>
+                                    </div>
+                                    <span class="text-muted" id="GrantingInstitution"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Institution State</h6>
+                                    </div>
+                                    <span class="text-muted" id="InstitutionState"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Institution City</h6>
+                                    </div>
+                                    <span class="text-muted" id="InstitutionCity"></span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div >
+                                      <h6 class="my-0">Ceremony Date</h6>
+                                    </div>
+                                    <span class="text-muted" id="CeremonyDate"></span>
+                                  </li>
+                                </ul>
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Submit your order</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -440,12 +527,14 @@
         <p class="mb-1">&copy; Steven Buglione</p>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Documentation</a></li>
-            <li class="list-inline-item"><a href="#">GitHub</a></li>
+            <li class="list-inline-item"><a href="https://github.com/StevenBuglione">GitHub</a></li>
             <li class="list-inline-item"><a href="#">About</a></li>
         </ul>
     </footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </body>
 </html>
