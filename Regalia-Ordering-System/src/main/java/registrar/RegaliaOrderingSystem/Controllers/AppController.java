@@ -19,18 +19,18 @@ public class AppController {
     @Autowired
     private FacultyService _facultyService;
 
-    @RequestMapping("/main")
+    @RequestMapping("/")
     public String viewHomePage(Model model){
         List<Faculty> listFaculty = _facultyService.listAll();
         model.addAttribute("listFaculty", listFaculty);
-        return "index";
+        return "admin_dashboard";
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/new-order")
     public String showNewFormPage(Model model){
         Faculty faculty = new Faculty();
         model.addAttribute("Faculty", faculty );
-        return"index";
+        return"new_faculty_order_form";
     }
 
     @RequestMapping("/edit/{id}")
