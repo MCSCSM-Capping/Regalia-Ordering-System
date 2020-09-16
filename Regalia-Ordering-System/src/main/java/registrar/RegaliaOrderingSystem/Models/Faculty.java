@@ -7,18 +7,28 @@ import java.util.Date;
 @Entity
 public class Faculty {
 
-    private Long id;
-    private String email;
-    private String name;
-    private String phonenumber;
-    private String department;
-    private String capsize;
-    private String college;
-    private String degree;
-    private String discipline;
-    private int heightfeet;
-    private int heightinches;
-    private int weight;
+    private int ID;
+    private String FirstName;
+    private String LastName;
+    private String Email;
+    private String College;
+    private String PhoneNumber;
+    private String Department;
+    private String CapSize;
+    private String Degree;
+    private String Discipline;
+    private int Weight;
+    private int HeightFeet;
+    private int HeightInches;
+    private String GrantingInstitution;
+    private String InstitutionState;
+    private String InstitutionCity;
+    private String CeremonyDate;
+    private Boolean FacultyValue;
+    private Boolean AdminValue;
+    private Date AuthDate;
+
+
 
     public Faculty(){
 
@@ -27,101 +37,164 @@ public class Faculty {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
     }
 
     public String getEmail() {
-        return email;
+        return Email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public String getCapsize() {
-        return capsize;
-    }
-
-    public void setCapsize(String capsize) {
-        this.capsize = capsize;
+        Email = email;
     }
 
     public String getCollege() {
-        return college;
+        return College;
     }
 
     public void setCollege(String college) {
-        this.college = college;
+        College = college;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public String getDepartment() {
+        return Department;
+    }
+
+    public void setDepartment(String department) {
+        Department = department;
+    }
+
+    public String getCapSize() {
+        return CapSize;
+    }
+
+    public void setCapSize(String capSize) {
+        CapSize = capSize;
     }
 
     public String getDegree() {
-        return degree;
+        return Degree;
     }
 
     public void setDegree(String degree) {
-        this.degree = degree;
+        Degree = degree;
     }
 
     public String getDiscipline() {
-        return discipline;
+        return Discipline;
     }
 
     public void setDiscipline(String discipline) {
-        this.discipline = discipline;
-    }
-
-    public int getHeightfeet() {
-        return heightfeet;
-    }
-
-    public void setHeightfeet(int heightfeet) {
-        this.heightfeet = heightfeet;
-    }
-
-    public int getHeightinches() {
-        return heightinches;
-    }
-
-    public void setHeightinches(int heightinches) {
-        this.heightinches = heightinches;
+        Discipline = discipline;
     }
 
     public int getWeight() {
-        return weight;
+        return Weight;
     }
 
     public void setWeight(int weight) {
-        this.weight = weight;
+        Weight = weight;
     }
 
+    public int getHeightFeet() {
+        return HeightFeet;
+    }
+
+    public void setHeightFeet(int heightFeet) {
+        HeightFeet = heightFeet;
+    }
+
+    public int getHeightInches() {
+        return HeightInches;
+    }
+
+    public void setHeightInches(int heightInches) {
+        HeightInches = heightInches;
+    }
+
+    public String getGrantingInstitution() {
+        return GrantingInstitution;
+    }
+
+    public void setGrantingInstitution(String grantingInstitution) {
+        GrantingInstitution = grantingInstitution;
+    }
+
+    public String getInstitutionState() {
+        return InstitutionState;
+    }
+
+    public void setInstitutionState(String institutionState) {
+        InstitutionState = institutionState;
+    }
+
+    public String getInstitutionCity() {
+        return InstitutionCity;
+    }
+
+    public void setInstitutionCity(String institutionCity) {
+        InstitutionCity = institutionCity;
+    }
+
+    public String getCeremonyDate() {
+        return CeremonyDate;
+    }
+
+    public void setCeremonyDate(String ceremonyDate) {
+        CeremonyDate = ceremonyDate;
+    }
+
+    public Boolean getFacultyValue() {
+        return FacultyValue;
+    }
+
+    public void setFacultyValue(Boolean facultyValue) {
+        FacultyValue = facultyValue;
+    }
+
+    public Boolean getAdminValue() {
+        return AdminValue;
+    }
+
+    public void setAdminValue(Boolean adminValue) {
+        AdminValue = adminValue;
+    }
+
+    public Date getAuthDate() {
+        return AuthDate;
+    }
+
+    public void setAuthDate(Date authDate) {
+        AuthDate = authDate;
+    }
 }
 

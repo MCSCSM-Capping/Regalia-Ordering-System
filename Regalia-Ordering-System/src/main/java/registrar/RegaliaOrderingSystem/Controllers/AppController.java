@@ -19,18 +19,18 @@ public class AppController {
     @Autowired
     private FacultyService _facultyService;
 
-    @RequestMapping("/")
+    @RequestMapping("/main")
     public String viewHomePage(Model model){
         List<Faculty> listFaculty = _facultyService.listAll();
         model.addAttribute("listFaculty", listFaculty);
         return "index";
     }
 
-    @RequestMapping("/new")
+    @RequestMapping("/")
     public String showNewFormPage(Model model){
         Faculty faculty = new Faculty();
-        model.addAttribute("faculty", faculty );
-        return"new_faculty_order_form";
+        model.addAttribute("Faculty", faculty );
+        return"index";
     }
 
     @RequestMapping("/edit/{id}")
@@ -50,7 +50,9 @@ public class AppController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveFacultyOrder(@ModelAttribute("faculty") Faculty faculty){
+
         _facultyService.save(faculty);
         return "redirect:/";
     }
+
 }
