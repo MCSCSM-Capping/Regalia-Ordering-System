@@ -1,5 +1,7 @@
 package registrar.RegaliaOrderingSystem.Models;
 
+import com.sun.xml.bind.v2.TODO;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -24,8 +26,8 @@ public class Faculty {
     private String InstitutionState;
     private String InstitutionCity;
     private String CeremonyDate;
-    private Boolean FacultyValue;
-    private Boolean AdminValue;
+    private Boolean FacultyValue;//TODO replace in favor of a roles field
+    private Boolean AdminValue; //TODO replace in favor of a roles field
     private Date AuthDate;
 
 
