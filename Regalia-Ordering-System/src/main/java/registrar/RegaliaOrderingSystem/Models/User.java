@@ -37,7 +37,7 @@ public class User {
     private Integer phone_number;
 
     @ManyToOne
-    @JoinColumn(name = "CRM_ID", foreignKey = @ForeignKey(name = "CRM_ID_FK"))
+    @JoinColumn(name = "CEREMONY_ID", foreignKey = @ForeignKey(name = "CEREMONY_ID_FK"))
     private Ceremony ceremony_date;
 
     @ManyToOne
@@ -49,7 +49,7 @@ public class User {
     private Degree degree;
 
     @ManyToOne
-    @JoinColumn(name = "DPT_ID", foreignKey = @ForeignKey(name = "DPT_ID_FK"))
+    @JoinColumn(name = "DEPARTMENT_ID", foreignKey = @ForeignKey(name = "DEPARTMENT_ID_FK"))
     private Department department;
 
     @Column(name = "WEIGHT")
