@@ -2,6 +2,7 @@ package registrar.RegaliaOrderingSystem.Dao.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import registrar.RegaliaOrderingSystem.Dao.Repository.CapSizeRepository;
 import registrar.RegaliaOrderingSystem.Dao.Repository.UserDataRepository;
 import registrar.RegaliaOrderingSystem.Dao.Repository.UserRepository;
 import registrar.RegaliaOrderingSystem.Models.User;
@@ -14,22 +15,22 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserDataRepository repo;
+    private UserDataRepository _userDataRepository;
 
     public List<User> listAll(){
-        return repo.findAll();
+        return _userDataRepository.findAll();
     }
 
     public void save(User user){
-        repo.save(user);
+        _userDataRepository.save(user);
     }
 
     public User get(Long id){
-        return repo.findById(id).get();
+        return _userDataRepository.findById(id).get();
     }
 
     public void delete(Long id){
-        repo.deleteById(id);
+        _userDataRepository.deleteById(id);
     }
 
 }

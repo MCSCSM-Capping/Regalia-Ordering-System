@@ -59,7 +59,6 @@ public class AppController {
 
     @RequestMapping("/")
     public String viewHomePage() {
-
         return "index";
     }
 
