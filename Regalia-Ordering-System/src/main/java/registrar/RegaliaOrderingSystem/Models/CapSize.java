@@ -10,24 +10,27 @@ public class CapSize {
     @Column(name = "CAP_SIZE_ID")
     private long id;
 
-    @Column(name = "SIZE", nullable = true, unique = true)
-    private String size;
+    @Column(name = "INCHES", nullable = true, unique = true)
+    private String inches;
+
+    @Column(name = "FITTED", nullable = true, unique = true)
+    private String fitted;
 
 
-    public long getId() {
-        return id;
+
+    public String getInches() {
+        return inches;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setInches(String inches) {
+        this.inches = inches;
     }
 
-    public String getSize() {
-        return size;
+    public String getFitted() {
+        return fitted;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setFitted(String fitted) {
+        this.fitted = fitted;
     }
-
 }
