@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import registrar.RegaliaOrderingSystem.Dao.Repository.UserDataRepository;
 import registrar.RegaliaOrderingSystem.Dao.Service.UserService;
+import registrar.RegaliaOrderingSystem.Models.Department;
 import registrar.RegaliaOrderingSystem.Models.User;
 
 import java.util.List;
@@ -54,6 +55,12 @@ public class AppController {
     public String deleteUser(@PathVariable(name = "id") Long id){
         _userService.delete(id);
         return "redirect:/";
+    }
+
+    @RequestMapping("/")
+    public String viewHomePage() {
+
+        return "index";
     }
 
 }
