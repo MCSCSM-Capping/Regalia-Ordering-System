@@ -12,27 +12,6 @@ public class RegaliaOrderingSystemApplication {
 
 	public static void main(String[] args) {
 
-		Session session = null;
-		Transaction transaction = null;
-
-		try{
-			session = HibernateUtil.getSessionFactory().openSession();
-
-
-
-
-		} catch (Exception e){
-			if(transaction != null){
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		} finally {
-			if(session != null){
-				session.close();
-			}
-		}
-		HibernateUtil.shutdown();
-
 		SpringApplication.run(RegaliaOrderingSystemApplication.class, args);
 
 
