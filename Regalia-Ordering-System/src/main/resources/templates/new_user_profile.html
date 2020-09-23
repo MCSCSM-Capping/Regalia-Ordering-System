@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -31,19 +32,19 @@
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">User Order Information</h4>
             <hr class="mb-4">
-            <form action="#" th:action="@{/save}" th:object="${Faculty}"
+            <form action="#" th:action="@{/add}" th:object="${user}"
             method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>First Name</label>
-                        <input type="text" th:field="*{FirstName}" class="form-control" placeholder="First Name" value="" id="firstName" required>
+                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" required>
                         <div class="invalid-feedback">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Last Name</label>
-                        <input type="text" th:field="*{LastName}" class="form-control" placeholder="Last Name" id="lastName" value="" required>
+                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" value="" required>
                         <div class="invalid-feedback">
                             Valid Last name is required.
                         </div>
@@ -52,55 +53,24 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Email</label>
-                        <input type="text" th:field="*{Email}" class="form-control" id="email" placeholder="name@domain.com">
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label>College</label>
-                        <select th:field="*{College}" class="custom-select d-block w-100" id="college" required>
-                            <option value="">Choose...</option>
-                            <option value="Accountancy">Accountancy</option>
-                            <option value="Arts">Arts</option>
-                            <option value="Business Administration">Business Administration</option>
-                            <option value="Communications">Communications</option>
-                            <option value="Counseling and Guidance">Counseling & Guidance</option>
-                            <option value="Divinity and Theology">Divinity & Theology</option>
-                            <option value="Education">Education</option>
-                            <option value="Fine Arts">Fine Arts</option>
-                            <option value="Health and Rehabilitation">Health & Rehabilitation</option>
-                            <option value="Health Administration">Health Administration</option>
-                            <option value="Hygiene">Hygiene</option>
-                            <option value="Journalism">Journalism</option>
-                            <option value="Juris Doctor">Juris Doctor</option>
-                            <option value="Library Science">Library Science</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Music">Music</option>
-                            <option value="Osteopathy">Osteopathy</option>
-                            <option value="PhD">PhD</option>
-                            <option value="Physical Education">Physical Education</option>
-                            <option value="Public Administration">Public Administration</option>
-                            <option value="Public Health">Public Health</option>
-                            <option value="Science">Science</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid Discipline.
-                        </div>
-                    </div>
+                      <label>Phone Number</label>
+                      <input type="text" th:field="*{PhoneNumber}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
+                      <div class="invalid-feedback">
+                          Please enter your Phone Number.
+                      </div>
+                  </div>
                 </div>
+                <hr class="mb-4">
                 
 
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label>Phone Number</label>
-                        <input type="text" th:field="*{PhoneNumber}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
-                        <div class="invalid-feedback">
-                            Please enter your Phone Number.
-                        </div>
-                    </div>
-
                     <div class="col-md-6 mb-3">
                         <label>Department</label>
                         <select th:field="*{Department}" class="custom-select d-block w-100" id="department" required>
@@ -168,36 +138,36 @@
                             Please provide a valid Department.
                         </div>
                     </div>
+                    <div class="col-md-6 mb-3">
+                      <label>Cap Size</label>
+                      <select th:field="*{CapSize}" class="custom-select d-block w-100" id="capSize" required>
+                          <option value="">Choose...</option>
+                          <option value="5 7/8">5 ⅞   &ensp;&emsp;&emsp;&emsp; 18 ½ - 18 ⅝</option>
+                          <option value="6">6         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 18 ¾ - 19</option>
+                          <option value="6 1/8">6 ⅛   &ensp;&emsp;&emsp;&emsp; 19 ⅛ - 19 ⅜  </option>
+                          <option value="6 1/4">6 ¼   &ensp;&emsp;&emsp;&emsp; 19 ½ - 19 ¾</option>
+                          <option value="6 3/8">6 ⅜   &ensp;&emsp;&emsp;&emsp; 19 ⅞ - 20 ⅛</option>
+                          <option value="6 1/2">6 ½   &ensp;&emsp;&emsp;&emsp; 20 ¼ - 20 ½</option>
+                          <option value="6 5/8">6 ⅝   &ensp;&emsp;&emsp;&emsp; 20 ⅝ - 20 ⅞</option>
+                          <option value="6 3/4">6 ¾   &ensp;&emsp;&emsp;&emsp; 21   - 21 ⅜</option>
+                          <option value="6 7/8">6 ⅞   &ensp;&emsp;&emsp;&emsp; 21 ½ - 21 ¾</option>
+                          <option value="7">7         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 21 ⅞ - 22 ⅛</option>
+                          <option value="7 1/8">7 ⅛   &ensp;&emsp;&emsp;&emsp; 22 ¼ - 22 ½</option>
+                          <option value="7 1/4">7 ¼   &ensp;&emsp;&emsp;&emsp; 22 ⅝ - 22 ⅞</option>
+                          <option value="7 3/8">7 ⅜   &ensp;&emsp;&emsp;&emsp; 23 - 23 ¼</option>
+                          <option value="7 1/2">7 ½   &ensp;&emsp;&emsp;&emsp; 23 ⅜ - 23 ⅝</option>
+                          <option value="7 5/8">7 ⅝   &ensp;&emsp;&emsp;&emsp; 23 ¾ - 24 ⅛</option>
+                          <option value="7 3/4">7 ¾   &ensp;&emsp;&emsp;&emsp; 24 ¼ - 24 ½</option>
+                          <option value="7 7/8">7 ⅞   &ensp;&emsp;&emsp;&emsp; 24 ⅝ - 24 ⅞</option>
+                          <option value="8">    8      &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 25 - 25 ¼</option>
+                      </select>
+                      <div class="invalid-feedback">
+                          Please select a valid Cap Size.
+                      </div>
+                  </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label>Cap Size</label>
-                        <select th:field="*{CapSize}" class="custom-select d-block w-100" id="capSize" required>
-                            <option value="">Choose...</option>
-                            <option value="5 7/8">5 ⅞   &ensp;&emsp;&emsp;&emsp; 18 ½ - 18 ⅝</option>
-                            <option value="6">6         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 18 ¾ - 19</option>
-                            <option value="6 1/8">6 ⅛   &ensp;&emsp;&emsp;&emsp; 19 ⅛ - 19 ⅜  </option>
-                            <option value="6 1/4">6 ¼   &ensp;&emsp;&emsp;&emsp; 19 ½ - 19 ¾</option>
-                            <option value="6 3/8">6 ⅜   &ensp;&emsp;&emsp;&emsp; 19 ⅞ - 20 ⅛</option>
-                            <option value="6 1/2">6 ½   &ensp;&emsp;&emsp;&emsp; 20 ¼ - 20 ½</option>
-                            <option value="6 5/8">6 ⅝   &ensp;&emsp;&emsp;&emsp; 20 ⅝ - 20 ⅞</option>
-                            <option value="6 3/4">6 ¾   &ensp;&emsp;&emsp;&emsp; 21   - 21 ⅜</option>
-                            <option value="6 7/8">6 ⅞   &ensp;&emsp;&emsp;&emsp; 21 ½ - 21 ¾</option>
-                            <option value="7">7         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 21 ⅞ - 22 ⅛</option>
-                            <option value="7 1/8">7 ⅛   &ensp;&emsp;&emsp;&emsp; 22 ¼ - 22 ½</option>
-                            <option value="7 1/4">7 ¼   &ensp;&emsp;&emsp;&emsp; 22 ⅝ - 22 ⅞</option>
-                            <option value="7 3/8">7 ⅜   &ensp;&emsp;&emsp;&emsp; 23 - 23 ¼</option>
-                            <option value="7 1/2">7 ½   &ensp;&emsp;&emsp;&emsp; 23 ⅜ - 23 ⅝</option>
-                            <option value="7 5/8">7 ⅝   &ensp;&emsp;&emsp;&emsp; 23 ¾ - 24 ⅛</option>
-                            <option value="7 3/4">7 ¾   &ensp;&emsp;&emsp;&emsp; 24 ¼ - 24 ½</option>
-                            <option value="7 7/8">7 ⅞   &ensp;&emsp;&emsp;&emsp; 24 ⅝ - 24 ⅞</option>
-                            <option value="8">    8      &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 25 - 25 ¼</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid Cap Size.
-                        </div>
-                    </div>
                     <div class="col-md-6 mb-3">
                         <label>Degree</label>
                         <select th:field="*{Degree}" class="custom-select d-block w-100" id="degree" required>
@@ -211,48 +181,16 @@
                             Please provide a valid Degree.
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label>Discipline</label>
-                        <select th:field="*{Discipline}" class="custom-select d-block w-100" id="discipline" required>
-                            <option value="">Choose...</option>
-                            <option value="Accountancy">Accountancy</option>
-                            <option value="Arts">Arts</option>
-                            <option value="Business Administration">Business Administration</option>
-                            <option value="Communications">Communications</option>
-                            <option value="Counseling and Guidance">Counseling & Guidance</option>
-                            <option value="Divinity and Theology">Divinity & Theology</option>
-                            <option value="Education">Education</option>
-                            <option value="Fine Arts">Fine Arts</option>
-                            <option value="Health and Rehabilitation">Health & Rehabilitation</option>
-                            <option value="Health Administration">Health Administration</option>
-                            <option value="Hygiene">Hygiene</option>
-                            <option value="Journalism">Journalism</option>
-                            <option value="Juris Doctor">Juris Doctor</option>
-                            <option value="Library Science">Library Science</option>
-                            <option value="Medicine">Medicine</option>
-                            <option value="Music">Music</option>
-                            <option value="Osteopathy">Osteopathy</option>
-                            <option value="PhD">PhD</option>
-                            <option value="Physical Education">Physical Education</option>
-                            <option value="Public Administration">Public Administration</option>
-                            <option value="Public Health">Public Health</option>
-                            <option value="Science">Science</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid Discipline.
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label>Weight</label>
-                        <input type="text" th:field="*{Weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
-                        <div class="invalid-feedback">
-                            Valid Weight is required.
-                        </div>
-                    </div>
-                    
+                      <label>Weight</label>
+                      <input type="text" th:field="*{Weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
+                      <div class="invalid-feedback">
+                          Valid Weight is required.
+                      </div>
+                  </div>
+
                 </div>
+                
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Height Feet</label>

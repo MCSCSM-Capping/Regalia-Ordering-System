@@ -1,5 +1,6 @@
 package registrar.RegaliaOrderingSystem.Controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import registrar.RegaliaOrderingSystem.Dao.Service.FacultyService;
-import registrar.RegaliaOrderingSystem.Models.Faculty;
+import registrar.RegaliaOrderingSystem.Dao.Repository.UserDataRepository;
+import registrar.RegaliaOrderingSystem.Dao.Service.UserService;
+import registrar.RegaliaOrderingSystem.Models.User;
 
 import java.util.List;
 
@@ -17,41 +19,40 @@ import java.util.List;
 public class AppController {
 
     @Autowired
-    private FacultyService _facultyService;
+    private UserService _userService;
 
-    @RequestMapping("/")
+    @RequestMapping("/admin")
     public String viewHomePage(Model model){
-        List<Faculty> listFaculty = _facultyService.listAll();
-        model.addAttribute("listFaculty", listFaculty);
+        List<User> listUsers = _userService.listAll();
+        model.addAttribute("listUsers", listUsers);
         return "admin_dashboard";
     }
 
-    @RequestMapping("/new-order")
-    public String showNewFormPage(Model model){
-        Faculty faculty = new Faculty();
-        model.addAttribute("Faculty", faculty );
-        return"new_faculty_order_form";
+
+    @RequestMapping("/new")
+    public String addNewUserProfile(Model model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "new_user_profile";
     }
 
-    @RequestMapping("/edit/{id}")
-    public ModelAndView showEditFacultyForm(@PathVariable(name = "id") int id){
-        ModelAndView mav = new ModelAndView("edit_faculty_order_form");
-        Faculty faculty = _facultyService.get(id);
-        mav.addObject("faculty", faculty);
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addUser(@ModelAttribute("user") User user){
+        _userService.save(user);
+        return "redirect:/";
+    }
+
+    @RequestMapping("edit/{id}")
+    public ModelAndView showEditProfileForm(@PathVariable(name = "id") Long id){
+        ModelAndView mav = new ModelAndView("edit_profile");
+        User user = _userService.get(id);
+        mav.addObject("user", user);
         return mav;
     }
 
     @RequestMapping("/delete/{id}")
-    public String deleteFacultyOrder(@PathVariable("id") int id){
-        _facultyService.delete(id);
-        return "redirect:/";
-    }
-
-
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveFacultyOrder(@ModelAttribute("faculty") Faculty faculty){
-
-        _facultyService.save(faculty);
+    public String deleteUser(@PathVariable(name = "id") Long id){
+        _userService.delete(id);
         return "redirect:/";
     }
 
