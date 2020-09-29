@@ -61,7 +61,7 @@
 
                     <div class="col-md-6 mb-3">
                       <label>Phone Number</label>
-                      <input type="text" th:field="*{PhoneNumber}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
+                      <input type="text" th:field="*{phone_number}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
                       <div class="invalid-feedback">
                           Please enter your Phone Number.
                       </div>
@@ -73,66 +73,12 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Department</label>
-                        <select th:field="*{Department}" class="custom-select d-block w-100" id="department" required>
+                        <select class="custom-select d-block w-100" id="department" required>
                             <option value="">Choose...</option>
-                            <option value="Academic Affairs">Academic Affairs</option>
-                            <option value="Academic Enhancement">Academic Enhancement</option>
-                            <option value="Academic Grants">Academic Grants</option>
-                            <option value="Accommodations and Accessibility">Accommodations &amp; Accessibility</option>
-                            <option value="Advancement Office">Advancement Office</option>
-                            <option value="Advancement Services">Advancement Services</option>
-                            <option value="Advising and Academic Services">Advising &amp; Academic Services</option>
-                            <option value="Annual Fund Office">Annual Fund Office</option>
-                            <option value="Athletics">Athletics</option>
-                            <option value="Budget, Planning and Analysis">Budget, Planning &amp; Analysis</option>
-                            <option value="Business Office">Business Office</option>
-                            <option value="CFO">CFO</option>
-                            <option value="Campus Ministry">Campus Ministry</option>
-                            <option value="Center for Career Services">Center for Career Services</option>
-                            <option value="Center for Multicultural Affairs">Center for Multicultural Affairs</option>
-                            <option value="College Activities">College Activities</option>
-                            <option value="College Marketing and Communications">College Marketing &amp; Communications</option>
-                            <option value="Computer Store">Computer Store</option>
-                            <option value="Counseling Center">Counseling Center</option>
-                            <option value="Digital Publication Center">Digital Publication Center</option>
-                            <option value="Dining Services">Dining Services</option>
-                            <option value="Enrollment Management">Enrollment Management</option>
-                            <option value="Executive Affairs">Executive Affairs</option>
-                            <option value="First Year Programs Leadership Dev">First Year Programs Leadership Dev</option>
-                            <option value="Grounds">Grounds</option>
-                            <option value="Health Services">Health Services</option>
-                            <option value="Housing and Residential Life">Housing &amp; Residential Life</option>
-                            <option value="Human Resources">Human Resources</option>
-                            <option value="Information Technology">Information Technology</option>
-                            <option value="Institutional Research and Planning">Institutional Research &amp; Planning</option>
-                            <option value="International Student Services">International Student Services</option>
-                            <option value="Learning Center">Learning Center</option>
-                            <option value="Liberty Partnership">Liberty Partnership</option>
-                            <option value="Library">Library</option>
-                            <option value="MIPO">MIPO</option>
-                            <option value="Marist International Programs">Marist International Programs</option>
-                            <option value="Mechanical Services">Mechanical Services</option>
-                            <option value="Media Center">Media Center</option>
-                            <option value="NYC Executive Center">NYC Executive Center</option>
-                            <option value="Payroll">Payroll</option>
-                            <option value="Physical Plant">Physical Plant</option>
-                            <option value="Physician Assistant Program">Physician Assistant Program</option>
-                            <option value="Postal Services">Postal Services</option>
-                            <option value="President's Office">President's Office</option>
-                            <option value="Purchasing">Purchasing</option>
-                            <option value="Registrar's Office">Registrar's Office</option>
-                            <option value="School Social and Behavioral Sciences">School Social &amp; Behavioral Sciences</option>
-                            <option value="School of Communication and the Arts">School of Communication &amp; the Arts</option>
-                            <option value="School of Computer Science and Math">School of Computer Science &amp; Math</option>
-                            <option value="School of Liberal Arts">School of Liberal Arts</option>
-                            <option value="School of Management">School of Management</option>
-                            <option value="School of Professional Programs">School of Professional Programs</option>
-                            <option value="School of Science">School of Science</option>
-                            <option value="Security">Security</option>
-                            <option value="Student Affairs">Student Affairs</option>
-                            <option value="Student Financial Services">Student Financial Services</option>
-                            <option value="Upward Bound">Upward Bound</option>
-                            <option value="Other">Other</option>
+                            <div th:each="Department : ${departments}">
+                                <option th:text="${Department.name}">name</option>
+                            </div>
+
                         </select>
                         <div class="invalid-feedback">
                             Please provide a valid Department.
@@ -140,26 +86,11 @@
                     </div>
                     <div class="col-md-6 mb-3">
                       <label>Cap Size</label>
-                      <select th:field="*{CapSize}" class="custom-select d-block w-100" id="capSize" required>
+                      <select class="custom-select d-block w-100" id="capSize" required>
                           <option value="">Choose...</option>
-                          <option value="5 7/8">5 ⅞   &ensp;&emsp;&emsp;&emsp; 18 ½ - 18 ⅝</option>
-                          <option value="6">6         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 18 ¾ - 19</option>
-                          <option value="6 1/8">6 ⅛   &ensp;&emsp;&emsp;&emsp; 19 ⅛ - 19 ⅜  </option>
-                          <option value="6 1/4">6 ¼   &ensp;&emsp;&emsp;&emsp; 19 ½ - 19 ¾</option>
-                          <option value="6 3/8">6 ⅜   &ensp;&emsp;&emsp;&emsp; 19 ⅞ - 20 ⅛</option>
-                          <option value="6 1/2">6 ½   &ensp;&emsp;&emsp;&emsp; 20 ¼ - 20 ½</option>
-                          <option value="6 5/8">6 ⅝   &ensp;&emsp;&emsp;&emsp; 20 ⅝ - 20 ⅞</option>
-                          <option value="6 3/4">6 ¾   &ensp;&emsp;&emsp;&emsp; 21   - 21 ⅜</option>
-                          <option value="6 7/8">6 ⅞   &ensp;&emsp;&emsp;&emsp; 21 ½ - 21 ¾</option>
-                          <option value="7">7         &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 21 ⅞ - 22 ⅛</option>
-                          <option value="7 1/8">7 ⅛   &ensp;&emsp;&emsp;&emsp; 22 ¼ - 22 ½</option>
-                          <option value="7 1/4">7 ¼   &ensp;&emsp;&emsp;&emsp; 22 ⅝ - 22 ⅞</option>
-                          <option value="7 3/8">7 ⅜   &ensp;&emsp;&emsp;&emsp; 23 - 23 ¼</option>
-                          <option value="7 1/2">7 ½   &ensp;&emsp;&emsp;&emsp; 23 ⅜ - 23 ⅝</option>
-                          <option value="7 5/8">7 ⅝   &ensp;&emsp;&emsp;&emsp; 23 ¾ - 24 ⅛</option>
-                          <option value="7 3/4">7 ¾   &ensp;&emsp;&emsp;&emsp; 24 ¼ - 24 ½</option>
-                          <option value="7 7/8">7 ⅞   &ensp;&emsp;&emsp;&emsp; 24 ⅝ - 24 ⅞</option>
-                          <option value="8">    8      &nbsp;&nbsp;&emsp;&emsp;&nbsp;&emsp;&emsp; 25 - 25 ¼</option>
+                          <div th:each="CapSize : ${capSizes}">
+                              <option th:text="${CapSize.fitted}">name</option>
+                          </div>
                       </select>
                       <div class="invalid-feedback">
                           Please select a valid Cap Size.
@@ -172,10 +103,9 @@
                         <label>Degree</label>
                         <select th:field="*{Degree}" class="custom-select d-block w-100" id="degree" required>
                             <option value="">Choose...</option>
-                            <option value="Associate Degree">Associate Degree</option>
-                            <option value="Bachelors Degree">Bachelor's Degree</option>
-                            <option value="Masters Degree">Master's Degree</option>
-                            <option value="Doctoral Degree">Doctoral Degree</option>
+                            <div th:each="Degree : ${degrees}">
+                                <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
+                            </div>
                         </select>
                         <div class="invalid-feedback">
                             Please provide a valid Degree.
@@ -194,7 +124,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Height Feet</label>
-                        <select th:field="*{HeightFeet}" class="custom-select d-block w-100" id="heightFeet" required>
+                        <select th:field="*{height_feet}" class="custom-select d-block w-100" id="heightFeet" required>
                             <option value=-1>Choose...</option>
                             <option value=3>3</option>
                             <option value=4>4</option>
@@ -208,7 +138,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Height Inches</label>
-                        <select th:field="*{HeightInches}" class="custom-select d-block w-100" id="heightInches" required>
+                        <select th:field="*{height_inches}" class="custom-select d-block w-100" id="heightInches" required>
                             <option value=-1>Choose...</option>
                             <option value=0>0"</option>
                             <option value=1>1"</option>
@@ -231,249 +161,192 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution</label>
-                        <input type="text" th:field="*{GrantingInstitution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" required>
+                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" required>
                         <div class="invalid-feedback">
                             Valid Granting Institution is required.
                         </div>
                     </div>
-
                     <div class="col-md-6 mb-3">
                         <label>Institution State</label>
-                        <select th:field="*{InstitutionState}" class="custom-select d-block w-100" id="institutionState" required>
+                        <select class="custom-select d-block w-100" id="institutionState" required>
                             <option value="">Choose...</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
+                            <div th:each="State : ${states}">
+                                <option th:text="${State.name}" th:value="${State.name}">name</option>
+                            </div>
                         </select>
-                        <div class="invalid-feedback">
-                            Please select a valid Discipline.
-                        </div>
                     </div>
-                </div>
+                </div>        
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Institution City</label>
-                        <input type="text" th:field="*{InstitutionCity}" class="form-control" id="institutionCity" placeholder="Institution City" value="" required>
+                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" required>
                         <div class="invalid-feedback">
                             Valid Institution City is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Which Ceremony are you attending?</label>
-                        <select th:field="*{CeremonyDate}" class="custom-select d-block w-100" id="ceremonyDate" required>
+                        <select class="custom-select d-block w-100" id="ceremonyDate" required>
                             <option value="">Choose...</option>
-                            <option value="Friday">Friday Evening (Adult & Masters)</option>
-                            <option value="Saturday">Saturday (Traditional Bachelors)</option>
+                            <div th:each="Ceremony : ${ceremonies}">
+                                <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
+                            </div>
                         </select>
                         <div class="invalid-feedback">
                             Please select a valid Day.
                         </div>
                     </div>
-                    
                 </div>
-              
                 <hr class="mb-4">
-
-                <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-danger mr-4">
-                        Rest Form
-                    </button>
+                <div class="row">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-danger mr-4">
+                            Rest Form
+                        </button>
                         <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" data-target="#previewOrderForm">
-                        Preview Order
-                    </button>
+                        <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" data-target="#previewOrderForm">
+                            Preview Order
+                        </button>
+                    </div>
                 </div>
 
-                
-            
-                
                 <!-- Modal -->
                 <div class="modal fade" id="previewOrderForm" tabindex="-1" role="dialog" aria-labelledby="previewOrderFormLable" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="previewOrderFormLable">Regalia Ordering System</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="previewOrderFormLable">Regalia Ordering System</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-muted">Review Your Order</span>
+                                    </h4>
+                                    <ul class="list-group mb-3">
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">First Name</h6>
+                                            </div>
+                                            <span class="text-muted" id="FirstName"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">Last Name</h6>
+                                            </div>
+                                            <span class="text-muted" id="LastName"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div>
+                                                <h6 class="my-0">Email</h6>
+                                            </div>
+                                            <span class="text-muted" id="Email"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">College</h6>
+                                            </div>
+                                            <span class="text-muted" id="College"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Phone Number</h6>
+                                            </div>
+                                            <span class="text-muted" id="PhoneNumber"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Department</h6>
+                                            </div>
+                                            <span class="text-muted" id="Department"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Cap Size</h6>
+                                            </div>
+                                            <span class="text-muted" id="CapSize"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Degree</h6>
+                                            </div>
+                                            <span class="text-muted" id="Degree"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Discipline</h6>
+                                            </div>
+                                            <span class="text-muted" id="Discipline"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Weight</h6>
+                                            </div>
+                                            <span class="text-muted" id="Weight"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Height Feet</h6>
+                                            </div>
+                                            <span class="text-muted" id="HeightFeet"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Height Inches</h6>
+                                            </div>
+                                            <span class="text-muted" id="HeightInches"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Granting Institution</h6>
+                                            </div>
+                                            <span class="text-muted" id="GrantingInstitution"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Institution State</h6>
+                                            </div>
+                                            <span class="text-muted" id="InstitutionState"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Institution City</h6>
+                                            </div>
+                                            <span class="text-muted" id="InstitutionCity"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Ceremony Date</h6>
+                                            </div>
+                                            <span class="text-muted" id="CeremonyDate"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success">Submit your order</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                                  <span class="text-muted">Review Your Order</span>
-                                </h4>
-                                <ul class="list-group mb-3">
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                      <h6 class="my-0">First Name</h6>
-                                    </div>
-                                    <span class="text-muted" id="FirstName"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                      <h6 class="my-0">Last Name</h6>
-                                    </div>
-                                    <span class="text-muted" id="LastName"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div>
-                                      <h6 class="my-0">Email</h6>
-                                    </div>
-                                    <span class="text-muted" id="Email"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">College</h6>
-                                    </div>
-                                    <span class="text-muted" id="College"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Phone Number</h6>
-                                    </div>
-                                    <span class="text-muted" id="PhoneNumber"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Department</h6>
-                                    </div>
-                                    <span class="text-muted" id="Department"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Cap Size</h6>
-                                    </div>
-                                    <span class="text-muted" id="CapSize"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Degree</h6>
-                                    </div>
-                                    <span class="text-muted" id="Degree"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Discipline</h6>
-                                    </div>
-                                    <span class="text-muted" id="Discipline"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Weight</h6>
-                                    </div>
-                                    <span class="text-muted" id="Weight"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Height Feet</h6>
-                                    </div>
-                                    <span class="text-muted" id="HeightFeet"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Height Inches</h6>
-                                    </div>
-                                    <span class="text-muted" id="HeightInches"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Granting Institution</h6>
-                                    </div>
-                                    <span class="text-muted" id="GrantingInstitution"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Institution State</h6>
-                                    </div>
-                                    <span class="text-muted" id="InstitutionState"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Institution City</h6>
-                                    </div>
-                                    <span class="text-muted" id="InstitutionCity"></span>
-                                  </li>
-                                  <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div >
-                                      <h6 class="my-0">Ceremony Date</h6>
-                                    </div>
-                                    <span class="text-muted" id="CeremonyDate"></span>
-                                  </li>
-                                </ul>
-                              </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Submit your order</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </form>
+        
+    
+
+                <footer class="my-5 pt-5 text-muted text-center text-small">
+                    <p class="mb-1">&copy; Steven Buglione</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Documentation</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/StevenBuglione">GitHub</a></li>
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                    </ul>
+                </footer>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         </div>
-    </div>
-
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; Steven Buglione</p>
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Documentation</a></li>
-            <li class="list-inline-item"><a href="https://github.com/StevenBuglione">GitHub</a></li>
-            <li class="list-inline-item"><a href="#">About</a></li>
-        </ul>
-    </footer>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-</body>
-</html>
+    </body>
 </html>

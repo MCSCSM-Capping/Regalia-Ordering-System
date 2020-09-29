@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class CapSize {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CAP_SIZE_ID")
+    @Column(name = "CAPSIZE_ID")
     private long id;
 
     @Column(name = "INCHES", nullable = true, unique = true)

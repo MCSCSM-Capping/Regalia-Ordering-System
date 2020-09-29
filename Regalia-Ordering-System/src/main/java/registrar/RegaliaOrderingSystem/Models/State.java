@@ -3,7 +3,7 @@ package registrar.RegaliaOrderingSystem.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "STATE")
+@Table(name = "STATES")
 public class State {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
