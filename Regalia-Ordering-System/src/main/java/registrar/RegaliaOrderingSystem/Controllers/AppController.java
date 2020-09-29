@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import registrar.RegaliaOrderingSystem.Dao.Repository.UserDataRepository;
-import registrar.RegaliaOrderingSystem.Dao.Service.UserService;
-import registrar.RegaliaOrderingSystem.Models.Department;
-import registrar.RegaliaOrderingSystem.Models.User;
+import registrar.RegaliaOrderingSystem.Dao.Service.*;
+import registrar.RegaliaOrderingSystem.Models.*;
 
 import java.util.List;
 
@@ -22,6 +21,26 @@ public class AppController {
     @Autowired
     private UserService _userService;
 
+    @Autowired
+    private CapSizeService _capSizeService;
+
+    @Autowired
+    private CeremonyService _ceremonyService;
+
+    @Autowired
+    private DegreeService _degreeService;
+
+    @Autowired
+    private DepartmentService _departmentService;
+
+    @Autowired
+    private RoleService _roleService;
+
+    @Autowired
+    private StateService _stateService;
+
+
+
     @RequestMapping("/admin")
     public String viewHomePage(Model model){
         List<User> listUsers = _userService.listAll();
@@ -30,10 +49,26 @@ public class AppController {
     }
 
 
-    @RequestMapping("/new")
+    @RequestMapping("/")
     public String addNewUserProfile(Model model){
         User user = new User();
         model.addAttribute("user", user);
+
+        List<CapSize> capSizes = _capSizeService.listAll();
+        model.addAttribute("capSizes", capSizes);
+
+        List<Ceremony> ceremonies = _ceremonyService.listAll();
+        model.addAttribute("ceremonies", ceremonies);
+
+        List<Degree> degrees = _degreeService.listAll();
+        model.addAttribute("degrees", degrees);
+
+        List<Department> departments = _departmentService.listAll();
+        model.addAttribute("departments", departments);
+
+        List<State> states = _stateService.listAll();
+        model.addAttribute("states", states);
+
         return "new_user_profile";
     }
 
@@ -57,9 +92,6 @@ public class AppController {
         return "redirect:/";
     }
 
-    @RequestMapping("/")
-    public String viewHomePage() {
-        return "index";
-    }
+
 
 }

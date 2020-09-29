@@ -8,7 +8,7 @@ public class Ceremony {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CRM_ID")
+    @Column(name = "CEREMONY_ID")
     private long id;
 
     @Column(name = "NAME", nullable = false, unique = true)
