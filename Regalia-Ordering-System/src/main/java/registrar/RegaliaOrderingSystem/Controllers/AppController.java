@@ -33,8 +33,8 @@ public class AppController {
     @Autowired
     private DepartmentService _departmentService;
 
-    @Autowired
-    private RoleService _roleService;
+    //@Autowired
+    //private RoleService _roleService;
 
     @Autowired
     private StateService _stateService;
@@ -48,8 +48,13 @@ public class AppController {
         return "admin_dashboard";
     }
 
-
     @RequestMapping("/")
+    public String viewDevPage(){
+        return "dev_landing_page";
+    }
+
+
+    @RequestMapping("/update-profile")
     public String addNewUserProfile(Model model){
         User user = new User();
         model.addAttribute("user", user);
@@ -72,7 +77,7 @@ public class AppController {
         return "new_user_profile";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/updated", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user){
         _userService.save(user);
         //TODO Add logic for email sender
