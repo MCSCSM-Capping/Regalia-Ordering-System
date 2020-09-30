@@ -61,7 +61,7 @@
 
                     <div class="col-md-6 mb-3">
                       <label>Phone Number</label>
-                      <input type="text" th:field="*{phone_number}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
+                      <input type="number" th:field="*{phone_number}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
                       <div class="invalid-feedback">
                           Please enter your Phone Number.
                       </div>
@@ -73,10 +73,10 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Department</label>
-                        <select class="custom-select d-block w-100" id="department" required>
+                        <select th:field="*{Department}" class="custom-select d-block w-100" id="department" required>
                             <option value="">Choose...</option>
                             <div th:each="Department : ${departments}">
-                                <option th:text="${Department.name}">name</option>
+                                <option th:text="${Department.name}" th:value="${Department.id}">name</option>
                             </div>
 
                         </select>
@@ -86,10 +86,10 @@
                     </div>
                     <div class="col-md-6 mb-3">
                       <label>Cap Size</label>
-                      <select class="custom-select d-block w-100" id="capSize" required>
+                      <select th:field="*{cap_size}" class="custom-select d-block w-100" id="capSize" required>
                           <option value="">Choose...</option>
                           <div th:each="CapSize : ${capSizes}">
-                              <option th:text="${CapSize.fitted}">name</option>
+                              <option th:text="${CapSize.fitted}" th:value="${CapSize.id}">name</option>
                           </div>
                       </select>
                       <div class="invalid-feedback">
@@ -101,10 +101,10 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Degree</label>
-                        <select th:field="*{Degree}" class="custom-select d-block w-100" id="degree" required>
+                        <select th:field="*{degree}" class="custom-select d-block w-100" id="degree" required>
                             <option value="">Choose...</option>
                             <div th:each="Degree : ${degrees}">
-                                <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
+                                <option th:text="${Degree.name}" th:value="${Degree.id}">name</option>
                             </div>
                         </select>
                         <div class="invalid-feedback">
@@ -168,10 +168,10 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Institution State</label>
-                        <select class="custom-select d-block w-100" id="institutionState" required>
+                        <select th:field="*{granting_state}" class="custom-select d-block w-100" id="institutionState" required>
                             <option value="">Choose...</option>
                             <div th:each="State : ${states}">
-                                <option th:text="${State.name}" th:value="${State.name}">name</option>
+                                <option th:text="${State.name}" th:value="${State.id}">name</option>
                             </div>
                         </select>
                     </div>
@@ -186,10 +186,10 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Which Ceremony are you attending?</label>
-                        <select class="custom-select d-block w-100" id="ceremonyDate" required>
+                        <select th:field="*{ceremony_date}" class="custom-select d-block w-100" id="ceremonyDate" required>
                             <option value="">Choose...</option>
                             <div th:each="Ceremony : ${ceremonies}">
-                                <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
+                                <option th:text="${Ceremony.name}" th:value="${Ceremony.id}">name</option>
                             </div>
                         </select>
                         <div class="invalid-feedback">
@@ -246,12 +246,6 @@
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                                             <div >
-                                                <h6 class="my-0">College</h6>
-                                            </div>
-                                            <span class="text-muted" id="College"></span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                            <div >
                                                 <h6 class="my-0">Phone Number</h6>
                                             </div>
                                             <span class="text-muted" id="PhoneNumber"></span>
@@ -273,12 +267,6 @@
                                                 <h6 class="my-0">Degree</h6>
                                             </div>
                                             <span class="text-muted" id="Degree"></span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                            <div >
-                                                <h6 class="my-0">Discipline</h6>
-                                            </div>
-                                            <span class="text-muted" id="Discipline"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                                             <div >

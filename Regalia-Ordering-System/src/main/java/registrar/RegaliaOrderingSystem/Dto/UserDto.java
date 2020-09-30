@@ -17,7 +17,7 @@ public class UserDto {
     private String first_name;
     private String last_name;
     private boolean enabled;
-    private Integer phone_number;
+    private String phone_number;
     private String ceremony_date;
     private String cap_size_inches;
     private String cap_size_fitted;
@@ -106,11 +106,11 @@ public class UserDto {
         this.enabled = enabled;
     }
 
-    public Integer getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(Integer phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
