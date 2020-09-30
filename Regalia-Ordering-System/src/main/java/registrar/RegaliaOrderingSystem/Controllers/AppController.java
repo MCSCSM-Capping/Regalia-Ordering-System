@@ -98,6 +98,21 @@ public class AppController {
         return "redirect:/";
     }
 
+    @RequestMapping("/403")
+    public String viewError403(){
+        return "error/403";
+    }
+
+    @RequestMapping("/404")
+    public String viewError404(){
+        return "error/404";
+    }
+
+    @RequestMapping("/500")
+    public String viewError500(){
+        return "error/500";
+    }
+
 
 
 }
