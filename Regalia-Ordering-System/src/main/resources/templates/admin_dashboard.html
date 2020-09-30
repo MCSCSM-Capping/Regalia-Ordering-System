@@ -17,25 +17,25 @@
 <body>
 <div align="center">
     <h1>User Profile List</h1>
-    <a href="/new-order">Add new User</a>
     <br/><br/>
     <table class="table" border="1" cellpadding="10">
         <thead class="thead-dark" >
         <tr>
             <th>Id</th>
-            <th>Email</th>
-            <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Enabled</th>
+            <th>Email</th>
             <th>Phone Number</th>
-            <th>Ceremony Date</th>
+            <th>Department</th>
             <th>Cap Size</th>
             <th>Degree</th>
-            <th>Department</th>
+            <th>Weight</th>
+            <th>Height Feet</th>
+            <th>Height Inches</th>
             <th>Granting Institution</th>
-            <th>Granting City</th>
-
+            <th>Institution State</th>
+            <th>Institution City</th>
+            <th>Ceremony Date</th>
             <th>Action</th>
 
         </tr>
@@ -43,29 +43,20 @@
         <tbody>
         <tr th:each="User : ${listUsers}">
             <td th:text="${User.id}">Id</td>
-            <td th:text="${User.email}">Email</td>
-            <td th:text="${User.username}">Username</td>
             <td th:text="${User.first_name}">First Name</td>
             <td th:text="${User.last_name}">Last Name</td>
-            <td th:text="${User.enabled}">Phone Number</td>
-            <th th:text="${User.phone_number}">Ceremony Date</th>
-            <th th:text="${User.ceremony_date}">Ceremony Date</th>
-            <td th:text="${User.cap_size}">Cap Size</td>
-            <td th:text="${User.degree}">Degree</td>
+            <td th:text="${User.email}">Email</td>
+            <td th:text="${User.phone_number}">Phone Number/td>
             <td th:text="${User.department}">Department</td>
+            <th th:text="${User.cap_size}">Cap Size</th>
+            <th th:text="${User.degree}">Degree</th>
+            <td th:text="${User.weight}">Weight</td>
+            <td th:text="${User.height_feet}">Height Feet</td>
+            <td th:text="${User.height_inches">Height Inches</td>
             <td th:text="${User.granting_institution}">Granting Institution</td>
-            <td th:text="${User.granting_city}">Granting City</td>
-            <th th:text="${User.granting_state}">Granting State</th>
-            <th th:text="${User.last_updated}">Last Updated</th>
-
-
-
-
-
-            <td th:text="${User.ceremony_date}">Ceremony Date</td>
-
-
-
+            <td th:text="${User.granting_state}">Granting State</td>
+            <th th:text="${User.granting_city}">Granting City</th>
+            <th th:text="${User.ceremony_date}">Ceremony Date</th>
             <td>
                 <a th:href="'edit/' + ${User.id}">Edit</a>
 

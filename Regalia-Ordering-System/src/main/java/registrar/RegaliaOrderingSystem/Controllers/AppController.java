@@ -75,7 +75,8 @@ public class AppController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user){
         _userService.save(user);
-        return "redirect:/";
+        //TODO Add logic for email sender
+        return "user_updated_redirect";
     }
 
     @RequestMapping("edit/{id}")
