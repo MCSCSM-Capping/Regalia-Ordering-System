@@ -50,7 +50,7 @@ public class AppController {
 
     @RequestMapping("/")
     public String viewDevPage(){
-        return "dev_landing_page";
+        return "admin_page_active_users";
     }
 
 
@@ -96,6 +96,17 @@ public class AppController {
     public String deleteUser(@PathVariable(name = "id") Long id){
         _userService.delete(id);
         return "redirect:/";
+    }
+
+
+    @RequestMapping("/admin_page_active_users")
+    public String viewAdminActiveUsers(){
+        return "admin_page_active_users";
+    }
+
+    @RequestMapping("/admin_page_archived_users")
+    public String viewAdminArchivedUsers(){
+        return "admin_page_archived_users";
     }
 
     @RequestMapping("/403")
