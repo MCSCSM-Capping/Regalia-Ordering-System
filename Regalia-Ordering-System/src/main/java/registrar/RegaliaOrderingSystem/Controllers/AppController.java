@@ -18,6 +18,7 @@ import java.util.List;
 @Controller
 public class AppController {
 
+    //Dependency Injection for Services
     @Autowired
     private UserService _userService;
 
@@ -33,29 +34,20 @@ public class AppController {
     @Autowired
     private DepartmentService _departmentService;
 
-    //@Autowired
-    //private RoleService _roleService;
-
     @Autowired
     private StateService _stateService;
 
 
-
-    @RequestMapping("/admin")
-    public String viewHomePage(Model model){
-        List<User> listUsers = _userService.listAll();
-        model.addAttribute("listUsers", listUsers);
-        return "admin_dashboard";
-    }
-
+    //Development Route used to plan out how the application should work
     @RequestMapping("/")
     public String viewDevPage(){
-        return "admin_page_active_users";
+        return "user/dev_landing_page";
     }
 
 
+    //Route to generate new user profile
     @RequestMapping("/update-profile")
-    public String addNewUserProfile(Model model){
+    public String newUserProfile(Model model){
         User user = new User();
         model.addAttribute("user", user);
 
@@ -74,16 +66,18 @@ public class AppController {
         List<State> states = _stateService.listAll();
         model.addAttribute("states", states);
 
-        return "new_user_profile";
+        return "user/new_user_profile";
     }
-
+    
+    //Form post request to update the user records
     @RequestMapping(value = "/user/updated", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user){
         _userService.save(user);
         //TODO Add logic for email sender
-        return "user_updated_redirect";
+        return "user/user_updated_redirect";
     }
 
+    //Grabs user by their id and returns the user
     @RequestMapping("edit/{id}")
     public ModelAndView showEditProfileForm(@PathVariable(name = "id") Long id){
         ModelAndView mav = new ModelAndView("edit_profile");
@@ -92,23 +86,26 @@ public class AppController {
         return mav;
     }
 
+    //Grabs user by their id and returns the user
     @RequestMapping("/delete/{id}")
     public String deleteUser(@PathVariable(name = "id") Long id){
         _userService.delete(id);
         return "redirect:/";
     }
 
-
+    //Admin Dashboard routes
     @RequestMapping("/admin_page_active_users")
     public String viewAdminActiveUsers(){
-        return "admin_page_active_users";
+        return "admin/admin_page_active_users";
     }
 
     @RequestMapping("/admin_page_archived_users")
     public String viewAdminArchivedUsers(){
-        return "admin_page_archived_users";
+        return "admin/admin_page_archived_users";
     }
 
+
+    //Error handling routes
     @RequestMapping("/403")
     public String viewError403(){
         return "error/403";
@@ -123,7 +120,5 @@ public class AppController {
     public String viewError500(){
         return "error/500";
     }
-
-
 
 }
