@@ -41,7 +41,7 @@ public class AdminController {
     public String viewAdminActiveUsers(Model model){
 
         //TODO add logic for only grabbing active users
-        List<User> activeUsers = _userService.listAll();
+        List<User> activeUsers = _userService.listAll("enabled");
 
         //User Data
         model.addAttribute("activeUsers",activeUsers);
@@ -54,7 +54,7 @@ public class AdminController {
     public String viewAdminArchivedUsers(Model model){
 
         //TODO add logic for only grabbing active users
-        List<User> inactiveUsers = _userService.listAll();
+        List<User> inactiveUsers = _userService.listAll("disabled");
 
         //User Data
         model.addAttribute("inactiveUsers",inactiveUsers);
