@@ -37,4 +37,14 @@ public class UserService {
         _userDataRepository.deleteById(id);
     }
 
+    public List<User> listAll(String keyword){
+        if(keyword == "enabled"){
+            return _userDataRepository.findByEnabled(false);
+        }else if(keyword == "disabled"){
+            return _userDataRepository.findByEnabled(true);
+        }
+        return _userDataRepository.findAll();
+    }
+
+
 }
