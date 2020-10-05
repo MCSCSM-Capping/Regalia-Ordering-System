@@ -8,6 +8,7 @@ import registrar.RegaliaOrderingSystem.Dao.Repository.UserRepository;
 import registrar.RegaliaOrderingSystem.Models.User;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,6 +23,9 @@ public class UserService {
     }
 
     public void save(User user){
+        //Every Time the user is updated the time updates
+        user.setLast_updated(new Date());
+
         _userDataRepository.save(user);
     }
 

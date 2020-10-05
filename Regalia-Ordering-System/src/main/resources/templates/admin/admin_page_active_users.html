@@ -267,7 +267,8 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                  <th>Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>College</th>
@@ -277,7 +278,8 @@
                 </thead>
                 <tfoot>
                 <tr>
-                  <th>Name</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>College</th>
@@ -286,12 +288,13 @@
                 </tr>
                 </tfoot>
                 <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
+                <tr th:each="User : ${activeUsers}">
+                  <td th:text="${User.first_name}">First Name</td>
+                  <th th:text="${User.last_name}">Last Name</th>
+                  <td th:text="${User.email}">Email</td>
+                  <td th:text="${User.phone_number}">Phone Number</td>
+                  <td th:text="${User.granting_institution}">College</td>
+                  <td th:text="${User.last_updated}">Last Updated</td>
                   <td>
                     <div class="col">
                       <div class="row">
