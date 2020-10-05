@@ -1,5 +1,7 @@
 package registrar.RegaliaOrderingSystem.Models;
 
+
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -72,7 +74,7 @@ public class User {
     private State granting_state;
 
     @Column(name = "LAST_UPDATED")
-    private String last_updated;
+    private Date last_updated;
 
 
 
@@ -229,11 +231,11 @@ public class User {
         this.granting_state = granting_state;
     }
 
-    public String getLast_updated() {
+    public Date getLast_updated() {
         return last_updated;
     }
 
-    public void setLast_updated(String last_updated) {
+    public void setLast_updated(Date last_updated) {
         this.last_updated = last_updated;
     }
 
