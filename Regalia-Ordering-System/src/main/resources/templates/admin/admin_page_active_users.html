@@ -298,10 +298,10 @@
                   <td>
                     <div class="col">
                       <div class="row">
-                        <a href=""><i class="fas fa-edit"> Edit</i></a>
+                        <a class="text-primary btn" data-toggle="modal" data-target=".edit-modal"><i class="fas fa-edit">Edit</i></a>
                       </div>
                       <div class="row">
-                        <a href=""><i class="fas fa-trash"> Delete</i></a>
+                        <a class="text-primary btn" data-toggle="modal" data-target=".delete-modal"><i class="fas fa-trash">Delete</i></a>
                       </div>
                     </div>
                   </td>
@@ -355,6 +355,25 @@
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
         <a class="btn btn-primary" href="login.html">Logout</a>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit User Modal -->
+<div class="modal fade edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
+    </div>
+  </div>
+</div>
+
+<!-- Delete User Modal -->
+<div class="modal fade delete-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
     </div>
   </div>
 </div>
