@@ -34,7 +34,7 @@ public class UserController {
 
 
     //Development Route used to plan out how the application should work
-    @RequestMapping("/")
+    @RequestMapping("/test")
     public String viewDevPage(Model model){
         return "user/dev_landing_page";
     }
