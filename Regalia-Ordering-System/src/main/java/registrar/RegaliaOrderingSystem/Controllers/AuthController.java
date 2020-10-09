@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@EnableCasClient
 public class AuthController implements CasClientConfigurer {
 
     @Autowired
@@ -31,7 +30,7 @@ public class AuthController implements CasClientConfigurer {
         return casLogoutUrl;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/.capping.is.marist.edu")
     public String casTest(HttpServletRequest request, Model model){
         String logoutUrl = getCasLogoutUrl();
         model.addAttribute("logout", logoutUrl);
@@ -39,20 +38,7 @@ public class AuthController implements CasClientConfigurer {
        return "user/dev_landing_page";
     }
 
-    @RequestMapping("/protected")
-    public String protectedTest(HttpServletRequest request, Model model){
 
-        //Get user CWID from principal
-        String CWID = _authService.getUserCWID(request);
-        model.addAttribute("CWID", CWID);
-
-
-        String logoutUrl = getCasLogoutUrl();
-        model.addAttribute("logout", logoutUrl);
-        System.out.print(_authService.isAuth(request));
-
-        return "user/protected";
-    }
 
 
     @Override
