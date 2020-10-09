@@ -1,6 +1,8 @@
 package registrar.RegaliaOrderingSystem.Configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -59,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/403")
                  */
 
-                 http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers("/").permitAll();
         ;
     }
 }

@@ -2,21 +2,15 @@ package registrar.RegaliaOrderingSystem.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-import registrar.RegaliaOrderingSystem.Dao.Repository.UserDataRepository;
+import org.springframework.web.bind.annotation.*;
 import registrar.RegaliaOrderingSystem.Dao.Service.*;
 import registrar.RegaliaOrderingSystem.Models.*;
-
-import java.util.Date;
+import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
+
 public class UserController {
 
     //Dependency Injection for Services
@@ -41,7 +35,7 @@ public class UserController {
 
     //Development Route used to plan out how the application should work
     @RequestMapping("/")
-    public String viewDevPage(){
+    public String viewDevPage(Model model){
         return "user/dev_landing_page";
     }
 
@@ -70,6 +64,7 @@ public class UserController {
 
         return "user/new_user_profile";
     }
+
     
     //Form post request to update the user records
     @RequestMapping(value = "/user/updated", method = RequestMethod.POST)
