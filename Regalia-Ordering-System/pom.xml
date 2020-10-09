@@ -14,8 +14,12 @@
 	<name>Regalia-Ordering-System</name>
 	<description>Marist Registrar Regalia Ordering System</description>
 
+
+
 	<properties>
 		<java.version>11</java.version>
+		<spring-webmvc-pac4j.version>4.0.1</spring-webmvc-pac4j.version>
+		<pac4j.version>4.1.0</pac4j.version>
 	</properties>
 
 	<dependencies>
@@ -30,6 +34,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mustache</artifactId>
 		</dependency>
 
 		<dependency>
@@ -62,6 +70,7 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-support-springboot -->
 		<dependency>
 			<groupId>org.jasig.cas.client</groupId>
 			<artifactId>cas-client-support-springboot</artifactId>
