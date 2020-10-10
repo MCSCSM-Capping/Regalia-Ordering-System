@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@EnableCasClient
 public class RegaliaOrderingSystemApplication {
 
 	public static void main(String[] args) {
