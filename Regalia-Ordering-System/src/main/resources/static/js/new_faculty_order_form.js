@@ -12,7 +12,6 @@ function getModalData(){
     let capSize = document.getElementById("capSize").value;
     let degree = document.getElementById("degree").value;
     let weight = document.getElementById("weight").value;
-    let heightFeet = document.getElementById("heightFeet").value;
     let heightInches = document.getElementById("heightInches").value;
     let grantingInstitution = document.getElementById("grantingInstitution").value;
     let institutionState = document.getElementById("institutionState").value;
@@ -29,7 +28,6 @@ function getModalData(){
     let CapSize = document.getElementById("CapSize");
     let Degree = document.getElementById("Degree");
     let Weight = document.getElementById("Weight");
-    let HeightFeet = document.getElementById("HeightFeet");
     let HeightInches = document.getElementById("HeightInches");
     let GrantingInstitution = document.getElementById("GrantingInstitution");
     let InstitutionState = document.getElementById("InstitutionState");
@@ -46,12 +44,12 @@ function getModalData(){
     CapSize.textContent = capSize;
     Degree.textContent = degree;
     Weight.textContent = weight;
-    HeightFeet.textContent = heightFeet;
     HeightInches.textContent = heightInches;
     GrantingInstitution.textContent = grantingInstitution;
     InstitutionState.textContent = institutionState;
     InstitutionCity.textContent = institutionCity;
     CeremonyDate.textContent = ceremonyDate;
 
-
+   
 }
+

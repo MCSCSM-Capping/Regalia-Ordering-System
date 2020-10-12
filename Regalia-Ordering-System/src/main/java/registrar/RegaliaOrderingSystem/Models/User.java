@@ -57,9 +57,6 @@ public class User {
     @Column(name = "WEIGHT")
     private Integer weight;
 
-    @Column(name = "HEIGHT_FEET")
-    private Integer height_feet;
-
     @Column(name = "HEIGHT_INCHES")
     private Integer height_inches;
 
@@ -189,14 +186,6 @@ public class User {
 
     public void setWeight(Integer weight) {
         this.weight = weight;
-    }
-
-    public Integer getHeight_feet() {
-        return height_feet;
-    }
-
-    public void setHeight_feet(Integer height_feet) {
-        this.height_feet = height_feet;
     }
 
     public Integer getHeight_inches() {
