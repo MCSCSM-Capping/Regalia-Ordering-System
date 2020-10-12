@@ -21,7 +21,7 @@
     <div class="py-5 text-center">
         <img class="d-block mx-auto " src="@{../static/images/Marist_College_Logo}" alt="Marist" th:src="@{images/Marist_College_Logo.svg}">
         <h2 class="mt-3">Regalia Order Form</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum feugiat turpis, eget pharetra arcu viverra a. Morbi eget rutrum velit. Donec tempus rutrum eros vitae vulputate. Quisque ac urna accumsan, volutpat justo eget, laoreet augue. Fusce at leo sem. Etiam tincidunt neque id neque varius, et semper odio sodales. Duis ut ante vitae diam vestibulum blandit at vitae ligula. Fusce imperdiet, leo in ultrices congue, massa eros vestibulum dui, in dapibus lectus enim eu mi. Nullam convallis pellentesque nunc ac rhoncus. Fusce scelerisque nec elit nec sollicitudin. Cras tristique mauris turpis, non malesuada erat vestibulum ut. Mauris tincidunt efficitur libero. Fusce pellentesque lectus quis fermentum tincidunt.</p>
+        <p class="lead">Fill out the form below to create/update your reglia information. Press the "Preview Order" button to see your changes. Press the "Submit Order" button to confirm. To clear the form, press "Clear Form".</p>
     </div>
 
     <div class="row">
@@ -38,7 +38,7 @@
                     <div class="col-md-6 mb-3">
                         <label>First Name</label>
                         <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" required>
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" id="msg">
                             Valid first name is required.
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Email</label>
-                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com">
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com" required>
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -111,50 +111,55 @@
                             Please provide a valid Degree.
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <label>Weight</label>
-                      <input type="text" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
-                      <div class="invalid-feedback">
-                          Valid Weight is required.
-                      </div>
-                  </div>
+                    
 
                 </div>
                 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label>Height Feet</label>
-                        <select th:field="*{height_feet}" class="custom-select d-block w-100" id="heightFeet" required>
+                        <label>Height Inches</label>
+                        <select th:field="*{height_inches}" class="custom-select d-block w-100" id="heightInches" required>
                             <option value=-1>Choose...</option>
-                            <option value=3>3</option>
-                            <option value=4>4</option>
-                            <option value=5>5</option>
-                            <option value=6>6</option>
-                            <option value=7>7</option>
+                            <option value=48>48</option>
+                            <option value=49>49</option>
+                            <option value=50>50</option>
+                            <option value=51>51</option>
+                            <option value=52>52</option>
+                            <option value=53>53</option>
+                            <option value=54>54</option>
+                            <option value=55>55</option>
+                            <option value=56>56</option>
+                            <option value=57>57</option>
+                            <option value=58>58</option>
+                            <option value=59>59</option>
+                            <option value=60>60</option>
+                            <option value=61>61</option>
+                            <option value=62>62</option>
+                            <option value=63>63</option>
+                            <option value=64>64</option>
+                            <option value=65>65</option>
+                            <option value=66>66</option>
+                            <option value=67>67</option>
+                            <option value=68>68</option>
+                            <option value=69>69</option>
+                            <option value=70>70</option>
+                            <option value=71>71</option>
+                            <option value=72>72</option>
+                            <option value=73>73</option>
+                            <option value=74>74</option>
+                            <option value=75>75</option>
+                            <option value=76>76</option>
+                            <option value=77>77</option>
                         </select>
                         <div class="invalid-feedback">
                             Please provide a valid Height.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label>Height Inches</label>
-                        <select th:field="*{height_inches}" class="custom-select d-block w-100" id="heightInches" required>
-                            <option value=-1>Choose...</option>
-                            <option value=0>0"</option>
-                            <option value=1>1"</option>
-                            <option value=2>2"</option>
-                            <option value=3>3"</option>
-                            <option value=4>4"</option>
-                            <option value=5>5"</option>
-                            <option value=6>6"</option>
-                            <option value=7>7"</option>
-                            <option value=8>8"</option>
-                            <option value=9>9"</option>
-                            <option value=10>10"</option>
-                            <option value=11>11"</option>
-                        </select>
+                        <label>Weight</label>
+                        <input type="text" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
                         <div class="invalid-feedback">
-                            Please provide a valid Height.
+                            Valid Weight is required.
                         </div>
                     </div>
                 </div>
@@ -200,11 +205,11 @@
                 <hr class="mb-4">
                 <div class="row">
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-danger mr-4">
-                            Rest Form
+                        <button input type="reset" class="btn btn-danger mr-4">
+                            Clear Form
                         </button>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" data-target="#previewOrderForm">
+                        <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" data-target="#previewOrderForm" aria-required="true">
                             Preview Order
                         </button>
                     </div>
@@ -273,12 +278,6 @@
                                                 <h6 class="my-0">Weight</h6>
                                             </div>
                                             <span class="text-muted" id="Weight"></span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                            <div >
-                                                <h6 class="my-0">Height Feet</h6>
-                                            </div>
-                                            <span class="text-muted" id="HeightFeet"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                                             <div >
