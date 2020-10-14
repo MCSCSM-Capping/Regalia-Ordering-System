@@ -73,7 +73,35 @@ public class User {
     @Column(name = "LAST_UPDATED")
     private Date last_updated;
 
+    public User(String username){
+        this.username = username;
+    }
 
+    public User(){
+        super();
+    }
+
+    public User(Long id, String email, String username, String first_name, String last_name, String password, boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, Integer height_inches, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.password = password;
+        this.enabled = enabled;
+        this.phone_number = phone_number;
+        this.ceremony_date = ceremony_date;
+        this.cap_size = cap_size;
+        this.degree = degree;
+        this.department = department;
+        this.weight = weight;
+        this.height_inches = height_inches;
+        this.granting_institution = granting_institution;
+        this.granting_city = granting_city;
+        this.granting_state = granting_state;
+        this.last_updated = last_updated;
+        this.roles = roles;
+    }
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(

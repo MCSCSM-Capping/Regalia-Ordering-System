@@ -10,6 +10,7 @@ import registrar.RegaliaOrderingSystem.Models.User;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Transactional
@@ -17,6 +18,10 @@ public class UserService {
 
     @Autowired
     private UserDataRepository _userDataRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
 
     public List<User> listAll(){
         return _userDataRepository.findAll();
@@ -44,6 +49,16 @@ public class UserService {
             return _userDataRepository.findByEnabled(true);
         }
         return _userDataRepository.findAll();
+    }
+
+    public Boolean doesUserExist(String username){
+        User user = userRepository.getUserByUsername(username);
+
+        if( Objects.isNull(user)){
+            return false;
+        }
+        return true;
+
     }
 
 
