@@ -1,3 +1,15 @@
+/**
+ * The User Controller Manages How users are generated in the system
+ * @Value annotation is used to set the logout url for the Marist cas System
+ *
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
+
+
+
+
 package registrar.RegaliaOrderingSystem.Controllers;
 
 import org.springframework.stereotype.Controller;

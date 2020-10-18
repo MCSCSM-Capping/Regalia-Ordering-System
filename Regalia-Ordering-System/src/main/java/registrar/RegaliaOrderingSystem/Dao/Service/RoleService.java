@@ -1,3 +1,10 @@
+/**
+ * Implements JpaRepository to provide a way to manage Entity
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
+
 package registrar.RegaliaOrderingSystem.Dao.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,3 +1,17 @@
+/**
+ * This Class Manages Rest Calls to the Admin Dashboard.
+ * All Required dependencies are declared at the top of the page
+ *
+ * The Annotation @Autowired allows for dependency injection of the specified service.
+ *
+ *
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
+
+
+
 package registrar.RegaliaOrderingSystem.Controllers;
 
 
@@ -8,7 +22,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import registrar.RegaliaOrderingSystem.Dao.Repository.UserRepository;
 import registrar.RegaliaOrderingSystem.Dao.Service.*;
 import registrar.RegaliaOrderingSystem.Models.User;
 
@@ -18,7 +31,6 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-    //Dependency Injection for Services
     @Autowired
     private UserService _userService;
 
@@ -40,9 +52,6 @@ public class AdminController {
     @Autowired
     private AuthService _authService;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Value("${casLogoutUrl}")
     private String casLogoutUrl;
 
@@ -56,7 +65,7 @@ public class AdminController {
         String CWID = _authService.getUserCWID(request);
 
         //Get the user Logged in
-        User admin = userRepository.getUserByUsername(CWID);
+        User admin = _userService.getUserByUsername(CWID);
 
         //Provide admin Details to model
         model.addAttribute("admin", admin);
@@ -80,9 +89,8 @@ public class AdminController {
         //Get user CWID from principal
         String CWID = _authService.getUserCWID(request);
 
-
         //Get the User Logged in
-        User admin = userRepository.getUserByUsername(CWID);
+        User admin = _userService.getUserByUsername(CWID);
 
         //Provide admin Details to model
         model.addAttribute("admin", admin);
