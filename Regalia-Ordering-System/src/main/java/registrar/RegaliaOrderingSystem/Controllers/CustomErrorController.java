@@ -1,3 +1,6 @@
+
+
+
 package registrar.RegaliaOrderingSystem.Controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;

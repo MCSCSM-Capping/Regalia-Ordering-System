@@ -1,3 +1,21 @@
+/**
+ * AuthController is the entry point of our application
+ * First the Client authenticates them selves withe Marist Cas System
+ * Once Authenticated Marist Cas System provides a Ticket that contains the Users CWID
+ * AuthController then looks up the user in the system
+ * If a user is not found a new user is created and stored in the database with the role of user
+ * The user is then routed to the User form page to update there profile
+ * If the user is found then AuthController then looks up there Roles
+ * If the user is a Admin they are routed to the Admin Dashboard
+ * If the user is a User only they are routed to the Update User Profile page
+ * @Value annotation is used to set the logout url for the Marist cas System
+ *
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
+
+
 package registrar.RegaliaOrderingSystem.Controllers;
 
 import org.jasig.cas.client.boot.configuration.CasClientConfigurer;
@@ -9,8 +27,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
-import registrar.RegaliaOrderingSystem.Dao.Repository.UserRepository;
 import registrar.RegaliaOrderingSystem.Dao.Service.AuthService;
 import registrar.RegaliaOrderingSystem.Dao.Service.UserService;
 import registrar.RegaliaOrderingSystem.Models.Role;
@@ -31,8 +47,6 @@ public class AuthController implements CasClientConfigurer {
     @Autowired
     private UserService _userService;
 
-    @Autowired
-    private UserRepository userRepository;
 
 
     @Value("${casLogoutUrl}")
@@ -58,7 +72,7 @@ public class AuthController implements CasClientConfigurer {
         }
 
         //If the User does exist update there record in local user object
-        user = userRepository.getUserByUsername(CWID);
+        user = _userService.getUserByUsername(CWID);
 
         //Get the users roles
         Set<Role> roles = user.getRoles();

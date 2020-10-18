@@ -1,3 +1,11 @@
+/**
+ * AuthService provides an easy way to get the logged in users CWID
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
+
+
 package registrar.RegaliaOrderingSystem.Dao.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +19,6 @@ import java.util.Objects;
 @Transactional
 public class AuthService {
 
-
-    public Boolean isAuth(HttpServletRequest request){
-        return Objects.nonNull(request.getUserPrincipal());
-    }
 
     public String getUserCWID(HttpServletRequest request){
         String user = request.getUserPrincipal().getName();
