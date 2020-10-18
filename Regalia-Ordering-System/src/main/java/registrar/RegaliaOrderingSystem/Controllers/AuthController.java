@@ -28,6 +28,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import registrar.RegaliaOrderingSystem.Dao.Service.AuthService;
+import registrar.RegaliaOrderingSystem.Dao.Service.RoleService;
 import registrar.RegaliaOrderingSystem.Dao.Service.UserService;
 import registrar.RegaliaOrderingSystem.Models.Role;
 import registrar.RegaliaOrderingSystem.Models.User;
@@ -47,6 +48,9 @@ public class AuthController implements CasClientConfigurer {
     @Autowired
     private UserService _userService;
 
+    @Autowired
+    private RoleService _roleService;
+
 
 
     @Value("${casLogoutUrl}")
@@ -62,12 +66,22 @@ public class AuthController implements CasClientConfigurer {
         String CWID = _authService.getUserCWID(request);
         model.addAttribute("CWID", CWID);
 
-        //Checks if user Exists in database
-        Boolean hasUser = _userService.doesUserExist(CWID);
-        User user = new User(CWID);
+        //Create Instance of User Object
+        User user = new User();
 
         //If the User does not exist Generate them in the database
-        if (hasUser != true) {
+        if (_userService.doesUserExist(CWID) != true) {
+
+            //Get "USER" role from database
+            Role UserRole = _roleService.getRoleByName("USER");
+
+            //Update Instance of user Object with New Role
+            user.setRoles(_userService.setUserRoles(UserRole));
+
+            //Update Instance of user Object with CWID
+            user.setUsername(CWID);
+
+            //Save the User In the database
             _userService.save(user);
         }
 

@@ -10,12 +10,11 @@ package registrar.RegaliaOrderingSystem.Dao.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import registrar.RegaliaOrderingSystem.Dao.Repository.UserRepository;
+import registrar.RegaliaOrderingSystem.Models.Role;
 import registrar.RegaliaOrderingSystem.Models.User;
 
 import javax.transaction.Transactional;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 @Transactional
@@ -66,6 +65,20 @@ public class UserService {
     public User getUserByUsername(String username){
         return userRepository.getUserByUsername(username);
     }
+
+    public Set<Role> setUserRoles(Role role){
+
+        //Create a new Set to contain the user roles
+        Set<Role> userRoles = new HashSet<Role>();
+
+        //Add the role to user roles
+        userRoles.add(role);
+
+        //Return the updated User Object
+        return userRoles ;
+    }
+
+
 
 
 }
