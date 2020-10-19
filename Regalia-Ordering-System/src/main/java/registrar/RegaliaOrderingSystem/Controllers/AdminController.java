@@ -42,29 +42,28 @@ import java.text.DateFormat;
 @Controller
 public class AdminController {
 
-    @Autowired
     private UserService _userService;
-
-    @Autowired
     private CapSizeService _capSizeService;
-
-    @Autowired
     private CeremonyService _ceremonyService;
-
-    @Autowired
     private DegreeService _degreeService;
-
-    @Autowired
     private DepartmentService _departmentService;
-
-    @Autowired
     private StateService _stateService;
-
-    @Autowired
     private AuthService _authService;
 
     @Value("${casLogoutUrl}")
     private String casLogoutUrl;
+
+    @Autowired
+    private AdminController(UserService userService, CapSizeService capSizeService, CeremonyService ceremonyService,
+                            DegreeService degreeService, DepartmentService departmentService, StateService stateService, AuthService authService){
+        this._userService = userService;
+        this._capSizeService = capSizeService;
+        this._ceremonyService = ceremonyService;
+        this._degreeService = degreeService;
+        this._departmentService = departmentService;
+        this._stateService = stateService;
+        this._authService = authService;
+    }
 
 
 
