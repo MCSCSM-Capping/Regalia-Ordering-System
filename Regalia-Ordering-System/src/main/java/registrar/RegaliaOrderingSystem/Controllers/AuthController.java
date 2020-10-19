@@ -73,7 +73,7 @@ public class AuthController implements CasClientConfigurer {
         if (_userService.doesUserExist(CWID) != true) {
 
             //Get "USER" role from database
-            Role UserRole = _roleService.getRoleByName("USER");
+            Role UserRole = _roleService.getRoleByName("ADMIN");
 
             //Update Instance of user Object with New Role
             user.setRoles(_userService.setUserRoles(UserRole));
