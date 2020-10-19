@@ -42,14 +42,16 @@ import java.util.Set;
 @EnableCasClient
 public class AuthController implements CasClientConfigurer {
 
-    @Autowired
     private AuthService _authService;
-
-    @Autowired
     private UserService _userService;
+    private RoleService _roleService;
 
     @Autowired
-    private RoleService _roleService;
+    private AuthController(AuthService authService, UserService userService, RoleService roleService){
+        this._authService = authService;
+        this._userService = userService;
+        this._roleService = roleService;
+    }
 
 
 

@@ -25,24 +25,23 @@ import java.util.List;
 
 public class UserController {
 
-    //Dependency Injection for Services
-    @Autowired
     private UserService _userService;
-
-    @Autowired
     private CapSizeService _capSizeService;
-
-    @Autowired
     private CeremonyService _ceremonyService;
-
-    @Autowired
     private DegreeService _degreeService;
-
-    @Autowired
     private DepartmentService _departmentService;
+    private StateService _stateService;
 
     @Autowired
-    private StateService _stateService;
+    private UserController(UserService userService, CapSizeService capSizeService, CeremonyService ceremonyService,
+                           DegreeService degreeService, DepartmentService departmentService, StateService stateService){
+        this._userService = userService;
+        this._capSizeService = capSizeService;
+        this._ceremonyService = ceremonyService;
+        this._degreeService = degreeService;
+        this._departmentService = departmentService;
+        this._stateService = stateService;
+    }
 
 
     //Development Route used to plan out how the application should work
