@@ -40,7 +40,12 @@ public class UserService {
     }
 
     public void delete(Long id){
-        userRepository.deleteById(id);
+//        userRepository.deleteById(id);
+        userRepository.deleteUser(id);
+    }
+
+    public void restore(Long id){
+        userRepository.restoreUser(id);
     }
 
     public List<User> listAll(String keyword){
@@ -65,6 +70,8 @@ public class UserService {
     public User getUserByUsername(String username){
         return userRepository.getUserByUsername(username);
     }
+
+    public User getUserById(Long id) { return userRepository.getUserById(id); }
 
     public Set<Role> setUserRoles(Role role){
 
