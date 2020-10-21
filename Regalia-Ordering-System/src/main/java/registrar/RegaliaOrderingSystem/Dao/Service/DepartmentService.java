@@ -37,4 +37,9 @@ public class DepartmentService {
     public void delete(Long id){
         _departmentRepository.deleteById(id);
     }
+
+    public Department getDepartmentIdByName(String name){
+        Department department = _departmentRepository.getDepartmentByName(name);
+        return department;
+    }
 }

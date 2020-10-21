@@ -38,4 +38,9 @@ public class CeremonyService {
     public void delete(Long id){
         _ceremonyRepository.deleteById(id);
     }
+
+    public Ceremony getCermonyByName(String name){
+        Ceremony ceremony = _ceremonyRepository.getCeremonyByName(name);
+        return ceremony;
+    }
 }

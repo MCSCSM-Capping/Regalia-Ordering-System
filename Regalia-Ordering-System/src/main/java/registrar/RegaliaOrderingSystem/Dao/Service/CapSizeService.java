@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import registrar.RegaliaOrderingSystem.Dao.Repository.CapSizeRepository;
 import registrar.RegaliaOrderingSystem.Models.CapSize;
+import registrar.RegaliaOrderingSystem.Models.Role;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -38,5 +39,10 @@ public class CapSizeService {
 
     public void delete(Long id){
         _capSizeRepository.deleteById(id);
+    }
+
+    public CapSize getCapSizeByName(String name){
+        CapSize capSize = _capSizeRepository.getCapByFitted(name);
+        return capSize;
     }
 }

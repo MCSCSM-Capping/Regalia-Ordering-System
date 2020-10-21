@@ -41,6 +41,14 @@ public class UserDto {
         this.last_updated = last_updated;
     }
 
+    public UserDto(String username){
+        this.username = username;
+
+    }
+    public UserDto(){
+        super();
+    }
+
     public String getEmail() {
         return email;
     }
