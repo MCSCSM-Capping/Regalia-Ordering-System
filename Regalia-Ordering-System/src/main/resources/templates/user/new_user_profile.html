@@ -95,10 +95,7 @@
                           Please select a valid Cap Size.
                       </div>
                   </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
+                  <div class="col-md-6 mb-3">
                         <label>Degree</label>
                         <select th:field="*{degree}" class="custom-select d-block w-100" id="degree" required>
                             <option value="">Choose...</option>
@@ -108,6 +105,18 @@
                         </select>
                         <div class="invalid-feedback">
                             Please provide a valid Degree.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Ceremony Schedule</label>
+                        <select th:field="*{ceremony_date}" class="custom-select d-block w-100" id="ceremonyDate" required>
+                            <option value="">Choose...</option>
+                            <div th:each="Ceremony : ${ceremonies}">
+                                <option th:text="${Ceremony.name}" th:value="${Ceremony.id}">name</option>
+                            </div>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid Day.
                         </div>
                     </div>
                     
@@ -180,24 +189,12 @@
                         </select>
                     </div>
                 </div>        
-                <div class="row">
+                <div class="row" style="justify-content: center;">
                     <div class="col-md-6 mb-3">
                         <label>Institution City</label>
                         <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" required>
                         <div class="invalid-feedback">
                             Valid Institution City is required.
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label>Which Ceremony are you attending?</label>
-                        <select th:field="*{ceremony_date}" class="custom-select d-block w-100" id="ceremonyDate" required>
-                            <option value="">Choose...</option>
-                            <div th:each="Ceremony : ${ceremonies}">
-                                <option th:text="${Ceremony.name}" th:value="${Ceremony.id}">name</option>
-                            </div>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid Day.
                         </div>
                     </div>
                 </div>
