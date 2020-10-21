@@ -142,7 +142,7 @@ public class AdminController {
         String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+        String headerValue = "attachment; filename=regalia_order_report_" + currentDateTime + ".csv";
         response.setHeader(headerKey, headerValue);
 
         //Get all users
@@ -174,8 +174,8 @@ public class AdminController {
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
 
-        String[] csvHeader = {"First Name", "Last Name", "Email", "Phone Number", "CWID", "Height", "Weight", "College", "City", "State", "Ceremony"};
-        String[] nameMapping = {"first_name", "last_name", "email", "phone_number", "username", "height_inches", "weight", "granting_institution", "granting_city", "granting_state", "ceremony_date"};
+        String[] csvHeader = {"CWID", "Last Name", "First Name", "Degree", "School", "Height", "Hat Size", "Last Updated"};
+        String[] nameMapping = {"username", "last_name", "first_name", "degree", "granting_institution", "height_inches", "cap_size", "last_updated"};
 
 
         csvWriter.writeHeader(csvHeader);
