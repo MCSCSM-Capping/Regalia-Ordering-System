@@ -34,16 +34,16 @@
             <form action="#" th:action="@{/user/updated}" th:object="${user}"
             method="post">
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6 mb-3">         
                         <label>First Name</label>
-                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" required>
+                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]" title="Only Characters">
                         <div class="invalid-feedback" id="msg">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Last Name</label>
-                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" value="" required>
+                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Last name is required.
                         </div>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Email</label>
-                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com" required>
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com" pattern="[A-Za-z]" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -127,7 +127,7 @@
                     <div class="col-md-6 mb-3">
                         <label>Height Inches</label>
                         <select th:field="*{height_inches}" class="custom-select d-block w-100" id="heightInches" required>
-                            <option value=-1>Choose...</option>
+                            <option value=0>Choose...</option>
                             <option value=48>48</option>
                             <option value=49>49</option>
                             <option value=50>50</option>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Weight</label>
-                        <input type="text" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
+                        <input type="number" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
                         <div class="invalid-feedback">
                             Valid Weight is required.
                         </div>
@@ -174,7 +174,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution</label>
-                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" required>
+                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Granting Institution is required.
                         </div>
@@ -192,7 +192,7 @@
                 <div class="row" style="justify-content: center;">
                     <div class="col-md-6 mb-3">
                         <label>Institution City</label>
-                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" required>
+                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Institution City is required.
                         </div>
