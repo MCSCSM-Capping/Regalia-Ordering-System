@@ -1,7 +1,5 @@
 //Function to get all of the form data a place it in the modal
 function getModalData(){
-
-
     //Getting form data and storing it in block scope variables
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
