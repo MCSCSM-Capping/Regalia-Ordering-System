@@ -20,7 +20,7 @@
     <div class="py-5 text-center">
         <img class="d-block mx-auto " src="@{../static/images/Marist_College_Logo}" alt="Marist" th:src="@{images/Marist_College_Logo.svg}">
         <h2 class="mt-3">Regalia Order Form</h2>
-        <p class="lead">Fill out the form below to create/update your reglia information. Press the "Preview Order" button to see your changes. Press the "Submit Order" button to confirm. To clear the form, press "Clear Form".</p>
+        <p  text-align="center" class="lead">Fill out the form below to create/update your reglia information. Press the "Preview Order" button to see your changes. Press the "Submit Order" button to confirm. To clear the form, press "Clear Form".</p>
     </div>
 
     <div class="row">
@@ -36,14 +36,14 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">         
                         <label>First Name</label>
-                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]" title="Only Characters">
+                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
                         <div class="invalid-feedback" id="msg">
                             Valid first name is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Last Name</label>
-                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]" title="Only Characters" required>
+                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Last name is required.
                         </div>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Email</label>
-                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com" pattern="[A-Za-z]" title="Only Characters" required>
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -95,6 +95,10 @@
                           Please select a valid Cap Size.
                       </div>
                   </div>
+                </div>
+
+                
+                <div class="row">
                   <div class="col-md-6 mb-3">
                         <label>Degree</label>
                         <select th:field="*{degree}" class="custom-select d-block w-100" id="degree" required>
@@ -174,7 +178,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution</label>
-                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]" title="Only Characters" required>
+                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Granting Institution is required.
                         </div>
@@ -192,7 +196,7 @@
                 <div class="row" style="justify-content: center;">
                     <div class="col-md-6 mb-3">
                         <label>Institution City</label>
-                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]" title="Only Characters" required>
+                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Institution City is required.
                         </div>

@@ -1,25 +1,5 @@
-/*function allLetter(inputtxt) {
-    var letters = /^[A-Za-z]+$/;
-    if (inputtxt.value.match(letters)) {
-        alert('Accepted');
-        return true;
-    } else {
-        alert('Characters only');
-        return false;
-    }
-}
-*/
-function Check(e) {
-    var keyCode = (e.keyCode ? e.keyCode : e.which);
-    if (keyCode > 47 && keyCode < 58) {
-        e.preventDefault();
-    }
-}
-
 //Function to get all of the form data a place it in the modal
 function getModalData(){
-
-
     //Getting form data and storing it in block scope variables
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
