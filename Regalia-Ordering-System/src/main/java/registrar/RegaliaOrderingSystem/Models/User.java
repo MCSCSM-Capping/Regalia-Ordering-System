@@ -111,6 +111,21 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
+    public User(String email, String username, String first_name, String last_name, String phone_number, Ceremony cermonyByName, CapSize capSizeByName, Degree degreeByName, Department departmentIdByName, Integer weight, Integer height_inches, State stateIdByName) {
+        this.email = email;
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone_number = phone_number;
+        this.ceremony_date = cermonyByName;
+        this.cap_size = capSizeByName;
+        this.degree = degreeByName;
+        this.department = departmentIdByName;
+        this.weight = weight;
+        this.height_inches = height_inches;
+        this.granting_state = stateIdByName;
+    }
+
     public Long getId() {
         return id;
     }

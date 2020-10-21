@@ -37,4 +37,9 @@ public class StateService {
     public void delete(Long id){
         _stateRepository.deleteById(id);
     }
+
+    public State getStateIdByName(String name){
+        State state = _stateRepository.getStateByName(name);
+        return state;
+    }
 }

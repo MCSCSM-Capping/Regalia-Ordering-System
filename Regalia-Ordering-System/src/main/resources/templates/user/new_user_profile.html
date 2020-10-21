@@ -77,7 +77,7 @@
                         <select th:field="*{Department}" class="custom-select d-block w-100" id="department" required>
                             <option value="">Choose...</option>
                             <div th:each="Department : ${departments}">
-                                <option th:text="${Department.name}" th:value="${Department.id}">name</option>
+                                <option th:text="${Department.name}" th:value="${Department.name}">name</option>
                             </div>
 
                         </select>
@@ -90,7 +90,7 @@
                       <select th:field="*{cap_size}" class="custom-select d-block w-100" id="capSize" required>
                           <option value="">Choose...</option>
                           <div th:each="CapSize : ${capSizes}">
-                              <option th:text="${CapSize.fitted}" th:value="${CapSize.id}">name</option>
+                              <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
                           </div>
                       </select>
                       <div class="invalid-feedback">
@@ -106,7 +106,7 @@
                         <select th:field="*{degree}" class="custom-select d-block w-100" id="degree" required>
                             <option value="">Choose...</option>
                             <div th:each="Degree : ${degrees}">
-                                <option th:text="${Degree.name}" th:value="${Degree.id}">name</option>
+                                <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
                             </div>
                         </select>
                         <div class="invalid-feedback">
@@ -118,7 +118,7 @@
                         <select th:field="*{ceremony_date}" class="custom-select d-block w-100" id="ceremonyDate" required>
                             <option value="">Choose...</option>
                             <div th:each="Ceremony : ${ceremonies}">
-                                <option th:text="${Ceremony.name}" th:value="${Ceremony.id}">name</option>
+                                <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
                             </div>
                         </select>
                         <div class="invalid-feedback">
@@ -190,7 +190,7 @@
                         <select th:field="*{granting_state}" class="custom-select d-block w-100" id="institutionState" required>
                             <option value="">Choose...</option>
                             <div th:each="State : ${states}">
-                                <option th:text="${State.name}" th:value="${State.id}">name</option>
+                                <option th:text="${State.name}" th:value="${State.name}">name</option>
                             </div>
                         </select>
                     </div>
@@ -204,6 +204,16 @@
                         </div>
                     </div>
                 </div>
+
+                <div hidden>
+                    <label>CWID</label>
+                    <select th:field="*{username}" class="custom-select d-block w-100" required>
+                        <option th:value="${CWID}"selected>CWID</option>
+                    </select>
+                </div>
+
+
+
                 <hr class="mb-4">
                 <div class="row">
                     <div class="d-flex justify-content-center">
@@ -227,12 +237,12 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" >
                                 <div class="container-fluid">
                                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="text-muted">Review Your Order</span>
                                     </h4>
-                                    <ul class="list-group mb-3">
+                                    <ul class="list-group mb-3" >
                                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                                             <div>
                                                 <h6 class="my-0">First Name</h6>
