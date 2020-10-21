@@ -92,7 +92,7 @@ public class AdminController {
         model.addAttribute("activeUsers", activeUsers);
 
         // Delete User
-        model.addAttribute("delete", "/delete/2");
+        model.addAttribute("delete", "/delete/12345678");
 
         //Return the active user page with active users
         return "admin/admin_page_active_users";
@@ -114,7 +114,7 @@ public class AdminController {
         model.addAttribute("logout", casLogoutUrl);
 
         // Restore user to active users table
-        model.addAttribute("restore", "/restore/2");
+        model.addAttribute("restore", "/restore/12345678");
 
         //TODO add logic for only grabbing active users
         List<User> inactiveUsers = _userService.listAll("disabled");
@@ -126,27 +126,27 @@ public class AdminController {
     }
 
     //Grabs user by their id and returns the user
-    @RequestMapping("edit/{id}")
-    public ModelAndView showEditProfileForm(@PathVariable(name = "id") Long id){
+    @RequestMapping("edit/{username}")
+    public ModelAndView showEditProfileForm(@PathVariable(name = "username") String username){
         ModelAndView mav = new ModelAndView("edit_profile");
-        User user = _userService.get(id);
+        User user = _userService.getByUsername(username);
         mav.addObject("user", user);
         return mav;
     }
 
     //Grabs user by their id and returns the user
-    @RequestMapping("/delete/{id}")
-    public String deleteUser(@PathVariable(name = "id") Long id){
-        _userService.delete(id);
-        _userService.save(_userService.getUserById(id));
+    @RequestMapping("/delete/{username}")
+    public String deleteUser(@PathVariable(name = "username") String username){
+        _userService.delete(username);
+        _userService.save(_userService.getUserByUsername(username));
         return "redirect:/";
     }
 
     // Restores user to active users table by updating the enabled field
-    @RequestMapping("/restore/{id}")
-    public String restoreUser(@PathVariable(name = "id") Long id){
-        _userService.restore(id);
-        _userService.save(_userService.getUserById(id));
+    @RequestMapping("/restore/{username}")
+    public String restoreUser(@PathVariable(name = "username") String username){
+        _userService.restore(username);
+        _userService.save(_userService.getUserByUsername(username));
         return "redirect:/";
     }
 

@@ -39,13 +39,15 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
-    public void delete(Long id){
+    public User getByUsername(String username) { return userRepository.getUserByUsername(username); }
+
+    public void delete(String username){
 //        userRepository.deleteById(id);
-        userRepository.deleteUser(id);
+        userRepository.deleteUser(username);
     }
 
-    public void restore(Long id){
-        userRepository.restoreUser(id);
+    public void restore(String username){
+        userRepository.restoreUser(username);
     }
 
     public List<User> listAll(String keyword){
