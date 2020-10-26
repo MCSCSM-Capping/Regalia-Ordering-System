@@ -42,7 +42,10 @@ function postDeleteUser(){
         .then(res => console.log(res));
 
 
-    location.reload();
+    window.location.href = "/admin_page_active_users"
+
+
+
 
 
 }
