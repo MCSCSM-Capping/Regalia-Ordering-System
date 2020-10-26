@@ -42,7 +42,7 @@ function postRestoreUser(){
         .then(res => console.log(res));
 
 
-    location.reload();
+  window.location.href = "/admin_page_archived_users"
 
 
 }
