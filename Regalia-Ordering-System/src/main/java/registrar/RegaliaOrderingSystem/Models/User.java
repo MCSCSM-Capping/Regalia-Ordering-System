@@ -29,9 +29,6 @@ public class User {
     @Column(name = "LAST_NAME")
     private String last_name;
 
-    @Column(name = "PASSWORD")
-    private String password;
-
     @Column(name = "ENABLED")
     private boolean enabled;
 
@@ -81,13 +78,12 @@ public class User {
         super();
     }
 
-    public User(Long id, String email, String username, String first_name, String last_name, String password, boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, Integer height_inches, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
+    public User(Long id, String email, String username, String first_name, String last_name,  boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, Integer height_inches, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.password = password;
         this.enabled = enabled;
         this.phone_number = phone_number;
         this.ceremony_date = ceremony_date;
@@ -165,14 +161,6 @@ public class User {
 
     public void setLast_name(String last_name) {
         this.last_name = last_name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public boolean isEnabled() {

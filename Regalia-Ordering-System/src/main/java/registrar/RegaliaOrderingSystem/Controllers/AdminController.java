@@ -19,10 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
@@ -65,8 +62,6 @@ public class AdminController {
         this._authService = authService;
     }
 
-
-
     //Admin Dashboard routes
     @RequestMapping("/admin_page_active_users")
     public String viewAdminActiveUsers(HttpServletRequest request, Model model){
@@ -76,6 +71,9 @@ public class AdminController {
 
         //Get the user Logged in
         User admin = _userService.getUserByUsername(CWID);
+
+        User userID = _userService.getUserByUsername(CWID);
+
 
         //Provide admin Details to model
         model.addAttribute("admin", admin);
@@ -87,7 +85,10 @@ public class AdminController {
         List<User> activeUsers = _userService.listAll("enabled");
 
         //User Data
-        model.addAttribute("activeUsers",activeUsers);
+        model.addAttribute("activeUsers", activeUsers);
+
+        // Delete User
+        model.addAttribute("delete", "/delete/12345678");
 
         //Return the active user page with active users
         return "admin/admin_page_active_users";
@@ -108,6 +109,9 @@ public class AdminController {
         //Logout url
         model.addAttribute("logout", casLogoutUrl);
 
+        // Restore user to active users table
+        model.addAttribute("restore", "/restore/12345678");
+
         //TODO add logic for only grabbing active users
         List<User> inactiveUsers = _userService.listAll("disabled");
 
@@ -116,23 +120,6 @@ public class AdminController {
 
         return "admin/admin_page_archived_users";
     }
-
-    //Grabs user by their id and returns the user
-    @RequestMapping("edit/{id}")
-    public ModelAndView showEditProfileForm(@PathVariable(name = "id") Long id){
-        ModelAndView mav = new ModelAndView("edit_profile");
-        User user = _userService.get(id);
-        mav.addObject("user", user);
-        return mav;
-    }
-
-    //Grabs user by their id and returns the user
-    @RequestMapping("/delete/{id}")
-    public String deleteUser(@PathVariable(name = "id") Long id){
-        _userService.delete(id);
-        return "redirect:/";
-    }
-
 
     //Export Users to CSV
     @GetMapping("/admin_page_active_users/export")
