@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 
@@ -60,10 +61,31 @@ public class UserController {
     @RequestMapping("/update-profile")
     public String newUserProfile(HttpServletRequest request, Model model){
 
+        String CWID = _authService.getUserCWID(request);
+
+
+        User user = _userService.getUserByUsername(CWID);
+
 
         //Generate userDto
-        UserDto user = new UserDto();
-        model.addAttribute("user", user);
+        UserDto userDto = new UserDto();
+
+        userDto.setEmail(user.getEmail());
+        userDto.setUsername(user.getUsername());
+        userDto.setFirst_name(user.getFirst_name());
+        userDto.setLast_name(user.getLast_name());
+        userDto.setPhone_number(user.getPhone_number());
+        userDto.setCeremony_date(user.getCeremony_date().getName());
+        userDto.setCap_size(user.getCap_size().getFitted());
+        userDto.setDegree(user.getDegree().getName());
+        userDto.setDepartment(user.getDepartment().getName());
+        userDto.setWeight(user.getWeight());
+        userDto.setHeight_inches(user.getHeight_inches());
+        userDto.setGranting_city(user.getGranting_city());
+        userDto.setGranting_institution(user.getGranting_institution());
+        userDto.setGranting_state(user.getGranting_state().getName());
+
+        model.addAttribute("user", userDto);
 
         List<CapSize> capSizes = _capSizeService.listAll();
         model.addAttribute("capSizes", capSizes);
@@ -80,8 +102,6 @@ public class UserController {
         List<State> states = _stateService.listAll();
         model.addAttribute("states", states);
 
-
-        String CWID = _authService.getUserCWID(request);
         model.addAttribute("CWID", CWID);
 
 
