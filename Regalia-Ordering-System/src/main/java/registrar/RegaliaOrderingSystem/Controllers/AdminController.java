@@ -19,10 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
@@ -65,8 +62,6 @@ public class AdminController {
         this._authService = authService;
     }
 
-
-
     //Admin Dashboard routes
     @RequestMapping("/admin_page_active_users")
     public String viewAdminActiveUsers(HttpServletRequest request, Model model){
@@ -78,6 +73,7 @@ public class AdminController {
         User admin = _userService.getUserByUsername(CWID);
 
         User userID = _userService.getUserByUsername(CWID);
+
 
         //Provide admin Details to model
         model.addAttribute("admin", admin);
@@ -124,33 +120,6 @@ public class AdminController {
 
         return "admin/admin_page_archived_users";
     }
-
-    //Grabs user by their id and returns the user
-    @RequestMapping("edit/{username}")
-    public ModelAndView showEditProfileForm(@PathVariable(name = "username") String username){
-        ModelAndView mav = new ModelAndView("edit_profile");
-        User user = _userService.getByUsername(username);
-        mav.addObject("user", user);
-        return mav;
-    }
-
-    //Grabs user by their id and returns the user
-    @RequestMapping("/delete/{username}")
-    public String deleteUser(@PathVariable(name = "username") String username){
-        _userService.delete(username);
-        _userService.save(_userService.getUserByUsername(username));
-        return "redirect:/";
-    }
-
-    // Restores user to active users table by updating the enabled field
-    @RequestMapping("/restore/{username}")
-    public String restoreUser(@PathVariable(name = "username") String username){
-        _userService.restore(username);
-        _userService.save(_userService.getUserByUsername(username));
-        return "redirect:/";
-    }
-
-
 
     //Export Users to CSV
     @GetMapping("/admin_page_active_users/export")

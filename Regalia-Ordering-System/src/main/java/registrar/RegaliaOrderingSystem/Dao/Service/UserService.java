@@ -41,9 +41,10 @@ public class UserService {
 
     public User getByUsername(String username) { return userRepository.getUserByUsername(username); }
 
-    public void delete(String username){
+    public User delete(String username){
 //        userRepository.deleteById(id);
         userRepository.deleteUser(username);
+        return getUserByUsername(username);
     }
 
     public void restore(String username){
@@ -85,6 +86,18 @@ public class UserService {
 
         //Return the updated User Object
         return userRoles ;
+    }
+
+    public void deleteUserById(String username){
+        User user = getUserByUsername(username);
+        user.setEnabled(true);
+        userRepository.save(user);
+    }
+
+    public void restoreUserById(String username){
+        User user = getUserByUsername(username);
+        user.setEnabled(false);
+        userRepository.save(user);
     }
 
 

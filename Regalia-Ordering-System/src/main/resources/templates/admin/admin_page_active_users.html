@@ -25,6 +25,9 @@
   <!-- Custom styles for this page -->
   <link rel="stylesheet" th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}">
 
+  <!-- Custom JavaScript for Admin Dashboard -->
+  <script type="text/javascript" th:src="@{/js/admin_page_active_users.js}" src="../static/js/admin_page_active_users.js"></script>
+
 
 </head>
 <body id="page-top">
@@ -296,7 +299,8 @@
                         <a class="text-primary btn" data-toggle="modal" data-target=".edit-modal"><i class="fas fa-edit">Edit</i></a>
                       </div>
                       <div class="row">
-                        <a class="text-primary btn" data-toggle="modal" data-target=".delete-modal"><i class="fas fa-trash">Delete</i></a>
+                        <p hidden id="userName" th:value="${User.username}" th:text="${User.username}">username</p>
+                        <a class="text-primary btn" data-toggle="modal" data-target=".delete-modal" onclick="getUserCwid()"><i class="fas fa-trash">Delete</i></a>
                       </div>
                     </div>
                   </td>
@@ -379,10 +383,15 @@
       <div class="modal-body">
         Select confirm to archive the selected user and remove them from the list of active users.
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" th:href="${delete}">Confirm</a>
-      </div>
+        <div class="modal-footer">
+          <div hidden>
+            <label>CWID</label>
+
+            <p th:field="*{username}" id="modelCwidValue"></p>
+          </div>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button type="submit" onclick="postDeleteUser()" data-dismiss="modal" class="btn btn-success">Confirm</button>
+        </div>
     </div>
   </div>
 </div>
