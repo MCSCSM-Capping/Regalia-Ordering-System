@@ -50,13 +50,6 @@ public class UserController {
     }
 
 
-    //Development Route used to plan out how the application should work
-    @RequestMapping("/test")
-    public String viewDevPage(Model model){
-        return "user/dev_landing_page";
-    }
-
-
     //Route to generate new user profile
     @RequestMapping("/update-profile")
     public String newUserProfile(HttpServletRequest request, Model model){
