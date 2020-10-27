@@ -1,6 +1,6 @@
-function getUserCwid(){
+function getUserCwid(user){
         //Getting form data and storing it in block scope variables
-        let username = document.getElementById("userName").textContent;
+        let username = user;
 
         console.log(username);
 

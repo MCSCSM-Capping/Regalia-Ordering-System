@@ -4,6 +4,8 @@ import registrar.RegaliaOrderingSystem.Models.*;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserDto {
 
@@ -22,6 +24,7 @@ public class UserDto {
     private String granting_city;
     private String granting_state;
     private Date last_updated;
+    private Set<Role> roles = new HashSet<>();
 
     public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated) {
         this.email = email;
@@ -41,12 +44,39 @@ public class UserDto {
         this.last_updated = last_updated;
     }
 
+    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated, Set<Role> roles) {
+        this.email = email;
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone_number = phone_number;
+        this.ceremony_date = ceremony_date;
+        this.cap_size = cap_size;
+        this.degree = degree;
+        this.department = department;
+        this.weight = weight;
+        this.height_inches = height_inches;
+        this.granting_institution = granting_institution;
+        this.granting_city = granting_city;
+        this.granting_state = granting_state;
+        this.last_updated = last_updated;
+        this.roles = roles;
+    }
+
     public UserDto(String username){
         this.username = username;
 
     }
     public UserDto(){
         super();
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getEmail() {

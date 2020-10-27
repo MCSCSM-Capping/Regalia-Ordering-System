@@ -291,8 +291,7 @@
                   <td>
                     <div class="col">
                       <div class="row">
-                        <p hidden id="userName" th:value="${User.username}" th:text="${User.username}">username</p>
-                        <a class="text-primary btn" data-toggle="modal" data-target=".restore-modal" onclick="getUserCwid()"><i class="fa-trash-restore-alt">Restore</i></a>
+                        <a class="text-primary btn" data-toggle="modal" data-target=".restore-modal" th:attr="onclick=|getUserCwid('${User.username}')|"><i class="fa-trash-restore-alt">Restore</i></a>
                       </div>
                     </div>
                   </td>

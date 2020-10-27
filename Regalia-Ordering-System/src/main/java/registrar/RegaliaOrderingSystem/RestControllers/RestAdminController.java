@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import registrar.RegaliaOrderingSystem.Dao.Service.*;
 import registrar.RegaliaOrderingSystem.Dto.RestUserDto;
+import registrar.RegaliaOrderingSystem.Dto.UserDto;
+import registrar.RegaliaOrderingSystem.Models.User;
 
 @RestController
 public class RestAdminController {
@@ -30,6 +32,7 @@ public class RestAdminController {
         this._authService = authService;
     }
 
+    //Post API Request to archive a user from the database
     @PostMapping(path= "/delete", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String deleteUser(
@@ -51,6 +54,7 @@ public class RestAdminController {
 
     }
 
+    //Post API Request to restore a user from the database
     @PostMapping(path= "/restore", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String restoreUser(
@@ -69,5 +73,35 @@ public class RestAdminController {
 
         //Send location in response
         return "Successful Post Request";
+    }
+
+    //Get Api request to get a user by username
+    @GetMapping(path= "/user/{id}",  produces = "application/json")
+    public UserDto getUserByUsername(@PathVariable String id)
+            throws Exception
+    {
+
+        User user = _userService.getUserByUsername(id);
+
+        UserDto userDto = new UserDto(
+                user.getEmail(),
+                user.getUsername(),
+                user.getFirst_name(),
+                user.getLast_name(),
+                user.getPhone_number(),
+                user.getCeremony_date().getName(),
+                user.getCap_size().getFitted(),
+                user.getDegree().getName(),
+                user.getDepartment().getName(),
+                user.getWeight(),
+                user.getHeight_inches(),
+                user.getGranting_institution(),
+                user.getGranting_city(),
+                user.getGranting_state().getName(),
+                user.getLast_updated(),
+                user.getRoles()
+        );
+
+        return userDto;
     }
 }
