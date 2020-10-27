@@ -74,6 +74,10 @@ public class AdminController {
 
         User userID = _userService.getUserByUsername(CWID);
 
+        List<User> users = _userService.listAll("enabled");
+
+        model.addAttribute("user", users);
+
 
         //Provide admin Details to model
         model.addAttribute("admin", admin);
@@ -87,8 +91,6 @@ public class AdminController {
         //User Data
         model.addAttribute("activeUsers", activeUsers);
 
-        // Delete User
-        model.addAttribute("delete", "/delete/12345678");
 
         //Return the active user page with active users
         return "admin/admin_page_active_users";
