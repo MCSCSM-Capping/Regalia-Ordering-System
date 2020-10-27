@@ -25,7 +25,7 @@ import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 import registrar.RegaliaOrderingSystem.Dao.Service.*;
 import registrar.RegaliaOrderingSystem.Dto.UserDto;
-import registrar.RegaliaOrderingSystem.Models.User;
+import registrar.RegaliaOrderingSystem.Models.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,13 +46,14 @@ public class AdminController {
     private DepartmentService _departmentService;
     private StateService _stateService;
     private AuthService _authService;
+    private RoleService _roleService;
 
     @Value("${casLogoutUrl}")
     private String casLogoutUrl;
 
     @Autowired
     private AdminController(UserService userService, CapSizeService capSizeService, CeremonyService ceremonyService,
-                            DegreeService degreeService, DepartmentService departmentService, StateService stateService, AuthService authService){
+                            DegreeService degreeService, DepartmentService departmentService, StateService stateService, AuthService authService, RoleService roleService){
         this._userService = userService;
         this._capSizeService = capSizeService;
         this._ceremonyService = ceremonyService;
@@ -60,6 +61,7 @@ public class AdminController {
         this._departmentService = departmentService;
         this._stateService = stateService;
         this._authService = authService;
+        this._roleService = roleService;
     }
 
     //Admin Dashboard routes
@@ -71,12 +73,6 @@ public class AdminController {
 
         //Get the user Logged in
         User admin = _userService.getUserByUsername(CWID);
-
-        User userID = _userService.getUserByUsername(CWID);
-
-        List<User> users = _userService.listAll("enabled");
-
-        model.addAttribute("user", users);
 
 
         //Provide admin Details to model
@@ -90,6 +86,27 @@ public class AdminController {
 
         //User Data
         model.addAttribute("activeUsers", activeUsers);
+
+
+
+        //Get Modal Data
+        List<CapSize> capSizes = _capSizeService.listAll();
+        model.addAttribute("capSizes", capSizes);
+
+        List<Ceremony> ceremonies = _ceremonyService.listAll();
+        model.addAttribute("ceremonies", ceremonies);
+
+        List<Degree> degrees = _degreeService.listAll();
+        model.addAttribute("degrees", degrees);
+
+        List<Department> departments = _departmentService.listAll();
+        model.addAttribute("departments", departments);
+
+        List<State> states = _stateService.listAll();
+        model.addAttribute("states", states);
+
+        List<Role> roles = _roleService.listAll();
+        model.addAttribute("roles", roles);
 
 
         //Return the active user page with active users
@@ -157,7 +174,8 @@ public class AdminController {
                     user.getGranting_institution(),
                     user.getGranting_city(),
                     user.getGranting_state().getName(),
-                    user.getLast_updated()
+                    user.getLast_updated(),
+                    user.getRoles()
             ));
         }
 
