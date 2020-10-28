@@ -174,8 +174,8 @@ public class AdminController {
                     user.getGranting_institution(),
                     user.getGranting_city(),
                     user.getGranting_state().getName(),
-                    user.getLast_updated(),
-                    user.getRoles()
+                    user.getLast_updated()
+
             ));
         }
 

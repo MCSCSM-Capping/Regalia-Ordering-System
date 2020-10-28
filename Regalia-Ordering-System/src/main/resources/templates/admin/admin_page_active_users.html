@@ -551,6 +551,10 @@
             </select>
           </div>
         </div>
+        <div class="col-md-6 mb-3" hidden>
+          <label>cwid</label>
+          <input type="text" id="cwid" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+        </div>
         <div >
           <div class="row justify-content-center">
             <div class="row justify-content-center" style="justify-content: center;">
@@ -558,7 +562,7 @@
                 <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
               </div>
               <div class="col-md-6 mb-3 ml-1 mt-2">
-                <button type="submit" class="btn btn-success">Update</button>
+                <button type="submit" class="btn btn-success" onclick="updateUser()">Update</button>
               </div>
             </div>
           </div>

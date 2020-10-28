@@ -13,7 +13,9 @@ import registrar.RegaliaOrderingSystem.Dao.Repository.RoleRepository;
 import registrar.RegaliaOrderingSystem.Models.Role;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -40,5 +42,13 @@ public class RoleService {
 
     public void delete(Long id){
         _roleRepository.deleteById(id);
+    }
+
+
+    public Set<Role> listOfUserRole(String role){
+        Role userRole = _roleRepository.getRoleByName(role);
+        Set<Role> listRoles = new HashSet<Role>();
+        listRoles.add(userRole);
+        return listRoles;
     }
 }
