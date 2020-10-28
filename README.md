@@ -25,7 +25,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/StevenBuglione/Regalia-Ordering-System">
-    <img src="images\marist.png" alt="Logo" width="500" height="200">
+    <img src="images\ProjectRegalia.jpg" alt="Logo" width="500" height="200">
   </a>
 
   <h3 align="center">Regalia Ordering System</h3>
