@@ -72,7 +72,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://marist.edu)
 
 This project is being created and implemented to help Marist College create Regalia orders for their faculty. The aim of this task is to design an interface that helps facilitate ordering reglia via an updatable form that reminds designated admins of current preferences. 
 
