@@ -33,46 +33,26 @@ public class RestAdminController {
     }
 
     //Post API Request to archive a user from the database
-    @PostMapping(path= "/delete", consumes = "application/json", produces = "application/json")
+    @PostMapping(path= "/user/delete/{id}", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String deleteUser(
-            @RequestBody String username)
+            @PathVariable String id)
             throws Exception
     {
-
-        RestUserDto user = new ObjectMapper().readValue(username, RestUserDto.class);
-
-
-        System.out.println(user.getUsername());
-
-        //add resource
-        _userService.deleteUserById(user.getUsername());
-
-
-        //Send location in response
-        return "Successful Post Request";
+        _userService.deleteUserById(id);
+        return "Successful Delete User Request";
 
     }
 
     //Post API Request to restore a user from the database
-    @PostMapping(path= "/restore", consumes = "application/json", produces = "application/json")
+    @PostMapping(path= "/user/restore/{id}", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public String restoreUser(
-            @RequestBody String username)
+            @PathVariable String id)
             throws Exception
     {
-
-        RestUserDto user = new ObjectMapper().readValue(username, RestUserDto.class);
-
-
-        System.out.println(user.getUsername());
-
-        //add resource
-        _userService.restoreUserById(user.getUsername());
-
-
-        //Send location in response
-        return "Successful Post Request";
+        _userService.restoreUserById(id);
+        return "Successful Restore User Request";
     }
 
     //Get Api request to get a user by username
@@ -103,5 +83,36 @@ public class RestAdminController {
         );
 
         return userDto;
+    }
+
+
+    //Post Api request to update user
+    @PostMapping(path = "/user/edit/{id}", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public String updateUser(@PathVariable String id, UserDto userDto){
+
+        //Get Existing User in database
+        User user = _userService.getUserByUsername(id);
+
+        //Update the user object with the userDto values
+        user.setFirst_name(userDto.getFirst_name());
+        user.setLast_name(userDto.getLast_name());
+        user.setPhone_number(userDto.getPhone_number());
+        user.setWeight(userDto.getWeight());
+        user.setHeight_inches(userDto.getHeight_inches());
+        user.setGranting_institution(userDto.getGranting_institution());
+        user.setGranting_city(userDto.getGranting_city());
+        user.setEmail(userDto.getEmail());
+        user.setCap_size(_capSizeService.getCapSizeByName(userDto.getCap_size()));
+        user.setCeremony_date(_ceremonyService.getCermonyByName(userDto.getCeremony_date()));
+        user.setDegree(_degreeService.getDegreeByName(userDto.getDegree()));
+        user.setDepartment(_departmentService.getDepartmentIdByName(userDto.getDepartment()));
+        user.setGranting_state(_stateService.getStateIdByName(userDto.getGranting_state()));
+
+        //Update the Database with the updated user
+        _userService.save(user);
+
+        //Return 200 ok
+        return "Successful user has been updated";
     }
 }
