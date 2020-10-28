@@ -24,7 +24,7 @@ public class UserDto {
     private String granting_city;
     private String granting_state;
     private Date last_updated;
-    private Set<Role> roles = new HashSet<>();
+    private String role;
 
     public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated) {
         this.email = email;
@@ -44,7 +44,7 @@ public class UserDto {
         this.last_updated = last_updated;
     }
 
-    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated, Set<Role> roles) {
+    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated, String role) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -60,7 +60,7 @@ public class UserDto {
         this.granting_city = granting_city;
         this.granting_state = granting_state;
         this.last_updated = last_updated;
-        this.roles = roles;
+        this.role = role;
     }
 
     public UserDto(String username){
@@ -71,12 +71,12 @@ public class UserDto {
         super();
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getEmail() {

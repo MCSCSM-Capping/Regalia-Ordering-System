@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.*;
 import registrar.RegaliaOrderingSystem.Dao.Service.*;
 import registrar.RegaliaOrderingSystem.Dto.RestUserDto;
 import registrar.RegaliaOrderingSystem.Dto.UserDto;
+import registrar.RegaliaOrderingSystem.Models.Role;
 import registrar.RegaliaOrderingSystem.Models.User;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @RestController
 public class RestAdminController {
@@ -18,18 +22,18 @@ public class RestAdminController {
     private DegreeService _degreeService;
     private DepartmentService _departmentService;
     private StateService _stateService;
-    private AuthService _authService;
+    private RoleService _roleService;
 
     @Autowired
     private RestAdminController(UserService userService, CapSizeService capSizeService, CeremonyService ceremonyService,
-                            DegreeService degreeService, DepartmentService departmentService, StateService stateService, AuthService authService){
+                            DegreeService degreeService, DepartmentService departmentService, StateService stateService, RoleService roleService){
         this._userService = userService;
         this._capSizeService = capSizeService;
         this._ceremonyService = ceremonyService;
         this._degreeService = degreeService;
         this._departmentService = departmentService;
         this._stateService = stateService;
-        this._authService = authService;
+        this._roleService = roleService;
     }
 
     //Post API Request to archive a user from the database
@@ -61,7 +65,17 @@ public class RestAdminController {
             throws Exception
     {
 
+        //Get Instance of user from database
         User user = _userService.getUserByUsername(id);
+
+        //Get the Set of roles that a user has
+        Set<Role> role = user.getRoles();
+
+        //Take the first role of a user since you can only be a A user or a admin
+        Role userRole = role.stream().findFirst().get();
+
+        //Take the role name and store in variable to send in request
+        String stringRole = userRole.getName();
 
         UserDto userDto = new UserDto(
                 user.getEmail(),
@@ -79,9 +93,11 @@ public class RestAdminController {
                 user.getGranting_city(),
                 user.getGranting_state().getName(),
                 user.getLast_updated(),
-                user.getRoles()
+                stringRole
+
         );
 
+        //Return instance of user to client
         return userDto;
     }
 
@@ -89,7 +105,7 @@ public class RestAdminController {
     //Post Api request to update user
     @PostMapping(path = "/user/edit/{id}", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public String updateUser(@PathVariable String id, UserDto userDto){
+    public String updateUser(@PathVariable String id, @RequestBody UserDto userDto){
 
         //Get Existing User in database
         User user = _userService.getUserByUsername(id);
@@ -108,11 +124,13 @@ public class RestAdminController {
         user.setDegree(_degreeService.getDegreeByName(userDto.getDegree()));
         user.setDepartment(_departmentService.getDepartmentIdByName(userDto.getDepartment()));
         user.setGranting_state(_stateService.getStateIdByName(userDto.getGranting_state()));
+        user.setRoles(_roleService.listOfUserRole(userDto.getRole()));
+
 
         //Update the Database with the updated user
         _userService.save(user);
 
         //Return 200 ok
-        return "Successful user has been updated";
+        return "User has been updated";
     }
 }
