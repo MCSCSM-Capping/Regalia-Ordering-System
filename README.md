@@ -72,7 +72,7 @@ This application aims to solve issues with the current reglia system:
 * Simplyfing the current system via a single login protocol. 
 
 ### Built With
-The following was used to 
+Currently used software and frameworks:
 * [Spring Framework](https://https://spring.io/projects/spring-framework)
 * [Bootstrap](https://getbootstrap.com/)
 * [MySql](https://www.mysql.com/)
@@ -97,7 +97,7 @@ The following are required for running the application locally:
 ### Installation
 
 1. Install the above software. 
-* Note: Ensure MySql is configured correctly (If an error is generated on build, CREATE or USE "Regalia-Ordering-System" database)
+    * Note: Ensure MySql is configured correctly (If an error is generated on build, CREATE or USE "Regalia-Ordering-System" database)
 2. Clone the repo
 ```sh
 git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git
