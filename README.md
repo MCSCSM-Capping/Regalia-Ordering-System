@@ -122,6 +122,15 @@ npm install
 const API_KEY = 'ENTER YOUR API';
 ```
 
+### How to run
+1. Ensure you have the most recent versions of the current stack. 
+2. Open Command Prompt, relocate to the master directory and enter: 
+``` sh
+mvn spring-boot:run
+``` 
+3. The software will then begin to run. If using locally, ensure to use
+the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)
+
 
 
 <!-- USAGE EXAMPLES -->
