@@ -59,6 +59,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [How to run](#How-to-run)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -73,16 +74,13 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+This project is being created and implemented to help Marist College create Regalia orders for their faculty. The aim of this task is to design an interface that helps facilitate ordering reglia via an updatable form that reminds designated admins of current preferences. 
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+This application aims to solve issues with the current reglia system:
+* Tracking down faculty whom have not updated their preferences. 
+* Keeping all relevant information in a single place for ease of use.
+* Automate the ordering system. 
+* Simplyfing the current system via a single login protocol. 
 
 ### Built With
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -121,7 +119,7 @@ npm install
 ```JS
 const API_KEY = 'ENTER YOUR API';
 ```
-
+<!-- How to Start the program -->
 ### How to run
 1. Ensure you have the most recent versions of the current stack. 
 2. Open Command Prompt, relocate to the master directory and enter: 
