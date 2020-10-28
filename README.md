@@ -86,32 +86,24 @@ The following was used to
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
+The following are required for running the application locally: 
+* [Spring Framework](https://https://spring.io/projects/spring-framework)
+* [MySql](https://www.mysql.com/)
+* [Flyway](https://flywaydb.org/)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Install the above software. 
+* Note: Ensure MySql is configured correctly (If an error is generated on build, CREATE or USE "Regalia-Ordering-System" database)
 2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git
 ```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+
 <!-- How to Start the program -->
 ### How to run
 1. Ensure you have the most recent versions of the current stack. 
@@ -121,22 +113,21 @@ mvn spring-boot:run
 ``` 
 3. The software will then begin to run. If using locally, ensure to use
 the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)
+* Note: Ensure the MySql server is running during build-time. 
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+This project is intended for the private use of Marist College. The programming and systems involved are tailored for the college and any use other than intended will result in unforeseen problems and troubleshooting. The authors of this application assume no responsibility for unauthorized use. Any code pertaining to Marist College must be replaced if to be used for other institutions and thereby no longer under this project's domain. 
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/StevenBuglione/Regalia-Ordering-System/issues) for a list of proposed features (and known issues).
 
 
 
