@@ -46,6 +46,7 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+  * [Services Used](#Services-Used)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -74,8 +75,12 @@ This application aims to solve issues with the current reglia system:
 The following was used to 
 * [Spring Framework](https://https://spring.io/projects/spring-framework)
 * [Bootstrap](https://getbootstrap.com/)
+* [MySql](https://www.mysql.com/)
+* [Flyway](https://flywaydb.org/)
+* [Super CSV](http://super-csv.github.io/super-csv/csv_specification.html)
 
-
+### Services Used
+* [CAS](https://en.wikipedia.org/wiki/Central_Authentication_Service)
 
 
 <!-- GETTING STARTED -->
@@ -86,9 +91,8 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 The following are required for running the application locally: 
-* [Spring Framework](https://https://spring.io/projects/spring-framework)
 * [MySql](https://www.mysql.com/)
-* [Flyway](https://flywaydb.org/)
+
 
 ### Installation
 
