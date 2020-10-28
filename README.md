@@ -157,6 +157,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Techlead: Steven Buglione - steven.buglione1@marist.edu
+
 Our Team: 
 * Programming : Anton Kochnev - anton.kochnev1@marist.edu
 * Project Communications: Max Wasserfall - max.wasserfall1@marist.edu
