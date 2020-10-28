@@ -17,7 +17,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][https://github.com/StevenBuglione/Regalia-Ordering-System/graphs/contributors]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -36,7 +36,7 @@
   <h3 align="center">Regalia Ordering System</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    README for the Marist College regalia ordering system. 
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
