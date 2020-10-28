@@ -112,7 +112,7 @@ mvn spring-boot:run
 ``` 
 3. The software will then begin to run. If using locally, ensure to use
 the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)
-* Note: Ensure the MySql server is running during build-time. 
+    * Note: Ensure the MySql server is running during build-time. 
 
 
 
