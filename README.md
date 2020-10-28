@@ -67,8 +67,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://marist.edu)
-
 This project is being created and implemented to help Marist College create Regalia orders for their faculty. The aim of this task is to design an interface that helps facilitate ordering reglia via an updatable form that reminds designated admins of current preferences. 
 
 This application aims to solve issues with the current reglia system:
@@ -78,10 +76,10 @@ This application aims to solve issues with the current reglia system:
 * Simplyfing the current system via a single login protocol. 
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+The following was used to 
+* [Spring Framework](https://https://spring.io/projects/spring-framework)
+* [Bootstrap](https://getbootstrap.com/)
+
 
 
 
