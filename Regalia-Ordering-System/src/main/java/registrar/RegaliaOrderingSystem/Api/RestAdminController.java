@@ -1,16 +1,23 @@
-package registrar.RegaliaOrderingSystem.RestControllers;
+/**
+ * The RestAdminController is a api that allows the user update/delete/restore a user using restfull endpoints
+ *
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+
+package registrar.RegaliaOrderingSystem.Api;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import registrar.RegaliaOrderingSystem.Dao.Service.*;
-import registrar.RegaliaOrderingSystem.Dto.RestUserDto;
 import registrar.RegaliaOrderingSystem.Dto.UserDto;
 import registrar.RegaliaOrderingSystem.Models.Role;
 import registrar.RegaliaOrderingSystem.Models.User;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @RestController

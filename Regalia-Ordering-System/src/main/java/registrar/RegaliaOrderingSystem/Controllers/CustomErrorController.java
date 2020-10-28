@@ -1,4 +1,10 @@
-
+/**
+ * CustomErrorController routes a client to the corresponding error page based on the the status code
+ *
+ * @version 1.0
+ * @author Steven Buglione
+ *
+ */
 
 
 package registrar.RegaliaOrderingSystem.Controllers;
