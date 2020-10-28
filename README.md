@@ -73,7 +73,7 @@ This application aims to solve issues with the current reglia system:
 
 ### Built With
 Currently used software and frameworks:
-* [Spring Framework](https://https://spring.io/projects/spring-framework)
+* [Spring Framework](https://spring.io/projects/spring-framework)
 * [Bootstrap](https://getbootstrap.com/)
 * [MySql](https://www.mysql.com/)
 * [Flyway](https://flywaydb.org/)
