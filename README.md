@@ -134,7 +134,9 @@ See the [open issues](https://github.com/StevenBuglione/Regalia-Ordering-System/
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Follow instructions below to create a fork. 
+
+ **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -154,9 +156,15 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Techlead: Steven Buglione - steven.buglione1@marist.edu
+Our Team: 
+* Programming : Anton Kochnev - anton.kochnev1@marist.edu
+* Project Communications: Max Wasserfall - max.wasserfall1@marist.edu
+* Information Tech.: Raymond Santiago - raymond.santiago2@marist.edu
+* Programming: Anthony Rodriguez - anthony.rodriguez2@marist.edu
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+Project Link: [https://github.com/StevenBuglione/Regalia-Ordering-System](https://github.com/StevenBuglione/Regalia-Ordering-System)
 
 
 
