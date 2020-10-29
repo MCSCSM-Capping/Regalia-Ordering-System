@@ -54,6 +54,9 @@ public class User {
     @Column(name = "WEIGHT")
     private Integer weight;
 
+    @Column(name = "HEIGHT_FEET")
+    private Integer height_feet;
+
     @Column(name = "HEIGHT_INCHES")
     private Integer height_inches;
 
