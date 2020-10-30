@@ -169,6 +169,7 @@ public class AdminController {
                     user.getCap_size().getFitted(),
                     user.getDegree().getName(),
                     user.getDepartment().getName(),
+                    user.getHeight_feet(),
                     user.getHeight_inches(),
                     user.getWeight(),
                     user.getGranting_institution(),
