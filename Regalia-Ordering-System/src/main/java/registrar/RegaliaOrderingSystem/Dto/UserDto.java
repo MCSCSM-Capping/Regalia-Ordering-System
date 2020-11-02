@@ -19,6 +19,7 @@ public class UserDto {
     private String degree;
     private String department;
     private Integer weight;
+    private Integer height_feet;
     private Integer height_inches;
     private String granting_institution;
     private String granting_city;
@@ -26,7 +27,7 @@ public class UserDto {
     private Date last_updated;
     private String role;
 
-    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated) {
+    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_feet, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -37,6 +38,7 @@ public class UserDto {
         this.degree = degree;
         this.department = department;
         this.weight = weight;
+        this.height_feet = height_feet;
         this.height_inches = height_inches;
         this.granting_institution = granting_institution;
         this.granting_city = granting_city;
@@ -44,7 +46,7 @@ public class UserDto {
         this.last_updated = last_updated;
     }
 
-    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated, String role) {
+    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, Integer height_feet, Integer height_inches, String granting_institution, String granting_city, String granting_state, Date last_updated, String role) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -55,6 +57,7 @@ public class UserDto {
         this.degree = degree;
         this.department = department;
         this.weight = weight;
+        this.height_feet = height_feet;
         this.height_inches = height_inches;
         this.granting_institution = granting_institution;
         this.granting_city = granting_city;
@@ -157,6 +160,14 @@ public class UserDto {
 
     public void setWeight(Integer weight) {
         this.weight = weight;
+    }
+
+    public Integer getHeight_feet() {
+        return height_feet;
+    }
+
+    public void setHeight_feet(Integer height_feet) {
+        this.height_feet = height_feet;
     }
 
     public Integer getHeight_inches() {

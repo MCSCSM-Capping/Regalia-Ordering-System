@@ -54,6 +54,9 @@ public class User {
     @Column(name = "WEIGHT")
     private Integer weight;
 
+    @Column(name = "HEIGHT_FEET")
+    private Integer height_feet;
+
     @Column(name = "HEIGHT_INCHES")
     private Integer height_inches;
 
@@ -78,7 +81,7 @@ public class User {
         super();
     }
 
-    public User(Long id, String email, String username, String first_name, String last_name,  boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, Integer height_inches, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
+    public User(Long id, String email, String username, String first_name, String last_name,  boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, Integer height_feet, Integer height_inches, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -91,6 +94,7 @@ public class User {
         this.degree = degree;
         this.department = department;
         this.weight = weight;
+        this.height_feet = height_feet;
         this.height_inches = height_inches;
         this.granting_institution = granting_institution;
         this.granting_city = granting_city;
@@ -107,7 +111,7 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
-    public User(String email, String username, String first_name, String last_name, String phone_number, Ceremony cermonyByName, CapSize capSizeByName, Degree degreeByName, Department departmentIdByName, Integer weight, Integer height_inches, State stateIdByName) {
+    public User(String email, String username, String first_name, String last_name, String phone_number, Ceremony cermonyByName, CapSize capSizeByName, Degree degreeByName, Department departmentIdByName, Integer weight, Integer height_feet, Integer height_inches, State stateIdByName) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -118,6 +122,7 @@ public class User {
         this.degree = degreeByName;
         this.department = departmentIdByName;
         this.weight = weight;
+        this.height_feet = height_feet;
         this.height_inches = height_inches;
         this.granting_state = stateIdByName;
     }
@@ -217,6 +222,14 @@ public class User {
 
     public void setWeight(Integer weight) {
         this.weight = weight;
+    }
+
+    public Integer getHeight_feet() {
+        return height_feet;
+    }
+
+    public void setHeight_feet(Integer height_feet) {
+        this.height_feet = height_feet;
     }
 
     public Integer getHeight_inches() {

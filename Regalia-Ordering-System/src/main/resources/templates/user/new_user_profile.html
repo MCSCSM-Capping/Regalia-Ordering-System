@@ -31,7 +31,7 @@
             
         </div>
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">User Order Information</h4>
+            <h4 class="mb-3 text-center">User Order Information</h4>
             <hr class="mb-4">
             <form action="#" th:action="@{/user/updated}" th:object="${user}"
             method="post">
@@ -131,44 +131,46 @@
                 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label>Height Inches</label>
-                        <select th:field="*{height_inches}" class="custom-select d-block w-100" id="heightInches" required>
-                            <option value=0>Choose...</option>
-                            <option value=48>48</option>
-                            <option value=49>49</option>
-                            <option value=50>50</option>
-                            <option value=51>51</option>
-                            <option value=52>52</option>
-                            <option value=53>53</option>
-                            <option value=54>54</option>
-                            <option value=55>55</option>
-                            <option value=56>56</option>
-                            <option value=57>57</option>
-                            <option value=58>58</option>
-                            <option value=59>59</option>
-                            <option value=60>60</option>
-                            <option value=61>61</option>
-                            <option value=62>62</option>
-                            <option value=63>63</option>
-                            <option value=64>64</option>
-                            <option value=65>65</option>
-                            <option value=66>66</option>
-                            <option value=67>67</option>
-                            <option value=68>68</option>
-                            <option value=69>69</option>
-                            <option value=70>70</option>
-                            <option value=71>71</option>
-                            <option value=72>72</option>
-                            <option value=73>73</option>
-                            <option value=74>74</option>
-                            <option value=75>75</option>
-                            <option value=76>76</option>
-                            <option value=77>77</option>
+                        <label>Height Feet</label>
+                        <select th:field="*{height_feet}" class="custom-select d-block w-100" id="heightFeet" required>
+                            <option value=-1>Choose...</option>
+                            <option value=0>0"</option>
+                            <option value=1>1"</option>
+                            <option value=2>2"</option>
+                            <option value=3>3"</option>
+                            <option value=4>4"</option>
+                            <option value=5>5"</option>
+                            <option value=6>6"</option>
+                            <option value=7>7"</option>
                         </select>
                         <div class="invalid-feedback">
                             Please provide a valid Height.
                         </div>
                     </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Height Inches</label>
+                        <select th:field="*{height_inches}" class="custom-select d-block w-100" id="heightInches" required>
+                            <option value=-1>Choose...</option>
+                            <option value=0>0"</option>
+                            <option value=1>1"</option>
+                            <option value=2>2"</option>
+                            <option value=3>3"</option>
+                            <option value=4>4"</option>
+                            <option value=5>5"</option>
+                            <option value=6>6"</option>
+                            <option value=7>7"</option>
+                            <option value=8>8"</option>
+                            <option value=9>9"</option>
+                            <option value=10>10"</option>
+                            <option value=11>11"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid Height.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Weight</label>
                         <input type="number" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
@@ -176,13 +178,21 @@
                             Valid Weight is required.
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution</label>
                         <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
                         <div class="invalid-feedback">
                             Valid Granting Institution is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="justify-content: center;">
+                    <div class="col-md-6 mb-3">
+                        <label>Institution City</label>
+                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+                        <div class="invalid-feedback">
+                            Valid Institution City is required.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -193,15 +203,6 @@
                                 <option th:text="${State.name}" th:value="${State.name}">name</option>
                             </div>
                         </select>
-                    </div>
-                </div>        
-                <div class="row" style="justify-content: center;">
-                    <div class="col-md-6 mb-3">
-                        <label>Institution City</label>
-                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-                        <div class="invalid-feedback">
-                            Valid Institution City is required.
-                        </div>
                     </div>
                 </div>
 
@@ -215,8 +216,8 @@
 
 
                 <hr class="mb-4">
-                <div class="row">
-                    <div class="d-flex justify-content-center">
+                <div class="row justify-content-center">
+                    <div class="d-flex">
                         <button input type="reset" class="btn btn-danger mr-4">
                             Clear Form
                         </button>
@@ -290,6 +291,12 @@
                                                 <h6 class="my-0">Weight</h6>
                                             </div>
                                             <span class="text-muted" id="Weight"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                            <div >
+                                                <h6 class="my-0">Height Feet</h6>
+                                            </div>
+                                            <span class="text-muted" id="HeightFeet"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                                             <div >
