@@ -93,13 +93,14 @@ Currently used software and frameworks:
 * Main : Within the src file we have our main function. Within this, we maintain Controllers, Models, DAO (Data Access Objects) and DTO (Data Transfer Objects). Like their namesake suggests, these are the means that we use to control certain elements of the app (pointing to specific files upon execution, error handling, etc.). Models are the constructs that hold vital information related to the pages being displayed as well as manipulating said information. DAO's are used to provide entry points into the database and provide a means to query the database for the correct information. The DTO is used to provide a blueprint for user creation and functions to return said user for use. 
 * Resources : Here, we contain the database that has the relative information required for execution. Besides the script for the database, we also contain static resources such as JS script, images, css, etc. The templates feature HTML files that are used to structure the pages the user will see. The JS code in turn is reflected under the static/js folder that add important functionality with said HTML documents. CSS to make things look pretty :). 
 * POM : These file contains the dependencies associated with the app. This is a good checklist to ensure what is needed to execute in the event there is an error on build. 
-    * Workflow : Below is the intended workflow of the program: 
+    
       
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
+  * Note: Upon opening the project on your IDE, you may be prompted to install the proper plugins and dependencies. Refer to the POM file for dependencies. 
 
 ### Prerequisites
 
@@ -125,7 +126,7 @@ mvn spring-boot:run
 ``` 
 3. The software will then begin to run. If using locally, ensure to use
 the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)
-    * Note: Ensure the MySql server is running during build-time. 
+    * Note: Ensure the MySql server is running during build-time. <img src = "images\ProjectRegalia.png" alt ="Example" width = "500" height = "200"> 
 
 
 
