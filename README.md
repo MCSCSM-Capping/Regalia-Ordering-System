@@ -47,6 +47,7 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
   * [Services Used](#Services-Used)
+  * [Code Explanation](#Code-Explanation)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -86,7 +87,14 @@ Currently used software and frameworks:
 
 ### Services Used
 * [CAS](https://en.wikipedia.org/wiki/Central_Authentication_Service)
+  * Requirement for security purposes. 
 
+### Code Explanation
+* Main : Within the src file we have our main function. Within this, we maintain Controllers, Models, DAO (Data Access Objects) and DTO (Data Transfer Objects). Like their namesake suggests, these are the means that we use to control certain elements of the app (pointing to specific files upon execution, error handling, etc.). Models are the constructs that hold vital information related to the pages being displayed as well as manipulating said information. DAO's are used to provide entry points into the database and provide a means to query the database for the correct information. The DTO is used to provide a blueprint for user creation and functions to return said user for use. 
+* Resources : Here, we contain the database that has the relative information required for execution. Besides the script for the database, we also contain static resources such as JS script, images, css, etc. The templates feature HTML files that are used to structure the pages the user will see. The JS code in turn is reflected under the static/js folder that add important functionality with said HTML documents. CSS to make things look pretty :). 
+* POM : These file contains the dependencies associated with the app. This is a good checklist to ensure what is needed to execute in the event there is an error on build. 
+    * Workflow : Below is the intended workflow of the program: 
+      
 
 <!-- GETTING STARTED -->
 ## Getting Started
