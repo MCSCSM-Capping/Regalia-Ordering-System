@@ -125,8 +125,8 @@ git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git
 mvn spring-boot:run
 ``` 
 3. The software will then begin to run. If using locally, ensure to use
-the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)
-    * Note: Ensure the MySql server is running during build-time. <img src = "images\Example.PNG" alt ="Example"> 
+the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)<img src = "images\Example.PNG" alt ="Example"> 
+    * Note: Ensure the MySql server is running during build-time. 
 
 
 
