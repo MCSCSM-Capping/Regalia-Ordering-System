@@ -3,7 +3,7 @@ package registrar.RegaliaOrderingSystem.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CEREMONY")
+@Table(name = "ceremony")
 public class Ceremony {
 
     @Id

@@ -4,7 +4,7 @@ package registrar.RegaliaOrderingSystem.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "DEPARTMENT")
+@Table(name = "department")
 public class Department {
 
     @Id
