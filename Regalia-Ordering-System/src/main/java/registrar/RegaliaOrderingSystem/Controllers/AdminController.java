@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.text.DateFormat;
+import java.util.Objects;
 
 @Controller
 public class AdminController {
@@ -74,6 +75,36 @@ public class AdminController {
         //Get the user Logged in
         User admin = _userService.getUserByUsername(CWID);
 
+        //New user object
+        User newUser = new User();
+
+        //Generate userDto
+        UserDto userDto = new UserDto();
+
+        if(Objects.isNull(newUser.getFirst_name())){
+            newUser = new User();
+        }else{
+            userDto.setEmail(newUser.getEmail());
+            userDto.setUsername(newUser.getUsername());
+            userDto.setFirst_name(newUser.getFirst_name());
+            userDto.setLast_name(newUser.getLast_name());
+            userDto.setPhone_number(newUser.getPhone_number());
+            userDto.setCeremony_date(newUser.getCeremony_date().getName());
+            userDto.setCap_size(newUser.getCap_size().getFitted());
+            userDto.setDegree(newUser.getDegree().getName());
+            userDto.setDepartment(newUser.getDepartment().getName());
+            userDto.setWeight(newUser.getWeight());
+            userDto.setHeight_feet(newUser.getHeight_feet());
+            userDto.setHeight_inches(newUser.getHeight_inches());
+            userDto.setGranting_city(newUser.getGranting_city());
+            userDto.setGranting_institution(newUser.getGranting_institution());
+            userDto.setGranting_state(newUser.getGranting_state().getName());
+        }
+
+        model.addAttribute("newUser", userDto);
+
+        //Provide the new user object to the new user modal
+//        model.addAttribute("newUser", newUser);
 
         //Provide admin Details to model
         model.addAttribute("admin", admin);
@@ -182,8 +213,8 @@ public class AdminController {
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
 
-        String[] csvHeader = {"CWID", "Last Name", "First Name", "Degree", "School", "Height", "Hat Size", "Last Updated"};
-        String[] nameMapping = {"username", "last_name", "first_name", "degree", "granting_institution", "height_inches", "cap_size", "last_updated"};
+        String[] csvHeader = {"CWID", "Last Name", "First Name", "Degree", "School", "HeightFeet", "HeightInches", "Hat Size", "Last Updated"};
+        String[] nameMapping = {"username", "last_name", "first_name", "degree", "granting_institution", "height_feet","height_inches", "cap_size", "last_updated"};
 
 
         csvWriter.writeHeader(csvHeader);
