@@ -81,7 +81,7 @@ public class AdminController {
         //Generate userDto
         UserDto userDto = new UserDto();
 
-        if(Objects.isNull(newUser.getFirst_name())){
+        if(!Objects.isNull(newUser.getFirst_name())){
             newUser = new User();
         }else{
             userDto.setEmail(newUser.getEmail());
