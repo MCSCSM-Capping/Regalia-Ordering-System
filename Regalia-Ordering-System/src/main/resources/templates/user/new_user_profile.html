@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Department</label>
-                        <select th:field="*{Department}" class="custom-select d-block w-100" id="department" required>
+                        <select th:field="*{department}" class="custom-select d-block w-100" id="department" required>
                             <option value="">Choose...</option>
                             <div th:each="Department : ${departments}">
                                 <option th:text="${Department.name}" th:value="${Department.name}">name</option>
