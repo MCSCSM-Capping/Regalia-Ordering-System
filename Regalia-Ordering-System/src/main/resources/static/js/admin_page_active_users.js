@@ -150,7 +150,7 @@ function updateUser(){
         fetch(fetchUrl, options)
         .then(res => res.json())
 
-        // window.location.href = "/admin_page_active_users"
+        window.location.href = "/admin_page_active_users"
 
 
 
