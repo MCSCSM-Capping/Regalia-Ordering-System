@@ -144,10 +144,11 @@ public class RestAdminController {
         return "User has been updated";
     }
 
-    @PostMapping(path = "/user/add/{id}", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/user/add", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public String newUser(@PathVariable String id, @RequestBody UserDto userDto) {
+    public String newUser(@RequestBody UserDto userDto) {
 
+        // Create a new user
         User user = new User();
 
         if(Objects.isNull(user.getFirst_name())){
