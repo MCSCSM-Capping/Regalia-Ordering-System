@@ -151,6 +151,8 @@ public class RestAdminController {
         // Create a new user
         User user = new User();
 
+        userDto = new UserDto();
+
         if(Objects.isNull(user.getFirst_name())){
             user = new User();
         }else{
