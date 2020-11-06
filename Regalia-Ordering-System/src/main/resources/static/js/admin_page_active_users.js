@@ -214,8 +214,7 @@ function createNewUser() {
         .then(res => console.log(res));
 
 
-    // window.location.href = "/admin_page_active_users"
-
+    window.location.href = "/admin_page_active_users"
 
 }
 

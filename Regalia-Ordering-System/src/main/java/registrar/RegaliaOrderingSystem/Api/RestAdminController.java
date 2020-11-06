@@ -151,27 +151,22 @@ public class RestAdminController {
         // Create a new user
         User user = new User();
 
-        userDto = new UserDto();
-
-        if(Objects.isNull(user.getFirst_name())){
-            user = new User();
-        }else{
-            userDto.setEmail(user.getEmail());
-            userDto.setUsername(user.getUsername());
-            userDto.setFirst_name(user.getFirst_name());
-            userDto.setLast_name(user.getLast_name());
-            userDto.setPhone_number(user.getPhone_number());
-            userDto.setCeremony_date(user.getCeremony_date().getName());
-            userDto.setCap_size(user.getCap_size().getFitted());
-            userDto.setDegree(user.getDegree().getName());
-            userDto.setDepartment(user.getDepartment().getName());
-            userDto.setWeight(user.getWeight());
-            userDto.setHeight_feet(user.getHeight_feet());
-            userDto.setHeight_inches(user.getHeight_inches());
-            userDto.setGranting_city(user.getGranting_city());
-            userDto.setGranting_institution(user.getGranting_institution());
-            userDto.setGranting_state(user.getGranting_state().getName());
-        }
+        user.setUsername(userDto.getUsername());
+        user.setFirst_name(userDto.getFirst_name());
+        user.setLast_name(userDto.getLast_name());
+        user.setPhone_number(userDto.getPhone_number());
+        user.setWeight(userDto.getWeight());
+        user.setHeight_feet(userDto.getHeight_feet());
+        user.setHeight_inches(userDto.getHeight_inches());
+        user.setGranting_institution(userDto.getGranting_institution());
+        user.setGranting_city(userDto.getGranting_city());
+        user.setEmail(userDto.getEmail());
+        user.setCap_size(_capSizeService.getCapSizeByName(userDto.getCap_size()));
+        user.setCeremony_date(_ceremonyService.getCermonyByName(userDto.getCeremony_date()));
+        user.setDegree(_degreeService.getDegreeByName(userDto.getDegree()));
+        user.setDepartment(_departmentService.getDepartmentIdByName(userDto.getDepartment()));
+        user.setGranting_state(_stateService.getStateIdByName(userDto.getGranting_state()));
+        user.setRoles(_roleService.listOfUserRole(userDto.getRole()));
 
         //Update the Database with the updated user
         _userService.save(user);
