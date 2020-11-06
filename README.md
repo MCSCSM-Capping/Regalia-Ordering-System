@@ -47,6 +47,7 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
   * [Services Used](#Services-Used)
+  * [Code Explanation](#Code-Explanation)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -73,20 +74,34 @@ This application aims to solve issues with the current reglia system:
 
 ### Built With
 Currently used software and frameworks:
-* [Spring Framework](https://https://spring.io/projects/spring-framework)
+* [Spring Framework](https://spring.io/projects/spring-framework)
 * [Bootstrap](https://getbootstrap.com/)
 * [MySql](https://www.mysql.com/)
 * [Flyway](https://flywaydb.org/)
 * [Super CSV](http://super-csv.github.io/super-csv/csv_specification.html)
 
+* Why were these used?
+  * Maven in conjunction with Spring provides consistency across the project. With the help of added libraries and ease of use, it provided the best means of deploying a project of this scale quickly and efficiently.
+  * MySQL was chosen due to its wide range of compatible platforms. Since this project is intended to be injected into an already working network, last thing we want to be worried about is compatibility. 
+  * Flyway was used for ease of database migration and to make changes easily. 
+
 ### Services Used
 * [CAS](https://en.wikipedia.org/wiki/Central_Authentication_Service)
+  * Requirement for security purposes. 
 
+### Code Explanation
+* Main : Within the src file we have our main function. Within this, we maintain Controllers, Models, DAO (Data Access Objects) and DTO (Data Transfer Objects). Like their namesake suggests, these are the means that we use to control certain elements of the app (pointing to specific files upon execution, error handling, etc.). Models are the constructs that hold vital information related to the pages being displayed as well as manipulating said information. DAO's are used to provide entry points into the database and provide a means to query the database for the correct information. The DTO is used to provide a blueprint for user creation and functions to return said user for use. 
+* Resources : Here, we contain the database that has the relative information required for execution. Besides the script for the database, we also contain static resources such as JS script, images, css, etc. The templates feature HTML files that are used to structure the pages the user will see. The JS code in turn is reflected under the static/js folder that add important functionality with said HTML documents. CSS to make things look pretty :). 
+* POM : These file contains the dependencies associated with the app. This is a good checklist to ensure what is needed to execute in the event there is an error on build. 
+  * Workflow: Once the app is running and nagivating to localhost, user will be met with a CAS login screen. CAS simply interrupts the session and upon not locating a ticket will redirect to the CAS server for one. Once credentials are established, user is moved to user form to fill out information. Information placed into the form is then parsed by the controllers and user DTO for the relevant information to be stored which will be held in the database. The admin screen allows seeing the database and subsequent information posted. The Controllers and DTO/DOA allow for the query of particular users.  
+    
+      
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
+  * Note: Upon opening the project on your IDE, you may be prompted to install the proper plugins and dependencies. Refer to the POM file for dependencies. 
 
 ### Prerequisites
 
@@ -111,7 +126,7 @@ git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git
 mvn spring-boot:run
 ``` 
 3. The software will then begin to run. If using locally, ensure to use
-the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)
+the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)<img src = "images\Example.PNG" alt ="Example"> 
     * Note: Ensure the MySql server is running during build-time. 
 
 

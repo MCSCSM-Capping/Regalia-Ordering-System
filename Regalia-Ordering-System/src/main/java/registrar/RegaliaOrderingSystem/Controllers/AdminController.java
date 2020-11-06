@@ -78,8 +78,6 @@ public class AdminController {
         //New user object
         User newUser = new User();
 
-        model.addAttribute("newUser", newUser);
-
         //Provide admin Details to model
         model.addAttribute("admin", admin);
 
