@@ -364,13 +364,12 @@
         </button>
       </div>
       <div class="modal-body">
-      <form action="#" th:action="@{/user/add}" th:object="${newUser}" method="post">
         <div class="col-md-8 order-md-1 container-fluid">
           <div class="row">
 
               <div class="col-md-6 mb-3">
                 <label>CWID</label>
-                <input type="number" th:field="*{username}" class="form-control" placeholder="CWID" id="newCwid" value="" required>
+                <input type="number" class="form-control" placeholder="CWID" id="newCwid" value="" required>
                 <div class="invalid-feedback">
                   Valid cwid is required.
                 </div>
@@ -390,7 +389,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>First Name</label>
-              <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="newFirstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+              <input type="text" class="form-control" placeholder="First Name" value="" id="newFirstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
               <div class="invalid-feedback" id="msg">
                 Valid first name is required.
               </div>
@@ -398,7 +397,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Last Name</label>
-              <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="newLastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+              <input type="text" class="form-control" placeholder="Last Name" id="newLastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
               <div class="invalid-feedback">
                 Valid Last name is required.
               </div>
@@ -408,7 +407,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Email</label>
-              <input type="text" th:field="*{email}" class="form-control" id="newEmail" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
+              <input type="text" class="form-control" id="newEmail" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
               <div class="invalid-feedback">
                 Please enter a valid email address for shipping updates.
               </div>
@@ -416,7 +415,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Phone Number</label>
-              <input type="number" th:field="*{phone_number}" class="form-control" id="newPhoneNumber" placeholder="914-554-2354" required>
+              <input type="number" class="form-control" id="newPhoneNumber" placeholder="914-554-2354" required>
               <div class="invalid-feedback">
                 Please enter your Phone Number.
               </div>
@@ -428,7 +427,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Department</label>
-              <select th:field="*{department}" class="custom-select d-block w-100" id="newDepartment" required>
+              <select class="custom-select d-block w-100" id="newDepartment" required>
                 <option value="">Choose...</option>
                 <div th:each="Department : ${departments}">
                   <option th:text="${Department.name}" th:value="${Department.name}">name</option>
@@ -442,7 +441,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Cap Size</label>
-              <select th:field="*{cap_size}" class="custom-select d-block w-100" id="newCapSize" required>
+              <select class="custom-select d-block w-100" id="newCapSize" required>
                 <option value="">Choose...</option>
                 <div th:each="CapSize : ${capSizes}">
                   <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
@@ -458,7 +457,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Degree</label>
-              <select th:field="*{degree}" class="custom-select d-block w-100" id="newDegree" required>
+              <select class="custom-select d-block w-100" id="newDegree" required>
                 <option value="">Choose...</option>
                 <div th:each="Degree : ${degrees}">
                   <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
@@ -471,7 +470,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Ceremony Schedule</label>
-              <select th:field="*{ceremony_date}" class="custom-select d-block w-100" id="newCeremonyDate" required>
+              <select class="custom-select d-block w-100" id="newCeremonyDate" required>
                 <option value="">Choose...</option>
                 <div th:each="Ceremony : ${ceremonies}">
                   <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
@@ -486,7 +485,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Height Feet</label>
-              <select th:field="*{height_feet}" class="custom-select d-block w-100" id="newHeightFeet" required>
+              <select class="custom-select d-block w-100" id="newHeightFeet" required>
                 <option value=-1>Choose...</option>
                 <option value=4>4"</option>
                 <option value=5>5"</option>
@@ -500,7 +499,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Height Inches</label>
-              <select th:field="*{height_inches}" class="custom-select d-block w-100" id="newHeightInches" required>
+              <select class="custom-select d-block w-100" id="newHeightInches" required>
                 <option value=-1>Choose...</option>
                 <option value=0>0"</option>
                 <option value=1>1"</option>
@@ -522,7 +521,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Weight</label>
-              <input type="number" th:field="*{weight}" class="form-control" placeholder="Weight" id="newWeight" value="" required>
+              <input type="number" class="form-control" placeholder="Weight" id="newWeight" value="" required>
               <div class="invalid-feedback">
                 Valid Weight is required.
               </div>
@@ -534,7 +533,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Granting Institution</label>
-              <input type="text" th:field="*{granting_institution}" class="form-control" id="newGrantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+              <input type="text" class="form-control" id="newGrantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
               <div class="invalid-feedback">
                 Valid Granting Institution is required.
               </div>
@@ -542,7 +541,7 @@
 
             <div class="col-md-6 mb-3">
               <label>Institution State</label>
-              <select th:field="*{granting_state}" class="custom-select d-block w-100" id="newInstitutionState" required>
+              <select class="custom-select d-block w-100" id="newInstitutionState" required>
                 <option value="">Choose...</option>
                 <div th:each="State : ${states}">
                   <option th:text="${State.name}" th:value="${State.name}">name</option>
@@ -554,7 +553,7 @@
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 mb-3">
               <label>Institution City</label>
-              <input type="text" th:field="*{granting_city}" class="form-control" id="newInstitutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+              <input type="text" class="form-control" id="newInstitutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
               <div class="invalid-feedback">
                 Valid Institution City is required.
               </div>
@@ -575,7 +574,6 @@
             </div>
           </div>
         </div>
-      </form>
       </div>
     </div>
   </div>

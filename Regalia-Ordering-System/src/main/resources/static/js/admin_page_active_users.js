@@ -135,8 +135,6 @@ function updateUser(){
 
         console.log(user);
 
-
-
         // request options
         const options = {
         method: 'POST',
@@ -159,25 +157,25 @@ function updateUser(){
 function createNewUser() {
 
     // Api Requirements
-    const route = 'http://localhost:8080/user/add/';
-    let id = document.getElementById("newCwid").textContent;
-    let url = route + id ;
+    const route = 'http://localhost:8080/user/add';
+    let url = route;
 
-    let firstNameDOM = document.getElementById("firstName").value;
-    let lastNameDOM = document.getElementById("lastName").value;
-    let emailDOM = document.getElementById("email").value;
-    let phoneNumberDOM = document.getElementById("phoneNumber").value;
-    let departmentDOM = document.getElementById("department").value;
-    let capSizeDOM = document.getElementById("capSize").value;
-    let degreeDOM = document.getElementById("degree").value;
-    let weightDOM = document.getElementById("weight").value;
-    let heightFeetDOM = document.getElementById("heightFeet").value;
-    let heightInchesDOM = document.getElementById("heightInches").value;
-    let grantingInstitutionDOM = document.getElementById("grantingInstitution").value;
-    let institutionStateDOM = document.getElementById("institutionState").value;
-    let institutionCityDOM = document.getElementById("institutionCity").value;
-    let ceremonyDateDOM = document.getElementById("ceremonyDate").value;
-    let roleDOM = document.getElementById("role").value;
+    let firstNameDOM = document.getElementById("newFirstName").value;
+    let lastNameDOM = document.getElementById("newLastName").value;
+    let emailDOM = document.getElementById("newEmail").value;
+    let phoneNumberDOM = document.getElementById("newPhoneNumber").value;
+    let departmentDOM = document.getElementById("newDepartment").value;
+    let capSizeDOM = document.getElementById("newCapSize").value;
+    let degreeDOM = document.getElementById("newDegree").value;
+    let weightDOM = document.getElementById("newWeight").value;
+    let heightFeetDOM = document.getElementById("newHeightFeet").value;
+    let heightInchesDOM = document.getElementById("newHeightInches").value;
+    let grantingInstitutionDOM = document.getElementById("newGrantingInstitution").value;
+    let institutionStateDOM = document.getElementById("newInstitutionState").value;
+    let institutionCityDOM = document.getElementById("newInstitutionCity").value;
+    let ceremonyDateDOM = document.getElementById("newCeremonyDate").value;
+    let roleDOM = document.getElementById("newRole").value;
+    let usernameDom = document.getElementById("newCwid").value;
 
 
     const user = {
@@ -196,7 +194,7 @@ function createNewUser() {
         granting_city : institutionCityDOM,
         ceremony_date : ceremonyDateDOM,
         role : roleDOM,
-        username: usersCwid
+        username: usernameDom
     };
 
     console.log(user);
@@ -204,6 +202,7 @@ function createNewUser() {
     // request options
     const options = {
         method: 'POST',
+        body: JSON.stringify(user),
         headers: {
             'Content-Type': 'application/json'
         }
@@ -215,7 +214,7 @@ function createNewUser() {
         .then(res => console.log(res));
 
 
-    window.location.href = "/admin_page_active_users"
+    // window.location.href = "/admin_page_active_users"
 
 
 }
