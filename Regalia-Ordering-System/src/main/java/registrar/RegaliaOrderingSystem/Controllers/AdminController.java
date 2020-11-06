@@ -78,34 +78,6 @@ public class AdminController {
         //New user object
         User newUser = new User();
 
-        //Generate userDto
-        UserDto userDto = new UserDto();
-
-        if(!Objects.isNull(newUser.getFirst_name())){
-            newUser = new User();
-        }else{
-            userDto.setEmail(newUser.getEmail());
-            userDto.setUsername(newUser.getUsername());
-            userDto.setFirst_name(newUser.getFirst_name());
-            userDto.setLast_name(newUser.getLast_name());
-            userDto.setPhone_number(newUser.getPhone_number());
-            userDto.setCeremony_date(newUser.getCeremony_date().getName());
-            userDto.setCap_size(newUser.getCap_size().getFitted());
-            userDto.setDegree(newUser.getDegree().getName());
-            userDto.setDepartment(newUser.getDepartment().getName());
-            userDto.setWeight(newUser.getWeight());
-            userDto.setHeight_feet(newUser.getHeight_feet());
-            userDto.setHeight_inches(newUser.getHeight_inches());
-            userDto.setGranting_city(newUser.getGranting_city());
-            userDto.setGranting_institution(newUser.getGranting_institution());
-            userDto.setGranting_state(newUser.getGranting_state().getName());
-        }
-
-        model.addAttribute("newUser", userDto);
-
-        //Provide the new user object to the new user modal
-//        model.addAttribute("newUser", newUser);
-
         //Provide admin Details to model
         model.addAttribute("admin", admin);
 
@@ -117,8 +89,6 @@ public class AdminController {
 
         //User Data
         model.addAttribute("activeUsers", activeUsers);
-
-
 
         //Get Modal Data
         List<CapSize> capSizes = _capSizeService.listAll();

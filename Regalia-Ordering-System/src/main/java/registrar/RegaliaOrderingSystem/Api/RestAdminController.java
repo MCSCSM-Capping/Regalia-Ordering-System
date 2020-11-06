@@ -18,6 +18,7 @@ import registrar.RegaliaOrderingSystem.Dto.UserDto;
 import registrar.RegaliaOrderingSystem.Models.Role;
 import registrar.RegaliaOrderingSystem.Models.User;
 
+import java.util.Objects;
 import java.util.Set;
 
 @RestController
@@ -142,4 +143,35 @@ public class RestAdminController {
         //Return 200 ok
         return "User has been updated";
     }
+
+    @PostMapping(path = "/user/add", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public String newUser(@RequestBody UserDto userDto) {
+
+        // Create a new user
+        User user = new User();
+
+        user.setUsername(userDto.getUsername());
+        user.setFirst_name(userDto.getFirst_name());
+        user.setLast_name(userDto.getLast_name());
+        user.setPhone_number(userDto.getPhone_number());
+        user.setWeight(userDto.getWeight());
+        user.setHeight_feet(userDto.getHeight_feet());
+        user.setHeight_inches(userDto.getHeight_inches());
+        user.setGranting_institution(userDto.getGranting_institution());
+        user.setGranting_city(userDto.getGranting_city());
+        user.setEmail(userDto.getEmail());
+        user.setCap_size(_capSizeService.getCapSizeByName(userDto.getCap_size()));
+        user.setCeremony_date(_ceremonyService.getCermonyByName(userDto.getCeremony_date()));
+        user.setDegree(_degreeService.getDegreeByName(userDto.getDegree()));
+        user.setDepartment(_departmentService.getDepartmentIdByName(userDto.getDepartment()));
+        user.setGranting_state(_stateService.getStateIdByName(userDto.getGranting_state()));
+        user.setRoles(_roleService.listOfUserRole(userDto.getRole()));
+
+        //Update the Database with the updated user
+        _userService.save(user);
+
+        return "New user has been added";
+    }
+
 }
