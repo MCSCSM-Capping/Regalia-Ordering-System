@@ -135,8 +135,6 @@ function updateUser(){
 
         console.log(user);
 
-
-
         // request options
         const options = {
         method: 'POST',
@@ -156,59 +154,68 @@ function updateUser(){
 
 }
 
-function getModalData(){
-    //Getting form data and storing it in block scope variables
-    let firstName = document.getElementById("firstName").value;
-    let lastName = document.getElementById("lastName").value;
-    let email = document.getElementById("email").value;
-    let phoneNumber = document.getElementById("phoneNumber").value;
-    let department = document.getElementById("department").value;
-    let capSize = document.getElementById("capSize").value;
-    let degree = document.getElementById("degree").value;
-    let weight = document.getElementById("weight").value;
-    let heightFeet = document.getElementById("heightFeet").value;
-    let heightInches = document.getElementById("heightInches").value;
-    let grantingInstitution = document.getElementById("grantingInstitution").value;
-    let institutionState = document.getElementById("institutionState").value;
-    let institutionCity = document.getElementById("institutionCity").value;
-    let ceremonyDate = document.getElementById("ceremonyDate").value;
+function createNewUser() {
+
+    // Api Requirements
+    const route = 'http://localhost:8080/user/add';
+    let url = route;
+
+    let firstNameDOM = document.getElementById("newFirstName").value;
+    let lastNameDOM = document.getElementById("newLastName").value;
+    let emailDOM = document.getElementById("newEmail").value;
+    let phoneNumberDOM = document.getElementById("newPhoneNumber").value;
+    let departmentDOM = document.getElementById("newDepartment").value;
+    let capSizeDOM = document.getElementById("newCapSize").value;
+    let degreeDOM = document.getElementById("newDegree").value;
+    let weightDOM = document.getElementById("newWeight").value;
+    let heightFeetDOM = document.getElementById("newHeightFeet").value;
+    let heightInchesDOM = document.getElementById("newHeightInches").value;
+    let grantingInstitutionDOM = document.getElementById("newGrantingInstitution").value;
+    let institutionStateDOM = document.getElementById("newInstitutionState").value;
+    let institutionCityDOM = document.getElementById("newInstitutionCity").value;
+    let ceremonyDateDOM = document.getElementById("newCeremonyDate").value;
+    let roleDOM = document.getElementById("newRole").value;
+    let usernameDom = document.getElementById("newCwid").value;
 
 
-    //Getting modal element by id
-    let FirstName = document.getElementById("FirstName");
-    let LastName = document.getElementById("LastName");
-    let Email = document.getElementById("Email");
-    let PhoneNumber = document.getElementById("PhoneNumber");
-    let Department = document.getElementById("Department");
-    let CapSize = document.getElementById("CapSize");
-    let Degree = document.getElementById("Degree");
-    let Weight = document.getElementById("Weight");
-    let HeightFeet = document.getElementById("HeightFeet");
-    let HeightInches = document.getElementById("HeightInches");
-    let GrantingInstitution = document.getElementById("GrantingInstitution");
-    let InstitutionState = document.getElementById("InstitutionState");
-    let InstitutionCity = document.getElementById("InstitutionCity");
-    let CeremonyDate = document.getElementById("CeremonyDate");
+    const user = {
+        first_name : firstNameDOM,
+        last_name : lastNameDOM,
+        email : emailDOM,
+        phone_number : phoneNumberDOM,
+        department : departmentDOM,
+        cap_size : capSizeDOM,
+        degree : degreeDOM,
+        weight : weightDOM,
+        height_feet : heightFeetDOM,
+        height_inches : heightInchesDOM,
+        granting_institution : grantingInstitutionDOM,
+        granting_state : institutionStateDOM,
+        granting_city : institutionCityDOM,
+        ceremony_date : ceremonyDateDOM,
+        role : roleDOM,
+        username: usernameDom
+    };
+
+    console.log(user);
+
+    // request options
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    // send POST request
+    fetch(url, options)
+        .then(res => res.json())
+        .then(res => console.log(res));
 
 
-    //Setting the Modal Data with the form Data
-    FirstName.textContent = firstName;
-    LastName.textContent = lastName;
-    Email.textContent = email;
-    PhoneNumber.textContent = phoneNumber;
-    Department.textContent = department;
-    CapSize.textContent = capSize;
-    Degree.textContent = degree;
-    Weight.textContent = weight;
-    HeightFeet.textContent = heightFeet;
-    HeightInches.textContent = heightInches;
-    GrantingInstitution.textContent = grantingInstitution;
-    InstitutionState.textContent = institutionState;
-    InstitutionCity.textContent = institutionCity;
-    CeremonyDate.textContent = ceremonyDate;
-
+    window.location.href = "/admin_page_active_users"
 
 }
-
 
 
