@@ -45,6 +45,7 @@ README created by Anthony Rodriguez: anthony.rodriguez2@marist.edu
 * [Installing Project Regalia](#Install-Project)
   * [Install Guide](#Install-Guide)
 * [Usage](#usage)
+* [Documentation](#Documentation)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -259,6 +260,11 @@ Visit: 10.10.9.150
 
 This project is intended for the private use of Marist College. The programming and systems involved are tailored for the college and any use other than intended will result in unforeseen problems and troubleshooting. The authors of this application assume no responsibility for unauthorized use. Any code pertaining to Marist College must be replaced if to be used for other institutions and thereby no longer under this project's domain. 
 
+<!-- DOCUMENTATION -->
+## Documentation
+The following are documents related to the construction of the application. 
+
+Located in the [Architectural Diagram](https://github.com/StevenBuglione/Regalia-Ordering-System/tree/arod/Documents) folder. 
 
 
 <!-- ROADMAP -->
