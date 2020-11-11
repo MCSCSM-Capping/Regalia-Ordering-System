@@ -135,7 +135,7 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 <!-- Docker Install Guide -->
 ## Docker
 
-Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from (https://docs.docker.com/get-started/overview/)
+Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from Docker's [website](https://docs.docker.com/get-started/overview/)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
