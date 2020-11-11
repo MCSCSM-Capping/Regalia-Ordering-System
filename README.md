@@ -46,6 +46,7 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+  * [Deployed With](#Deployed-With)
   * [Services Used](#Services-Used)
   * [Code Explanation](#Code-Explanation)
 * [Getting Started](#getting-started)
@@ -74,13 +75,16 @@ This application aims to solve issues with the current reglia system:
 * Automate the ordering system. 
 * Simplyfing the current system via a single login protocol. 
 
-### Built With
+### Built With: 
 Currently used software and frameworks:
 * [Spring Framework](https://spring.io/projects/spring-framework)
 * [Bootstrap](https://getbootstrap.com/)
 * [MySql](https://www.mysql.com/)
 * [Flyway](https://flywaydb.org/)
 * [Super CSV](http://super-csv.github.io/super-csv/csv_specification.html)
+
+### Deployed Using: 
+* [Docker](https://www.docker.com/)
 
 * Why were these used?
   * Maven in conjunction with Spring provides consistency across the project. With the help of added libraries and ease of use, it provided the best means of deploying a project of this scale quickly and efficiently.
@@ -134,7 +138,7 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 
 <!-- Docker Install Guide -->
 ## Docker
-
+* Why Docker?
 Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from Docker's [website](https://docs.docker.com/get-started/overview/).
 
 ### Install Guide
