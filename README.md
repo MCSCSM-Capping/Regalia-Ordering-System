@@ -1,22 +1,8 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
+<!-- PROJECT REGALIA README
+This README was created for the Project Regalia team for educational use. This README will not be updated past project completion (i.e. no further updates will be done post semester.)
+README created by Anthony Rodriguez: anthony.rodriguez2@marist.edu 
 -->
 
-
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 <a href="https://github.com/StevenBuglione/Regalia-Ordering-System/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/StevenBuglione/Regalia-Ordering-System"></a> <a href="https://github.com/StevenBuglione/Regalia-Ordering-System/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/StevenBuglione/Regalia-Ordering-System"></a> <a href="https://github.com/StevenBuglione/Regalia-Ordering-System/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/StevenBuglione/Regalia-Ordering-System"></a> <a href="https://github.com/StevenBuglione/Regalia-Ordering-System"><img alt="GitHub license" src="https://img.shields.io/github/license/StevenBuglione/Regalia-Ordering-System"></a>
 
 
@@ -46,13 +32,20 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+  * [Deployed Using](#Deployed-Using)
   * [Services Used](#Services-Used)
   * [Code Explanation](#Code-Explanation)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [How to run](#How-to-run)
+  * [Server Setup Prior to Docker](#Server-Setup)
+* [Docker](#Docker)
+  * [Install Docker](#Install-Docker)
+* [Installing Project Regalia](#Install-Project)
+  * [Install Guide](#Install-Guide)
 * [Usage](#usage)
+* [Documentation](#Documentation)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -72,7 +65,7 @@ This application aims to solve issues with the current reglia system:
 * Automate the ordering system. 
 * Simplyfing the current system via a single login protocol. 
 
-### Built With
+### Built With: 
 Currently used software and frameworks:
 * [Spring Framework](https://spring.io/projects/spring-framework)
 * [Bootstrap](https://getbootstrap.com/)
@@ -80,10 +73,14 @@ Currently used software and frameworks:
 * [Flyway](https://flywaydb.org/)
 * [Super CSV](http://super-csv.github.io/super-csv/csv_specification.html)
 
-* Why were these used?
-  * Maven in conjunction with Spring provides consistency across the project. With the help of added libraries and ease of use, it provided the best means of deploying a project of this scale quickly and efficiently.
-  * MySQL was chosen due to its wide range of compatible platforms. Since this project is intended to be injected into an already working network, last thing we want to be worried about is compatibility. 
-  * Flyway was used for ease of database migration and to make changes easily. 
+### Deployed Using: 
+* [Docker](https://www.docker.com/)
+
+Why were these used?
+* Maven in conjunction with Spring provides consistency across the project. With the help of added libraries and ease of use, it provided the best means of deploying a project of this scale quickly and efficiently.
+* MySQL was chosen due to its wide range of compatible platforms. Since this project is intended to be injected into an already working network, last thing we want to be worried about is compatibility. 
+* Flyway was used for ease of database migration and to make changes easily. 
+* See [Docker Section](#Docker) for explanation. 
 
 ### Services Used
 * [CAS](https://en.wikipedia.org/wiki/Central_Authentication_Service)
@@ -129,13 +126,145 @@ mvn spring-boot:run
 the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)<img src = "images\Example.PNG" alt ="Example"> 
     * Note: Ensure the MySql server is running during build-time. 
 
+<!-- Server Setup Prior to Docker installation -->
+### Server Setup
+<b>Before Starting:</b> Ensure you are connected to the Marist College Network via VPN / using the network on Marist College campus. 
 
+1. <b>Signing In:</b> 
+  Visit capping.ecrl.marist.edu. Click advanced and then proceed. This should bring you to a VMware page. Cick HTML5 vsphere client. 
+2. Sign in using the name that was given access to the ecrl vsphere (Ex. yourmaristemail@vsphere.local). The domain is vsphere.local. Then use the given password. It must be changed once inside. 
+3. <b>Changing Password with Other Personal Information:</b> 
+  Click menu -> Admin -> Users and Groups. Find your username. Click the Menu bar and then click Edit. Then change the current password. Click Ok. 
+4. <b>Creating the VM:</b> 
+  Click Menu -> Hosts and Clusters -> VMs and Templates. Click the dropdown until you see your folder. In the folder: click Actions -> New Virtual Machine. 
+5. Click Create Virtual Machine and then Next.
+6. Name the VM to a relevant to your project with the desired IP address for the server (for ease of identification, the IP's you will be using will be given). Ensure it's selected in your team folder. Then Next. 
+7. Click Capping Cluster Resources then Next. 
+8. Click Current Capping then Next. 
+9. Ensure compatibility is ESXI 6.5 then Next. 
+10. Choose the OS for the server then Next. 
+11. <b>Hardware:</b> 
+  * CPU - 4 cores and 4 cores per socket. This means you have 1 processor with 4 cores verses 4 processors with 1 core.
+  * Memory (RAM) - 4 GB.
+  * Hard Drive (New Hard Disk) - 16 GB. Ensure it's on Thin Provisioned. 
+  * Network (New Network) - 10.10.9.0/24
+  * Mounting the ISO (New CD/DVD Drive) - click Datastore ISO -> ISO - Repo -> click on the folder for the chosen OS. Click OK. Click the checkbox to ensure it connects when powered on. 
+  * Next and then Finish. 
+  * To edit when VM is off: Right click on VM and then Edit. 
+12. <b>The VM and Installing CentOS:</b> 
+  Click the green arrow towards the top to power on OR click on Actions and then Power On. Click Launch Web Console. Ensure the popup is checked on the Web Console and click OK. The VM will launch on a new tab. 
+13. Ensure you are on Intall CentOS 7 and hit Enter. Wait for the installation to complete. A prompt will appear to select a language. Hit Continue. 
+14. Ensure you are selecting the Select Disk under System and Installation Destination. Use Minimal Install (specific for CentOS) under Software and Software Selection. 
+15. <b>Configuring the Network:</b> 
+  Click Network and Hostname -> Configure -> IPv4 Settings -> Method = Manual -> Add. 
+  * Our Projects Info: 
+  Address(Server IP): 10.10.9.150   Netmask: 24   Gateway: 10.10.9.1
+  DNS: 10.11.12.2, 10.11.12.3
+      Then save. Enable Ethernet Connectivity.
+      You can create a Hostname if desired. Ours is Linux Docker Container.
+16. Click Begin Installation. 
+17. You will be prompted to create a Root username and password as well as an admin user. Ensure you complete those before completing the installation. The server should boot and then you will be prompted to sign into the server. Use the admin user info created. You should then be within the terminal of the newly created Virtual Machine.   
+
+<!-- Docker Install Guide -->
+## Docker
+Why Docker?
+* Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from Docker's [website](https://docs.docker.com/get-started/overview/).
+
+### Install Docker
+1. Install the latest version of Docker:
+```sh
+$ sudo yum install docker-ce docer-ce-cli containerd.io
+```
+<i>Sudo</i> is the command that allows the user root access. If you simply type the command <i>su</i>, it will prompt you to log into the root user so you don't have to type <i>sudo</i> every time. <i>Sudo</i> also helps with running docker commands.
+
+2. Start Docker
+```sh
+$ sudo systemctl start docker
+```
+3. Check to see if docker is running properly by running a <i>hello world</i> image. It created an image and runs on a container that prints an informational message to you. 
+```sh
+$ sudo docker run hello-world
+```
+
+<!-- Application Installation -->
+## Install Project
+Use the below guide to install the application. This must be done AFTER the above steps have been taken. 
+
+### Install Guide
+1. Login
+```sh
+Login to rsantiag@10.10.9.150
+Password: Regalia20
+```
+2. Enter Super User Mode
+```sh
+[rsantiago@Linux-Docker-Container ~]$ su
+Password: Regalia20
+```
+3. Login to Docker
+```sh
+[root@Linux-Docker-Container rsantiago]# docker login
+```
+* Follow the prompted steps to login to docker account.
+4. Pull the required docker images from the docker hub. 
+```sh
+[root@Linux-Docker-Container rsantiago]# docker pull stevebuglione/regalia-mysql-image
+[root@Linux-Docker-Container rsantiago]# docker pull stevebuglione/regalia-spring-image
+```
+5. Verify that the images have been installed locally.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker images
+```
+* Example Output: 
+```sh
+        REPOSITORY                       TAG       IMAGE ID         CREATED         SIZE
+stevenbuglione/regalia-mysql-image     latest    440b7b5f9a3f     20 minutes ago    545MB
+stevebuglione/regalia-spring-image     latest    b498ad1bddb9     18 hours ago      684MB  
+```
+6. Run the stevebuglione/regalia-mysql-image as a container
+```sh
+[root@Linux-Docker-Container rsantiago]# docker run --name regalia-mysql -p 3307:3306 -d stevebuglione/regalia-mysql-image
+```
+7. Verify the container is up and running.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker ps
+```
+* Example Output: 
+```sh
+CONTAINER ID        IMAGE                               COMMAND                  CREATED           STATUS                 PORTS                               NAMES
+39c8c4f6e85a   stevebuglione/regalia-mysql-image   "docker-entrypoint.s…"     2 seconds ago       Up 1 second     33060/tcp, 0.0.0.0:3307->3306/tcp       regalia-mysql
+```
+8. Run stevebuglione/regalia-spring-image as a container and link it to the regalia-mysql container.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker run -p 80:80 --name regalia-spring --link regalia-mysql:mysql -d stevebuglione/regalia-spring-image
+```
+9. Verify both containers are up and running.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker ps
+```
+* Example Output:
+```sh
+CONTAINER ID               IMAGE                             COMMAND                CREATED            STATUS                     PORTS                       NAMES
+6bef714371b9     stevebuglione/regalia-spring-image   "java -jar regalia.j…"      3 seconds ago      Up 2 seconds         0.0.0.0:80->80/tcp, 8080/tcp     regalia-spring
+39c8c4f6e85a     stevebuglione/regalia-mysql-image    "docker-entrypoint.s…"   About a minute ago   Up About a minute   33060/tcp, 0.0.0.0:3307->3306/tcp  regalia-mysql
+```
+10. Verify the application is accessible online. 
+```sh
+Visit: 10.10.9.150
+     : http://regalia.capping.ecrl.marist.edu
+```
+11. You have successfully deployed the Regalia Ordering System application from Docker. 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 This project is intended for the private use of Marist College. The programming and systems involved are tailored for the college and any use other than intended will result in unforeseen problems and troubleshooting. The authors of this application assume no responsibility for unauthorized use. Any code pertaining to Marist College must be replaced if to be used for other institutions and thereby no longer under this project's domain. 
 
+<!-- DOCUMENTATION -->
+## Documentation
+The following are documents related to the construction of the application. 
+
+[Architectural Diagram](https://github.com/StevenBuglione/Regalia-Ordering-System/tree/arod/Documents) 
 
 
 <!-- ROADMAP -->
