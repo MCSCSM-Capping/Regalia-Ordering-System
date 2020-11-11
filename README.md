@@ -126,10 +126,13 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 <!-- Server Setup Prior to Docker installation -->
 ### Server Setup
 <b>Before Starting:</b> Ensure you are connected to the Marist College Network via VPN / using the network on Marist College campus. 
-1. <b>Signing In:</b> Visit capping.ecrl.marist.edu. Click advanced and then proceed. This should bring you to a VMware page. Cick HTML5 vsphere client. 
+1. <b>Signing In:</b> 
+  Visit capping.ecrl.marist.edu. Click advanced and then proceed. This should bring you to a VMware page. Cick HTML5 vsphere client. 
 2. Sign in using the name that was given access to the ecrl vsphere (Ex. yourmaristemail@vsphere.local). The domain is vsphere.local. Then use the given password. It must be changed once inside. 
-3. <b>Changing Password with Other Personal Information:</b> Click menu -> Admin -> Users and Groups. Find your username. Click the Menu bar and then click Edit. Then change the current password. Click Ok. 
-4. <b>Creating the VM:</b> Click Menu -> Hosts and Clusters -> VMs and Templates. Click the dropdown until you see your folder. In the folder: click Actions -> New Virtual Machine. 
+3. <b>Changing Password with Other Personal Information:</b> 
+  Click menu -> Admin -> Users and Groups. Find your username. Click the Menu bar and then click Edit. Then change the current password. Click Ok. 
+4. <b>Creating the VM:</b> 
+  Click Menu -> Hosts and Clusters -> VMs and Templates. Click the dropdown until you see your folder. In the folder: click Actions -> New Virtual Machine. 
 5. Click Create Virtual Machine and then Next.
 6. Name the VM to a relevant to your project with the desired IP address for the server (for ease of identification, the IP's you will be using will be given). Ensure it's selected in your team folder. Then Next. 
 7. Click Capping Cluster Resources then Next. 
@@ -144,10 +147,12 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
   * Mounting the ISO (New CD/DVD Drive) - click Datastore ISO -> ISO - Repo -> click on the folder for the chosen OS. Click OK. Click the checkbox to ensure it connects when powered on. 
   * Next and then Finish. 
   * To edit when VM is off: Right click on VM and then Edit. 
-12. <b>The VM and Installing CentOS:</b> Click the green arrow towards the top to power on OR click on Actions and then Power On. Click Launch Web Console. Ensure the popup is checked on the Web Console and click OK. The VM will launch on a new tab. 
+12. <b>The VM and Installing CentOS:</b> 
+  Click the green arrow towards the top to power on OR click on Actions and then Power On. Click Launch Web Console. Ensure the popup is checked on the Web Console and click OK. The VM will launch on a new tab. 
 13. Ensure you are on Intall CentOS 7 and hit Enter. Wait for the installation to complete. A prompt will appear to select a language. Hit Continue. 
 14. Ensure you are selecting the Select Disk under System and Installation Destination. Use Minimal Install (specific for CentOS) under Software and Software Selection. 
-15. <b>Configuring the Network:</b> Click Network and Hostname -> Configure -> IPv4 Settings -> Method = Manual -> Add. 
+15. <b>Configuring the Network:</b> 
+  Click Network and Hostname -> Configure -> IPv4 Settings -> Method = Manual -> Add. 
   * Our Projects Info: 
   Address(Server IP): 10.10.9.150   Netmask: 24   Gateway: 10.10.9.1
   DNS: 10.11.12.2, 10.11.12.3
