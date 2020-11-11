@@ -264,7 +264,7 @@ This project is intended for the private use of Marist College. The programming 
 ## Documentation
 The following are documents related to the construction of the application. 
 
-Located in the [Architectural Diagram](https://github.com/StevenBuglione/Regalia-Ordering-System/tree/arod/Documents) folder. 
+[Architectural Diagram](https://github.com/StevenBuglione/Regalia-Ordering-System/tree/arod/Documents) folder. 
 
 
 <!-- ROADMAP -->
