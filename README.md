@@ -41,6 +41,8 @@ README created by Anthony Rodriguez: anthony.rodriguez2@marist.edu
   * [How to run](#How-to-run)
   * [Server Setup Prior to Docker](#Server-Setup)
 * [Docker](#Docker)
+  * [Install Docker](#Install-Docker)
+* [Installing Project Regalia](#Install-Project)
   * [Install Guide](#Install-Guide)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
@@ -126,6 +128,7 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 <!-- Server Setup Prior to Docker installation -->
 ### Server Setup
 <b>Before Starting:</b> Ensure you are connected to the Marist College Network via VPN / using the network on Marist College campus. 
+
 1. <b>Signing In:</b> 
   Visit capping.ecrl.marist.edu. Click advanced and then proceed. This should bring you to a VMware page. Cick HTML5 vsphere client. 
 2. Sign in using the name that was given access to the ecrl vsphere (Ex. yourmaristemail@vsphere.local). The domain is vsphere.local. Then use the given password. It must be changed once inside. 
@@ -165,6 +168,26 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 ## Docker
 Why Docker?
 * Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from Docker's [website](https://docs.docker.com/get-started/overview/).
+
+### Install Docker
+1. Install the latest version of Docker:
+```sh
+$ sudo yum install docker-ce docer-ce-cli containerd.io
+```
+<i>Sudo</i> is the command that allows the user root access. If you simply type the command <i>su</i>, it will prompt you to log into the root user so you don't have to type <i>sudo</i> every time. <i>Sudo</i> also helps with running docker commands.
+
+2. Start Docker
+```sh
+$ sudo systemctl start docker
+```
+3. Check to see if docker is running properly by running a <i>hello world</i> image. It created an image and runs on a container that prints an informational message to you. 
+```sh
+$ sudo docker run hello-world
+```
+
+<!-- Application Installation -->
+## Install Project
+Use the below guide to install the application. This must be done AFTER the above steps have been taken. 
 
 ### Install Guide
 1. Login
