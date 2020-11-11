@@ -164,11 +164,43 @@ Password: Regalia20
 ```
 * Example Output: 
 ```sh
-        REPOSITORY                                  TAG       IMAGE ID
-CREATED                                 SIZE
-stevenbuglione/regalia-mysql-image      545MB      latest   440b7b5f9a3f
-stevebuglione/regalia-spring-image      684MB      latest   b498ad1bddb9
+        REPOSITORY                       TAG       IMAGE ID         CREATED         SIZE
+stevenbuglione/regalia-mysql-image     latest    440b7b5f9a3f     20 minutes ago    545MB
+stevebuglione/regalia-spring-image     latest    b498ad1bddb9     18 hours ago      684MB  
 ```
+6. Run the stevebuglione/regalia-mysql-image as a container
+```sh
+[root@Linux-Docker-Container rsantiago]# docker run --name regalia-mysql -p 3307:3306 -d stevebuglione/regalia-mysql-image
+```
+7. Verify the container is up and running.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker ps
+```
+* Example Output: 
+```sh
+CONTAINER ID        IMAGE                               COMMAND                  CREATED           STATUS                 PORTS                               NAMES
+39c8c4f6e85a   stevebuglione/regalia-mysql-image   "docker-entrypoint.s…"     2 seconds ago       Up 1 second     33060/tcp, 0.0.0.0:3307->3306/tcp       regalia-mysql
+```
+8. Run stevebuglione/regalia-spring-image as a container and link it to the regalia-mysql container.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker run -p 80:80 --name regalia-spring --link regalia-mysql:mysql -d stevebuglione/regalia-spring-image
+```
+9. Verify both containers are up and running.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker ps
+```
+* Example Output:
+```sh
+CONTAINER ID               IMAGE                             COMMAND                CREATED            STATUS                     PORTS                       NAMES
+6bef714371b9     stevebuglione/regalia-spring-image   "java -jar regalia.j…"      3 seconds ago      Up 2 seconds         0.0.0.0:80->80/tcp, 8080/tcp     regalia-spring
+39c8c4f6e85a     stevebuglione/regalia-mysql-image    "docker-entrypoint.s…"   About a minute ago   Up About a minute   33060/tcp, 0.0.0.0:3307->3306/tcp  regalia-mysql
+```
+10. Verify the application is accessible online. 
+```sh
+Visit: 10.10.9.150
+     : http://regalia.capping.ecrl.marist.edu
+```
+11. You have successfully deployed the Regalia Ordering System application from Docker. 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
