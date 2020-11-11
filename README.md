@@ -163,9 +163,12 @@ Password: Regalia20
 [root@Linux-Docker-Container rsantiago]# docker images
 ```
 * Example Output: 
-  * ```sh
-  Test
-  ```
+```sh
+        REPOSITORY                                  TAG       IMAGE ID
+CREATED                                 SIZE
+stevenbuglione/regalia-mysql-image      545MB      latest   440b7b5f9a3f
+stevebuglione/regalia-spring-image      684MB      latest   b498ad1bddb9
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
