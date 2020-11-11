@@ -90,7 +90,7 @@ Why were these used?
 * Maven in conjunction with Spring provides consistency across the project. With the help of added libraries and ease of use, it provided the best means of deploying a project of this scale quickly and efficiently.
 * MySQL was chosen due to its wide range of compatible platforms. Since this project is intended to be injected into an already working network, last thing we want to be worried about is compatibility. 
 * Flyway was used for ease of database migration and to make changes easily. 
-* See [Docker Section](#Deployed-Using) for explanation. 
+* See [Docker Section](#Docker) for explanation. 
 
 ### Services Used
 * [CAS](https://en.wikipedia.org/wiki/Central_Authentication_Service)
