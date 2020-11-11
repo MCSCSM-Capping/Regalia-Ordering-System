@@ -1,22 +1,8 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
+<!-- PROJECT REGALIA README
+This README was created for the Project Regalia team for educational use. This README will not be updated past project completion (i.e. no further updates will be done post semester.)
+README created by Anthony Rodriguez: anthony.rodriguez2@marist.edu 
 -->
 
-
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 <a href="https://github.com/StevenBuglione/Regalia-Ordering-System/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/StevenBuglione/Regalia-Ordering-System"></a> <a href="https://github.com/StevenBuglione/Regalia-Ordering-System/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/StevenBuglione/Regalia-Ordering-System"></a> <a href="https://github.com/StevenBuglione/Regalia-Ordering-System/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/StevenBuglione/Regalia-Ordering-System"></a> <a href="https://github.com/StevenBuglione/Regalia-Ordering-System"><img alt="GitHub license" src="https://img.shields.io/github/license/StevenBuglione/Regalia-Ordering-System"></a>
 
 
@@ -53,6 +39,7 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [How to run](#How-to-run)
+  * [Server Setup Prior to Docker](#Server-Setup)
 * [Docker](#Docker)
   * [Install Guide](#Install-Guide)
 * [Usage](#usage)
@@ -136,6 +123,10 @@ mvn spring-boot:run
 the local port listed at towards the bottom of the generated report (i.e. port 8080/8081)<img src = "images\Example.PNG" alt ="Example"> 
     * Note: Ensure the MySql server is running during build-time. 
 
+<!-- Server Setup Prior to Docker installation -->
+### Server Setup
+<b>Before Starting:</b> Ensure you are connected to the Marist College Network via VPN / using the network on Marist College campus. 
+1. <b>Signing In:</b> Visit capping.ecrl.marist.edu. Click advanced and then proceed. This should bring you to a VMware page. Cick HTML5 vsphere client. 
 
 <!-- Docker Install Guide -->
 ## Docker
