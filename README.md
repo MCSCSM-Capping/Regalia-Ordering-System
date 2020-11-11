@@ -135,7 +135,23 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 <!-- Docker Install Guide -->
 ## Docker
 
-Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from Docker's [website](https://docs.docker.com/get-started/overview/)
+Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from Docker's [website](https://docs.docker.com/get-started/overview/).
+
+### Install Guide
+1. Login
+```sh
+Login to rsantiag@10.10.9.150
+Password: Regalia20
+```
+2. Enter Super User Mode
+```sh
+[rsantiago@Linux-Docker-Container ~]$ su
+Password: Regalia20
+```
+3. Login to Docker
+```sh
+[root@Linux-Docker-Container rsantiago]#
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
