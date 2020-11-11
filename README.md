@@ -52,6 +52,8 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [How to run](#How-to-run)
+* [Docker](#Docker)
+  * [Install Guide](#Install-Guide)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -130,6 +132,10 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
     * Note: Ensure the MySql server is running during build-time. 
 
 
+<!-- Docker Install Guide -->
+## Docker
+
+Docker is software that provides the ability to package and run and application in a loosely isloated environment called a container. The isolation and security allow you to run many containers simultaneously on a given host. Quoted from (https://docs.docker.com/get-started/overview/)
 
 <!-- USAGE EXAMPLES -->
 ## Usage
