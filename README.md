@@ -150,8 +150,22 @@ Password: Regalia20
 ```
 3. Login to Docker
 ```sh
-[root@Linux-Docker-Container rsantiago]#
+[root@Linux-Docker-Container rsantiago]# docker login
 ```
+* Follow the prompted steps to login to docker account.
+4. Pull the required docker images from the docker hub. 
+```sh
+[root@Linux-Docker-Container rsantiago]# docker pull stevebuglione/regalia-mysql-image
+[root@Linux-Docker-Container rsantiago]# docker pull stevebuglione/regalia-spring-image
+```
+5. Verify that the images have been installed locally.
+```sh
+[root@Linux-Docker-Container rsantiago]# docker images
+```
+* Example Output: 
+  * ```sh
+  Test
+  ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
