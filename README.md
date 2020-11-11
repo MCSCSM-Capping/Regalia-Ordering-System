@@ -236,7 +236,7 @@ CONTAINER ID        IMAGE                               COMMAND                 
 ```
 8. Run stevebuglione/regalia-spring-image as a container and link it to the regalia-mysql container.
 ```sh
-[root@Linux-Docker-Container rsantiago]# docker run -p 80:80 --name regalia-spring --link regalia-mysql:mysql -d stevebuglione/regalia-spring-image
+[root@Linux-Docker-Container rsantiago]# docker run -p 443:8443 --name regalia-spring --link regalia-mysql:mysql -d stevebuglione/regalia-spring-image
 ```
 9. Verify both containers are up and running.
 ```sh
@@ -251,7 +251,7 @@ CONTAINER ID               IMAGE                             COMMAND            
 10. Verify the application is accessible online. 
 ```sh
 Visit: 10.10.9.150
-     : http://regalia.capping.ecrl.marist.edu
+     : https://regalia.capping.ecrl.marist.edu
 ```
 11. You have successfully deployed the Regalia Ordering System application from Docker. 
 
