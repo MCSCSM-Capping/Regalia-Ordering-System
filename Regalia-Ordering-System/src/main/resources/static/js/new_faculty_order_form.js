@@ -9,8 +9,7 @@ function getModalData(){
     let capSize = document.getElementById("capSize").value;
     let degree = document.getElementById("degree").value;
     let weight = document.getElementById("weight").value;
-    let heightFeet = document.getElementById("heightFeet").value;
-    let heightInches = document.getElementById("heightInches").value;
+    let height = document.getElementById("height").value;
     let grantingInstitution = document.getElementById("grantingInstitution").value;
     let institutionState = document.getElementById("institutionState").value;
     let institutionCity = document.getElementById("institutionCity").value;
@@ -26,12 +25,29 @@ function getModalData(){
     let CapSize = document.getElementById("CapSize");
     let Degree = document.getElementById("Degree");
     let Weight = document.getElementById("Weight");
-    let HeightFeet = document.getElementById("HeightFeet");
-    let HeightInches = document.getElementById("HeightInches");
+    let Height = document.getElementById("Height");
     let GrantingInstitution = document.getElementById("GrantingInstitution");
     let InstitutionState = document.getElementById("InstitutionState");
     let InstitutionCity = document.getElementById("InstitutionCity");
     let CeremonyDate = document.getElementById("CeremonyDate");
+
+    //A dirty method to parse the height value to correct format
+    if(height.length == 3){
+            var feet = height.slice(0,1)
+            var inches = height.slice(2)
+            var height_feet_inches = feet + "'" + inches +'"';
+
+            Height.textContent = height_feet_inches;
+
+        }else{
+            var feet = height.slice(0,1)
+            var inches = height.slice(2,3)
+            var height_feet_inches = feet + "'" + inches +'"';
+
+            Height.textContent = height_feet_inches;
+        }
+
+
 
 
     //Setting the Modal Data with the form Data
@@ -43,8 +59,6 @@ function getModalData(){
     CapSize.textContent = capSize;
     Degree.textContent = degree;
     Weight.textContent = weight;
-    HeightFeet.textContent = heightFeet;
-    HeightInches.textContent = heightInches;
     GrantingInstitution.textContent = grantingInstitution;
     InstitutionState.textContent = institutionState;
     InstitutionCity.textContent = institutionCity;

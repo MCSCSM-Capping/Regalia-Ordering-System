@@ -96,8 +96,7 @@ public class RestAdminController {
                 user.getDegree().getName(),
                 user.getDepartment().getName(),
                 user.getWeight(),
-                user.getHeight_feet(),
-                user.getHeight_inches(),
+                user.getHeight(),
                 user.getGranting_institution(),
                 user.getGranting_city(),
                 user.getGranting_state().getName(),
@@ -124,8 +123,7 @@ public class RestAdminController {
         user.setLast_name(userDto.getLast_name());
         user.setPhone_number(userDto.getPhone_number());
         user.setWeight(userDto.getWeight());
-        user.setHeight_feet(userDto.getHeight_feet());
-        user.setHeight_inches(userDto.getHeight_inches());
+        user.setHeight(userDto.getHeight());
         user.setGranting_institution(userDto.getGranting_institution());
         user.setGranting_city(userDto.getGranting_city());
         user.setEmail(userDto.getEmail());
@@ -156,8 +154,7 @@ public class RestAdminController {
         user.setLast_name(userDto.getLast_name());
         user.setPhone_number(userDto.getPhone_number());
         user.setWeight(userDto.getWeight());
-        user.setHeight_feet(userDto.getHeight_feet());
-        user.setHeight_inches(userDto.getHeight_inches());
+        user.setHeight(userDto.getHeight());
         user.setGranting_institution(userDto.getGranting_institution());
         user.setGranting_city(userDto.getGranting_city());
         user.setEmail(userDto.getEmail());
