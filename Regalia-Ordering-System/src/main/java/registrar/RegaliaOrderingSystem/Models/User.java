@@ -54,11 +54,8 @@ public class User {
     @Column(name = "WEIGHT")
     private Integer weight;
 
-    @Column(name = "HEIGHT_FEET")
-    private Integer height_feet;
-
-    @Column(name = "HEIGHT_INCHES")
-    private Integer height_inches;
+    @Column(name = "HEIGHT")
+    private String height;
 
     @Column(name = "GRANTING_INSTITUTION")
     private String granting_institution;
@@ -81,7 +78,7 @@ public class User {
         super();
     }
 
-    public User(Long id, String email, String username, String first_name, String last_name,  boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, Integer height_feet, Integer height_inches, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
+    public User(Long id, String email, String username, String first_name, String last_name,  boolean enabled, String phone_number, Ceremony ceremony_date, CapSize cap_size, Degree degree, Department department, Integer weight, String height, String granting_institution, String granting_city, State granting_state, Date last_updated, Set<Role> roles) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -94,8 +91,7 @@ public class User {
         this.degree = degree;
         this.department = department;
         this.weight = weight;
-        this.height_feet = height_feet;
-        this.height_inches = height_inches;
+        this.height = height;
         this.granting_institution = granting_institution;
         this.granting_city = granting_city;
         this.granting_state = granting_state;
@@ -111,7 +107,7 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
-    public User(String email, String username, String first_name, String last_name, String phone_number, Ceremony cermonyByName, CapSize capSizeByName, Degree degreeByName, Department departmentIdByName, Integer weight, Integer height_feet, Integer height_inches, State stateIdByName) {
+    public User(String email, String username, String first_name, String last_name, String phone_number, Ceremony cermonyByName, CapSize capSizeByName, Degree degreeByName, Department departmentIdByName, Integer weight, String height, State stateIdByName) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -122,8 +118,7 @@ public class User {
         this.degree = degreeByName;
         this.department = departmentIdByName;
         this.weight = weight;
-        this.height_feet = height_feet;
-        this.height_inches = height_inches;
+        this.height = height;
         this.granting_state = stateIdByName;
     }
 
@@ -224,20 +219,12 @@ public class User {
         this.weight = weight;
     }
 
-    public Integer getHeight_feet() {
-        return height_feet;
+    public String getHeight() {
+        return height;
     }
 
-    public void setHeight_feet(Integer height_feet) {
-        this.height_feet = height_feet;
-    }
-
-    public Integer getHeight_inches() {
-        return height_inches;
-    }
-
-    public void setHeight_inches(Integer height_inches) {
-        this.height_inches = height_inches;
+    public void setHeight(String height) {
+        this.height = height;
     }
 
     public String getGranting_institution() {
