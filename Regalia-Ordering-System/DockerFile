@@ -1,4 +1,0 @@
-FROM openjdk:11
-ADD target/regalia.jar regalia.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "regalia.jar"]
