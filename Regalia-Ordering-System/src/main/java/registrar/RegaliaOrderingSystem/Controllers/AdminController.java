@@ -85,7 +85,15 @@ public class AdminController {
         model.addAttribute("logout", casLogoutUrl);
 
         //TODO add logic for only grabbing active users
-        List<User> activeUsers = _userService.listAll("enabled");
+        List<User> userList = _userService.listAll("enabled");
+
+        List<User> activeUsers = new ArrayList<User>();
+
+        for(User user : userList){
+            if(!Objects.isNull(user.getFirst_name())){
+                activeUsers.add(user);
+            }
+        }
 
         //User Data
         model.addAttribute("activeUsers", activeUsers);
