@@ -357,14 +357,16 @@
 <div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="newUsersLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
-        <h5 class="modal-title text-center" id="newUsersLabel">Add New User</h5>
+        <h5 class="col-md modal-title text-center" id="newUsersLabel">Add New User</h5>
         <button class="close" type="button" onclick="window.location.reload()" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
+
       <div class="modal-body">
-        <div class="col-md-8 order-md-1 container-fluid">
+        <div class="col-md-10 order-md-1 container-fluid">
           <div class="row">
 
               <div class="col-md-6 mb-3">
@@ -376,17 +378,17 @@
               </div>
 
               <div class="col-md-6 mb-3">
-                <label>Role</label>
-                <select class="custom-select d-block w-100" id="newRole" required>
-                  <option value="">Choose...</option>
-                  <div th:each="Role : ${roles}" >
-                    <option th:text="${Role.name}" th:value="${Role.name}">name</option>
-                  </div>
-                </select>
-            </div>
+                <label>Email</label>
+                <input type="text" class="form-control" id="newEmail" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
+                <div class="invalid-feedback">
+                  Please enter a valid email address for shipping updates.
+                </div>
+              </div>
+
           </div>
 
           <div class="row">
+
             <div class="col-md-6 mb-3">
               <label>First Name</label>
               <input type="text" class="form-control" placeholder="First Name" value="" id="newFirstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
@@ -402,16 +404,10 @@
                 Valid Last name is required.
               </div>
             </div>
+
           </div>
 
           <div class="row">
-            <div class="col-md-6 mb-3">
-              <label>Email</label>
-              <input type="text" class="form-control" id="newEmail" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
 
             <div class="col-md-6 mb-3">
               <label>Phone Number</label>
@@ -420,13 +416,9 @@
                 Please enter your Phone Number.
               </div>
             </div>
-          </div>
-          <hr class="mb-4">
 
-
-          <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Department</label>
+              <label>Department/School</label>
               <select class="custom-select d-block w-100" id="newDepartment" required>
                 <option value="">Choose...</option>
                 <div th:each="Department : ${departments}">
@@ -439,22 +431,12 @@
               </div>
             </div>
 
-            <div class="col-md-6 mb-3">
-              <label>Cap Size</label>
-              <select class="custom-select d-block w-100" id="newCapSize" required>
-                <option value="">Choose...</option>
-                <div th:each="CapSize : ${capSizes}">
-                  <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
-                </div>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid Cap Size.
-              </div>
-            </div>
           </div>
+          <hr class="mb-4">
 
 
           <div class="row">
+
             <div class="col-md-6 mb-3">
               <label>Degree</label>
               <select class="custom-select d-block w-100" id="newDegree" required>
@@ -469,69 +451,6 @@
             </div>
 
             <div class="col-md-6 mb-3">
-              <label>Ceremony Schedule</label>
-              <select class="custom-select d-block w-100" id="newCeremonyDate" required>
-                <option value="">Choose...</option>
-                <div th:each="Ceremony : ${ceremonies}">
-                  <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
-                </div>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid Day.
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label>Height Feet</label>
-              <select class="custom-select d-block w-100" id="newHeightFeet" required>
-                <option value=-1>Choose...</option>
-                <option value=4>4"</option>
-                <option value=5>5"</option>
-                <option value=6>6"</option>
-                <option value=7>7"</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid Height.
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <label>Height Inches</label>
-              <select class="custom-select d-block w-100" id="newHeightInches" required>
-                <option value=-1>Choose...</option>
-                <option value=0>0"</option>
-                <option value=1>1"</option>
-                <option value=2>2"</option>
-                <option value=3>3"</option>
-                <option value=4>4"</option>
-                <option value=5>5"</option>
-                <option value=6>6"</option>
-                <option value=7>7"</option>
-                <option value=8>8"</option>
-                <option value=9>9"</option>
-                <option value=10>10"</option>
-                <option value=11>11"</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid Height.
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <label>Weight</label>
-              <input type="number" class="form-control" placeholder="Weight" id="newWeight" value="" required>
-              <div class="invalid-feedback">
-                Valid Weight is required.
-              </div>
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
               <label>Granting Institution</label>
               <input type="text" class="form-control" id="newGrantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
               <div class="invalid-feedback">
@@ -539,26 +458,140 @@
               </div>
             </div>
 
-            <div class="col-md-6 mb-3">
-              <label>Institution State</label>
-              <select class="custom-select d-block w-100" id="newInstitutionState" required>
-                <option value="">Choose...</option>
-                <div th:each="State : ${states}">
-                  <option th:text="${State.name}" th:value="${State.name}">name</option>
-                </div>
-              </select>
-            </div>
           </div>
 
-          <div class="row" style="justify-content: center;">
-            <div class="col-md-6 mb-3">
-              <label>Institution City</label>
-              <input type="text" class="form-control" id="newInstitutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-              <div class="invalid-feedback">
-                Valid Institution City is required.
+
+          <div class="row">
+
+              <div class="col-md-6 mb-3">
+                <label>Institution City</label>
+                <input type="text" class="form-control" id="newInstitutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+                <div class="invalid-feedback">
+                  Valid Institution City is required.
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label>Institution State</label>
+                <select class="custom-select d-block w-100" id="newInstitutionState" required>
+                  <option value="">Choose...</option>
+                  <div th:each="State : ${states}">
+                    <option th:text="${State.name}" th:value="${State.name}">name</option>
+                  </div>
+                </select>
+              </div>
+
+            </div>
+
+
+            <div class="row">
+
+              <div class="col-md-6 mb-3">
+                <label>Ceremony Schedule</label>
+                <select class="custom-select d-block w-100" id="newCeremonyDate" required>
+                  <option value="">Choose...</option>
+                  <div th:each="Ceremony : ${ceremonies}">
+                    <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
+                  </div>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid Day.
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label>Cap Size</label>
+                <select class="custom-select d-block w-100" id="newCapSize" required>
+                  <option value="">Choose...</option>
+                  <div th:each="CapSize : ${capSizes}">
+                    <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
+                  </div>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid Cap Size.
+                </div>
               </div>
             </div>
+
+            <hr>
+
+            <div class="row" style="justify-content: center;">
+
+              <div class="col-md-6 mb-3">
+                <label>Height</label>
+                <select class="custom-select d-block w-100" id="newHeight" required>
+                  <option value=-1>Choose...</option>
+                  <option value="4'0''"> 4'0"</option>
+                  <option value="4'1''"> 4'1"</option>
+                  <option value="4'2''"> 4'2"</option>
+                  <option value="4'3''"> 4'3"</option>
+                  <option value="4'4''"> 4'4"</option>
+                  <option value="4'5''"> 4'5"</option>
+                  <option value="4'6''"> 4'6"</option>
+                  <option value="4'7''"> 4'7"</option>
+                  <option value="4'8''"> 4'8"</option>
+                  <option value="4'9''"> 4'9"</option>
+                  <option value="4'10''"> 4'10"</option>
+                  <option value="4'11''"> 4'11"</option>
+                  <option value="5'0''"> 5'0"</option>
+                  <option value="5'1''"> 5'1"</option>
+                  <option value="5'2''"> 5'2"</option>
+                  <option value="5'3''"> 5'3"</option>
+                  <option value="5'4''"> 5'4"</option>
+                  <option value="5'5''"> 5'5"</option>
+                  <option value="5'6''"> 5'6"</option>
+                  <option value="5'7''"> 5'7"</option>
+                  <option value="5'8''"> 5'8"</option>
+                  <option value="5'9''"> 5'9"</option>
+                  <option value="5'10''"> 5'10"</option>
+                  <option value="5'11''"> 5'11"</option>
+                  <option value="6'0''"> 6'0"</option>
+                  <option value="6'1''"> 6'1"</option>
+                  <option value="6'2''"> 6'2"</option>
+                  <option value="6'3''"> 6'3"</option>
+                  <option value="6'4''"> 6'4"</option>
+                  <option value="6'5''"> 6'5"</option>
+                  <option value="6'6''"> 6'6"</option>
+                  <option value="6'7''"> 6'7"</option>
+                  <option value="6'8''"> 6'8"</option>
+                  <option value="6'9''"> 6'9"</option>
+                  <option value="6'10''"> 6'10"</option>
+                  <option value="6'11''"> 6'11"</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid Height.
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <label>Weight</label>
+                <input type="number" class="form-control" placeholder="Weight" id="newWeight" value="" required>
+                <div class="invalid-feedback">
+                  Valid Weight is required.
+                </div>
+              </div>
+
+            </div>
+
+            <hr>
+
+            <div class="row" style="justify-content: center;">
+
+              <div class="col-md-6 mb-3">
+                <label>Role</label>
+                <select class="custom-select d-block w-100" id="newRole" required>
+                  <option value="">Choose...</option>
+                  <div th:each="Role : ${roles}" >
+                    <option th:text="${Role.name}" th:value="${Role.name}">name</option>
+                  </div>
+                </select>
+              </div>
+
+            </div>
+
           </div>
+
         </div>
 
         <div class="modal-footer justify-content-center">
@@ -586,30 +619,35 @@
 <div class="modal fade edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+
+<!--      <div class="modal-header">-->
+<!--        <h4 class="col-12 modal-title text-center" id="editUserModal">Edit User Information</h4>-->
+<!--        <button class="close" type="button" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">×</span>-->
+<!--        </button>-->
+<!--      </div>-->
+
       <div class="modal-header">
-        <h4 class="col-12 modal-title text-center" id="editUserModal">User Order Information</h4>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <h5 class="col-md modal-title text-center" id="editUsersLabel">Edit User Information</h5>
+        <button class="close" type="button" onclick="window.location.reload()" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="col-md-8 order-md-1 container-fluid">
+
+      <div class="modal-body">
+
+        <div class="col-md-10 order-md-1 container-fluid">
+
         <div class="row">
+
           <div class="col-md-6 mb-3">
-            <label>First Name</label>
-            <input type="text"  class="form-control" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback" id="msg">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Last Name</label>
-            <input type="text"  class="form-control" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+            <label>CWID</label>
+            <input type="number" class="form-control" placeholder="CWID" id="cwid" value="" required>
             <div class="invalid-feedback">
-              Valid Last name is required.
+              Valid cwid is required.
             </div>
           </div>
-        </div>
-        <div class="row">
+
           <div class="col-md-6 mb-3">
             <label>Email</label>
             <input type="text"  class="form-control" id="email" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
@@ -618,6 +656,30 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label>First Name</label>
+            <input type="text"  class="form-control" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+            <div class="invalid-feedback" id="msg">
+              Valid first name is required.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Last Name</label>
+            <input type="text"  class="form-control" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+            <div class="invalid-feedback">
+              Valid Last name is required.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
           <div class="col-md-6 mb-3">
             <label>Phone Number</label>
             <input type="number"  class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
@@ -625,13 +687,9 @@
               Please enter your Phone Number.
             </div>
           </div>
-        </div>
-        <hr class="mb-4">
 
-
-        <div class="row">
           <div class="col-md-6 mb-3">
-            <label>Department</label>
+            <label>Department/School</label>
             <select class="custom-select d-block w-100" id="department" required>
               <option value="">Choose...</option>
               <div th:each="Department : ${departments}">
@@ -643,24 +701,15 @@
               Please provide a valid Department.
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label>Cap Size</label>
-            <select  class="custom-select d-block w-100" id="capSize" required>
-              <option value="">Choose...</option>
-              <div th:each="CapSize : ${capSizes}">
-                <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
-              </div>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid Cap Size.
-            </div>
-          </div>
+
         </div>
 
+        <hr class="mb-4">
 
-        <div class="row">
+          <div class="row">
+
           <div class="col-md-6 mb-3">
-            <label>Degree</label>
+            <label>Highest Degree</label>
             <select  class="custom-select d-block w-100" id="degree" required>
               <option value="">Choose...</option>
               <div th:each="Degree : ${degrees}">
@@ -671,6 +720,41 @@
               Please provide a valid Degree.
             </div>
           </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Granting Institution</label>
+            <input type="text"  class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+            <div class="invalid-feedback">
+              Valid Granting Institution is required.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label>Institution City</label>
+            <input type="text"  class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
+            <div class="invalid-feedback">
+              Valid Institution City is required.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Institution State</label>
+            <select class="custom-select d-block w-100" id="institutionState" required>
+              <option value="">Choose...</option>
+              <div th:each="State : ${states}">
+                <option th:text="${State.name}" th:value="${State.name}">name</option>
+              </div>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="row">
+
           <div class="col-md-6 mb-3">
             <label>Ceremony Schedule</label>
             <select  class="custom-select d-block w-100" id="ceremonyDate" required>
@@ -684,96 +768,116 @@
             </div>
           </div>
 
+          <div class="col-md-6 mb-3">
+            <label>Cap Size</label>
+            <select  class="custom-select d-block w-100" id="capSize" required>
+              <option value="">Choose...</option>
+              <div th:each="CapSize : ${capSizes}">
+                <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
+              </div>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid Cap Size.
+            </div>
+          </div>
 
         </div>
 
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Height Inches</label>
-            <select  class="custom-select d-block w-100" id="heightFeet" required>
-              <option value=-1>Choose...</option>
-              <option value=4>4"</option>
-              <option value=5>5"</option>
-              <option value=6>6"</option>
-              <option value=7>7"</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid Height.
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label>Height Inches</label>
-            <select  class="custom-select d-block w-100" id="heightInches" required>
-              <option value=-1>Choose...</option>
-              <option value=0>0"</option>
-              <option value=1>1"</option>
-              <option value=2>2"</option>
-              <option value=3>3"</option>
-              <option value=4>4"</option>
-              <option value=5>5"</option>
-              <option value=6>6"</option>
-              <option value=7>7"</option>
-              <option value=8>8"</option>
-              <option value=9>9"</option>
-              <option value=10>10"</option>
-              <option value=11>11"</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid Height.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Weight</label>
-            <input type="number"  class="form-control" placeholder="Weight" id="weight" value="" required>
-            <div class="invalid-feedback">
-              Valid Weight is required.
-            </div>
-          </div>
-        </div>
         <hr>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Granting Institution</label>
-            <input type="text"  class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback">
-              Valid Granting Institution is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Institution State</label>
-            <select class="custom-select d-block w-100" id="institutionState" required>
-              <option value="">Choose...</option>
-              <div th:each="State : ${states}">
-                <option th:text="${State.name}" th:value="${State.name}">name</option>
+
+
+          <div class="row" style="justify-content: center;">
+
+            <div class="col-md-6 mb-3">
+              <label>Height</label>
+              <select  class="custom-select d-block w-100" id="height" required>
+                <option value=-1>Choose...</option>
+                <option value="4'0''"> 4'0"</option>
+                <option value="4'1''"> 4'1"</option>
+                <option value="4'2''"> 4'2"</option>
+                <option value="4'3''"> 4'3"</option>
+                <option value="4'4''"> 4'4"</option>
+                <option value="4'5''"> 4'5"</option>
+                <option value="4'6''"> 4'6"</option>
+                <option value="4'7''"> 4'7"</option>
+                <option value="4'8''"> 4'8"</option>
+                <option value="4'9''"> 4'9"</option>
+                <option value="4'10''"> 4'10"</option>
+                <option value="4'11''"> 4'11"</option>
+                <option value="5'0''"> 5'0"</option>
+                <option value="5'1''"> 5'1"</option>
+                <option value="5'2''"> 5'2"</option>
+                <option value="5'3''"> 5'3"</option>
+                <option value="5'4''"> 5'4"</option>
+                <option value="5'5''"> 5'5"</option>
+                <option value="5'6''"> 5'6"</option>
+                <option value="5'7''"> 5'7"</option>
+                <option value="5'8''"> 5'8"</option>
+                <option value="5'9''"> 5'9"</option>
+                <option value="5'10''"> 5'10"</option>
+                <option value="5'11''"> 5'11"</option>
+                <option value="6'0''"> 6'0"</option>
+                <option value="6'1''"> 6'1"</option>
+                <option value="6'2''"> 6'2"</option>
+                <option value="6'3''"> 6'3"</option>
+                <option value="6'4''"> 6'4"</option>
+                <option value="6'5''"> 6'5"</option>
+                <option value="6'6''"> 6'6"</option>
+                <option value="6'7''"> 6'7"</option>
+                <option value="6'8''"> 6'8"</option>
+                <option value="6'9''"> 6'9"</option>
+                <option value="6'10''"> 6'10"</option>
+                <option value="6'11''"> 6'11"</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid Height.
               </div>
-            </select>
-          </div>
-        </div>
-        <div class="row" style="justify-content: center;">
-          <div class="col-md-6 mb-3">
-            <label>Institution City</label>
-            <input type="text"  class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback">
-              Valid Institution City is required.
             </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Role</label>
-            <select class="custom-select d-block w-100" id="role" required>
-              <option value="">Choose...</option>
-              <div th:each="Role : ${roles}" >
-                <option th:text="${Role.name}" th:value="${Role.name}">name</option>
+
+            <div class="col-md-6 mb-3">
+              <label>Weight</label>
+              <input type="number"  class="form-control" placeholder="Weight" id="weight" value="" required>
+              <div class="invalid-feedback">
+                Valid Weight is required.
               </div>
-            </select>
+            </div>
+
           </div>
+
+          <hr>
+
+          <div class="row" style="justify-content: center;">
+
+            <div class="col-md-6 mb-3">
+              <label>Role</label>
+              <select class="custom-select d-block w-100" id="role" required>
+                <option value="">Choose...</option>
+                <div th:each="Role : ${roles}" >
+                  <option th:text="${Role.name}" th:value="${Role.name}">name</option>
+                </div>
+              </select>
+            </div>
+
+          </div>
+<!--        </div>-->
+
+<!--        <div class="col-md-6 mb-3">-->
+<!--          <label>CWID</label>-->
+<!--          <input type="number" class="form-control" placeholder="CWID" id="cwid" value="" required>-->
+<!--          <div class="invalid-feedback">-->
+<!--            Valid cwid is required.-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="col-md-6 mb-3" hidden>-->
+<!--          <label>cwid</label>-->
+<!--          <input type="text" id="cwid" pattern="[A-Za-z]{1,15}" title="Only Characters" required>-->
+<!--        </div>-->
+
         </div>
-        <div class="col-md-6 mb-3" hidden>
-          <label>cwid</label>
-          <input type="text" id="cwid" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-        </div>
+      </div>
         <div >
-          <div class="row justify-content-center">
+          <div class="modal-footer justify-content-center">
             <div class="row justify-content-center" style="justify-content: center;">
               <div class="col-md-4 mb-3 mr-1 mt-2 ">
                 <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>

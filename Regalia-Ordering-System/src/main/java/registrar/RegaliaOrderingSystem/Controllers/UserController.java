@@ -75,8 +75,8 @@ public class UserController {
             userDto.setDegree(user.getDegree().getName());
             userDto.setDepartment(user.getDepartment().getName());
             userDto.setWeight(user.getWeight());
-            userDto.setHeight_feet(user.getHeight_feet());
-            userDto.setHeight_inches(user.getHeight_inches());
+            userDto.setHeight(user.getHeight());
+//            userDto.setHeight_inches(user.getHeight_inches());
             userDto.setGranting_city(user.getGranting_city());
             userDto.setGranting_institution(user.getGranting_institution());
             userDto.setGranting_state(user.getGranting_state().getName());
@@ -122,8 +122,8 @@ public class UserController {
         user.setLast_name(userDto.getLast_name());
         user.setPhone_number(userDto.getPhone_number());
         user.setWeight(userDto.getWeight());
-        user.setHeight_feet(userDto.getHeight_feet());
-        user.setHeight_inches(userDto.getHeight_inches());
+        user.setHeight(userDto.getHeight());
+//        user.setHeight_inches(userDto.getHeight_inches());
         user.setGranting_institution(userDto.getGranting_institution());
         user.setGranting_city(userDto.getGranting_city());
         user.setEmail(userDto.getEmail());

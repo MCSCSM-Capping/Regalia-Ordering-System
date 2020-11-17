@@ -172,9 +172,9 @@ public class AdminController {
                     user.getCap_size().getFitted(),
                     user.getDegree().getName(),
                     user.getDepartment().getName(),
-                    user.getHeight_feet(),
-                    user.getHeight_inches(),
                     user.getWeight(),
+                    user.getHeight(),
+//                    user.getHeight_inches(),
                     user.getGranting_institution(),
                     user.getGranting_city(),
                     user.getGranting_state().getName(),
@@ -185,8 +185,8 @@ public class AdminController {
 
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
 
-        String[] csvHeader = {"CWID", "Last Name", "First Name", "Degree", "School", "HeightFeet", "HeightInches", "Hat Size", "Last Updated"};
-        String[] nameMapping = {"username", "last_name", "first_name", "degree", "granting_institution", "height_feet","height_inches", "cap_size", "last_updated"};
+        String[] csvHeader = {"CWID", "Last Name", "First Name", "Degree", "School", "Height", "Hat Size", "Last Updated"};
+        String[] nameMapping = {"username", "last_name", "first_name", "degree", "granting_institution", "height", "cap_size", "last_updated"};
 
 
         csvWriter.writeHeader(csvHeader);
