@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Regalia Ordering System">
+    <meta name="author" content="Steven Buglione">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/test.css" th:href="@{/css/test.css}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+    <script type="text/javascript" th:src="@{/js/test.js}" src="../static/js/test.js"></script>
+
+    <title>Success</title>
+    <!-- MyMarist Favicon -->
+    <link rel="icon" type="image/png" th:href="@{images/marist_fox_profile.png}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+</head>
+
+<body class="text-center">
+
+<div class="container">
+    <h2 class="title">Create a new account</h2>
+    <form class="form-1" method="POST">
+        <div class="group">
+            <label for="username" class="block-element">Username:</label>
+            <input type="text" class="form-control input-1" name="username" placeholder="Your username">
+            <span class="text-danger hide">Username is too short or contains special characters.</span>
+        </div>
+        <div class="group">
+            <label for="username" class="block-element">Password:</label>
+            <input type="password" class="form-control input-1" name="password">
+            <span class="text-danger hide">The password has to consist of one upper case letter, one number and one special character.</span>
+        </div>
+        <button class="js-submit-user btn btn-2" tabindex="0">Submit</button>
+    </form>
+</div>
+
+<div class="promo">👋 Check out my <a href="https://web-crunch.com" target="_blank">blog</a> or my <a href="https://youtube.com/webcrunch">YouTube channel</a> to learn more about how I made this.</div>
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script>
+       window.history.replaceState('','','/');
+    </script>
+</body>
+</html>

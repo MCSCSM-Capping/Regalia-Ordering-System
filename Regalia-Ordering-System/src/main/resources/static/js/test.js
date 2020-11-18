@@ -1,47 +1,15 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Regalia Ordering System">
-    <meta name="author" content="Steven Buglione">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/new_faculty_order_form.css" th:href="@{/css/new_faculty_order_form.css}">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
-    <script type="text/javascript" th:src="@{/js/new_faculty_order_form.js}" src="../static/js/new_faculty_order_form.js"></script>
-    <!-- MyMarist Favicon -->
-    <link rel="icon" type="image/png" th:href="@{images/marist_fox_profile.png}">
-
-    <title>Regalia Ordering System</title>
-</head>
-<body class="bg-light">
-<div class="container">
-    <div class="py-5 text-center">
-        <img class="d-block mx-auto " src="@{../static/images/Marist_College_Logo}" alt="Marist" th:src="@{images/Marist_College_Logo.svg}">
-        <h2 class="mt-3">Regalia Order Form</h2>
-        <p  text-align="center" class="lead">Fill out the form below to create/update your reglia information. Press the "Preview Order" button to see your changes. Press the "Submit Order" button to confirm. To clear the form, press "Clear Form".</p>
-    </div>
-    <div class="row">
-        <hr class="mb-4">
-        <div class="col-md-2 order-md-2 mb-4">
-        </div>
-        <div class="col-md-8 order-md-1">
-            <h4 class="mb-3 text-center">User Order Information</h4>
-            <hr class="mb-4">
             <form action="#" th:action="@{/user/updated}" th:object="${userDto}"
-                  method="post" id="form">
+                  method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>First Name</label>
-                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName"  title="first name" pattern="[A-Za-z]{1,15}" autocomplete="chrome-off" required>
+                        <input type="text" th:field="*{first_name}" class="form-control" placeholder="First Name" value="" id="firstName" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid first name</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Last Name</label>
-                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" pattern="[A-Za-z]{1,15}" title="last name" value="" autocomplete="chrome-off" required>
+                        <input type="text" th:field="*{last_name}" class="form-control" placeholder="Last Name" id="lastName" value="" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid last name</div>
                     </div>
@@ -49,13 +17,13 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Email</label>
-                        <input type="text" th:field="*{email}" class="form-control" id="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{1,50}" placeholder="name@domain.com" autocomplete="chrome-off" required>
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="name@domain.com" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid email</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Phone Number</label>
-                        <input type="tel" th:field="*{phone_number}" class="form-control" id="phoneNumber" placeholder="914-554-2354" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" maxlength="16" autocomplete="chrome-off" required>
+                        <input type="number" th:field="*{phone_number}" class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid phone number</div>
                     </div>
@@ -63,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Department</label>
-                        <select th:field="*{department}" class="custom-select d-block w-100 form-control" id="department" autocomplete="chrome-off" required >
+                        <select th:field="*{department}" class="custom-select d-block w-100" id="department" required>
                             <option value="">Choose...</option>
                             <div th:each="Department : ${departments}">
                                 <option th:text="${Department.name}" th:value="${Department.name}">name</option>
@@ -74,7 +42,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Highest Degree</label>
-                        <select th:field="*{degree}" class="custom-select d-block w-100 form-control" id="degree" autocomplete="chrome-off" required >
+                        <select th:field="*{degree}" class="custom-select d-block w-100" id="degree" required>
                             <option value="">Choose...</option>
                             <div th:each="Degree : ${degrees}">
                                 <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
@@ -87,13 +55,13 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution</label>
-                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[a-zA-Z\s]+" title="granting institution" autocomplete="chrome-off" required>
+                        <input type="text" th:field="*{granting_institution}" class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid granting institution</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution City</label>
-                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[a-zA-Z\s]+" title="granting city" autocomplete="chrome-off" required>
+                        <input type="text" th:field="*{granting_city}" class="form-control" id="institutionCity" placeholder="Institution City" value="" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid granting institution city</div>
                     </div>
@@ -101,38 +69,38 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Granting Institution State</label>
-                        <select th:field="*{granting_state}" class="custom-select d-block w-100 form-control" id="institutionState" autocomplete="chrome-off" required>
+                        <select th:field="*{granting_state}" class="custom-select d-block w-100" id="institutionState" required>
                             <option value="">Choose...</option>
                             <div th:each="State : ${states}">
                                 <option th:text="${State.name}" th:value="${State.name}">name</option>
                             </div>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Please select a granting institution</div>
                         </select>
-                        <div class="valid-feedback"></div>
-                        <div class="invalid-feedback">Please select a valid granting institution state</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Ceremony Schedule</label>
-                        <select th:field="*{ceremony_date}" class="custom-select d-block w-100 form-control" id="ceremonyDate" autocomplete="chrome-off" required>
+                        <select th:field="*{ceremony_date}" class="custom-select d-block w-100" id="ceremonyDate" required>
                             <option value="">Choose...</option>
                             <div th:each="Ceremony : ${ceremonies}">
                                 <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
                             </div>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Please select a ceremony</div>
                         </select>
-                        <div class="valid-feedback"></div>
-                        <div class="invalid-feedback">Please select a ceremony</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label>Weight (for gown size)</label>
-                        <input type="number" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" min="50" max="400" autocomplete="chrome-off" required>
+                        <input type="number" th:field="*{weight}" class="form-control" placeholder="Weight" id="weight" value="" required>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter a valid weight</div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Height (for gown size)</label>
-                        <select th:field="*{height}" class="custom-select d-block w-100 form-control" id="height" autocomplete="chrome-off" required>
-                            <option value="">Choose...</option>
+                        <select th:field="*{height}" class="custom-select d-block w-100" id="height" required>
+                            <option value=-1>Choose...</option>
                             <option value="4-0"> 4'0"</option>
                             <option value="4-1"> 4'1"</option>
                             <option value="4-2"> 4'2"</option>
@@ -171,25 +139,25 @@
                             <option value="6-11"> 6'11"</option>
                         </select>
                         <div class="valid-feedback"></div>
-                        <div class="invalid-feedback">Please select a valid height</div>
+                        <div class="invalid-feedback">Please select a height</div>
                     </div>
                 </div>
                 <div class="row" style="justify-content: center;">
                     <div class="col-md-6 mb-3">
                         <label>Cap Size</label>
-                        <select th:field="*{cap_size}" class="custom-select d-block w-100 form-control" id="capSize" autocomplete="chrome-off" required>
+                        <select th:field="*{cap_size}" class="custom-select d-block w-100" id="capSize" required>
                             <option value="">Choose...</option>
                             <div th:each="CapSize : ${capSizes}">
                                 <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
                             </div>
+                            <div class="valid-feedback"></div>
+                            <div class="invalid-feedback">Please select a cap size</div>
                         </select>
-                        <div class="valid-feedback"></div>
-                        <div class="invalid-feedback">Please select a valid cap size</div>
                     </div>
                 </div>
                 <div hidden>
                     <label>CWID</label>
-                    <select th:field="*{username}" class="custom-select d-block w-100">
+                    <select th:field="*{username}" class="custom-select d-block w-100" required>
                         <option th:value="${CWID}"selected>CWID</option>
                     </select>
                 </div>
@@ -200,7 +168,7 @@
                             Clear Form
                         </button>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" aria-required="true">
+                        <button type="button" class="btn btn-info" onclick="getModalData()" data-toggle="modal" data-target="#previewOrderForm" aria-required="true">
                             Preview Order
                         </button>
                     </div>
@@ -304,28 +272,9 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" id="formSubmit" class="btn btn-success">Submit your order</button>
+                                <button type="submit" class="btn btn-success">Submit your order</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
-            <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">&copy; Marist Regalia Team</p>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#">Documentation</a></li>
-                    <li class="list-inline-item"><a href="https://github.com/StevenBuglione/Regalia-Ordering-System">GitHub</a></li>
-                    <li class="list-inline-item"><a href="#">About</a></li>
-                </ul>
-            </footer>
-        </div>
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<script> window.history.replaceState('','','/'); </script>
-
-</body>
-</html>

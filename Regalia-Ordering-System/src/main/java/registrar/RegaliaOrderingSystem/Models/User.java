@@ -1,11 +1,15 @@
 package registrar.RegaliaOrderingSystem.Models;
 
 
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 
 @Entity
@@ -37,14 +41,17 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "CEREMONY_ID", foreignKey = @ForeignKey(name = "CEREMONY_ID_FK"))
+    @NotBlank(message = "Please select a ceremony date")
     private Ceremony ceremony_date;
 
     @ManyToOne
     @JoinColumn(name = "CAP_SIZE_ID", foreignKey = @ForeignKey(name = "CAP_SIZE_ID_FK"))
+    @NotBlank(message = "Please select a cap size")
     private CapSize cap_size;
 
     @ManyToOne
     @JoinColumn(name = "DEGREE_ID", foreignKey = @ForeignKey(name = "DEGREE_ID_FK"))
+    @NotBlank(message = "Please select a degree")
     private Degree degree;
 
     @ManyToOne
