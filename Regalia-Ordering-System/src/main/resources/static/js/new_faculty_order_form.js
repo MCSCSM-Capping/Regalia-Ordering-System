@@ -64,8 +64,7 @@ function getModalData(){
     InstitutionCity.textContent = institutionCity;
     CeremonyDate.textContent = ceremonyDate;
 
-   
-}
 
+}
 
 

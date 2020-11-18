@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,30 +12,22 @@
 
   <!-- MyMarist Favicon -->
   <link rel="icon" type="image/png" th:href="@{images/marist_fox_profile.png}">
-
   <!-- Custom fonts for this template -->
   <link rel="stylesheet" th:href="@{/vendor/fontawesome-free/css/all.min.css}">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template -->
   <link rel="stylesheet" th:href="@{/css/sb-admin-2.min.css}">
-
   <!-- Custom styles for this page -->
   <link rel="stylesheet" th:href="@{/vendor/datatables/dataTables.bootstrap4.min.css}">
-
   <!-- Custom JavaScript for Admin Dashboard -->
   <script type="text/javascript" th:src="@{/js/admin_page_active_users.js}" src="../static/js/admin_page_active_users.js"></script>
 
-
 </head>
 <body id="page-top">
-
 <!-- Page Wrapper -->
 <div id="wrapper">
-
   <!-- Sidebar -->
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
       <div class="sidebar-brand-icon rotate-n-15">
@@ -45,185 +35,168 @@
       </div>
       <div class="sidebar-brand-text mx-3">Marist Regalia</div>
     </a>
-
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-
     <!-- Nav Item - Active Users -->
     <li class="nav-item">
       <a class="nav-link" href="/admin_page_active_users">
         <i class="fas fa-users"></i>
         <span>Active Users</span></a>
     </li>
-
     <!-- Nav Item - Active Users -->
     <li class="nav-item">
       <a class="nav-link" href="/admin_page_archived_users">
         <i class="fas fa-archive"></i>
         <span>Archived Users</span></a>
     </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
       <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-
   </ul>
   <!-- End of Sidebar -->
 
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
-
     <!-- Main Content -->
     <div id="content">
-
       <!-- Topbar -->
       <nav class="navbar navbar-expand navbar-dark  topbar mb-4 static-top shadow">
-
         <!-- Sidebar Toggle (Topbar) -->
         <form class="form-inline">
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
         </form>
-
-
-
         <ul class="navbar-nav ml-auto">
-            <!-- TODO implement user alert and message feature
-           feature to implement if i have time
-           // TODO Nav Item - Search Dropdown (Visible Only XS)
-          <li class="nav-item dropdown no-arrow d-sm-none">
-            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-search fa-fw"></i>
+          <!-- TODO implement user alert and message feature
+         feature to implement if i have time
+         // TODO Nav Item - Search Dropdown (Visible Only XS)
+        <li class="nav-item dropdown no-arrow d-sm-none">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-search fa-fw"></i>
+          </a>
+           //TODO Dropdown - Messages
+          <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+            <form class="form-inline mr-auto w-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </li>
+        //TODO Nav Item - Alerts
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bell fa-fw"></i>
+            //Counter - Alerts
+            <span class="badge badge-danger badge-counter">3+</span>
+          </a>
+          // Dropdown - Alerts
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">
+              Alerts Center
+            </h6>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="mr-3">
+                <div class="icon-circle bg-primary">
+                  <i class="fas fa-file-alt text-white"></i>
+                </div>
+              </div>
+              <div>
+                <div class="small text-gray-500">December 12, 2019</div>
+                <span class="font-weight-bold">A new monthly report is ready to download!</span>
+              </div>
             </a>
-             //TODO Dropdown - Messages
-            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-              <form class="form-inline mr-auto w-100 navbar-search">
-                <div class="input-group">
-                  <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                      <i class="fas fa-search fa-sm"></i>
-                    </button>
-                  </div>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="mr-3">
+                <div class="icon-circle bg-success">
+                  <i class="fas fa-donate text-white"></i>
                 </div>
-              </form>
-            </div>
-          </li>
-
-          //TODO Nav Item - Alerts
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-bell fa-fw"></i>
-              //Counter - Alerts
-              <span class="badge badge-danger badge-counter">3+</span>
+              </div>
+              <div>
+                <div class="small text-gray-500">December 7, 2019</div>
+                $290.29 has been deposited into your account!
+              </div>
             </a>
-            // Dropdown - Alerts
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">
-                Alerts Center
-              </h6>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                  <div class="icon-circle bg-primary">
-                    <i class="fas fa-file-alt text-white"></i>
-                  </div>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="mr-3">
+                <div class="icon-circle bg-warning">
+                  <i class="fas fa-exclamation-triangle text-white"></i>
                 </div>
-                <div>
-                  <div class="small text-gray-500">December 12, 2019</div>
-                  <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                  <div class="icon-circle bg-success">
-                    <i class="fas fa-donate text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-gray-500">December 7, 2019</div>
-                  $290.29 has been deposited into your account!
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                  <div class="icon-circle bg-warning">
-                    <i class="fas fa-exclamation-triangle text-white"></i>
-                  </div>
-                </div>
-                <div>
-                  <div class="small text-gray-500">December 2, 2019</div>
-                  Spending Alert: We've noticed unusually high spending for your account.
-                </div>
-              </a>
-              <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-            </div>
-          </li>
-
-          //TODO Nav Item - Messages
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-envelope fa-fw"></i>
-              Counter - Messages
-              <span class="badge badge-danger badge-counter">7</span>
+              </div>
+              <div>
+                <div class="small text-gray-500">December 2, 2019</div>
+                Spending Alert: We've noticed unusually high spending for your account.
+              </div>
             </a>
-            //TODO Dropdown - Messages
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-              <h6 class="dropdown-header">
-                Message Center
-              </h6>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                  <div class="status-indicator bg-success"></div>
-                </div>
-                <div class="font-weight-bold">
-                  <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                  <div class="small text-gray-500">Emily Fowler · 58m</div>
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                  <div class="status-indicator"></div>
-                </div>
-                <div>
-                  <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                  <div class="small text-gray-500">Jae Chun · 1d</div>
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                  <div class="status-indicator bg-warning"></div>
-                </div>
-                <div>
-                  <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                  <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                </div>
-              </a>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="dropdown-list-image mr-3">
-                  <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                  <div class="status-indicator bg-success"></div>
-                </div>
-                <div>
-                  <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                  <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                </div>
-              </a>
-              <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-            </div>
-          </li>
-
-          <div class="topbar-divider d-none d-sm-block"></div>
-          -->
-
-
+            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+          </div>
+        </li>
+        //TODO Nav Item - Messages
+        <li class="nav-item dropdown no-arrow mx-1">
+          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-envelope fa-fw"></i>
+            Counter - Messages
+            <span class="badge badge-danger badge-counter">7</span>
+          </a>
+          //TODO Dropdown - Messages
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">
+              Message Center
+            </h6>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                <div class="status-indicator bg-success"></div>
+              </div>
+              <div class="font-weight-bold">
+                <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                <div class="small text-gray-500">Emily Fowler · 58m</div>
+              </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                <div class="status-indicator"></div>
+              </div>
+              <div>
+                <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                <div class="small text-gray-500">Jae Chun · 1d</div>
+              </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                <div class="status-indicator bg-warning"></div>
+              </div>
+              <div>
+                <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+              </div>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                <div class="status-indicator bg-success"></div>
+              </div>
+              <div>
+                <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                <div class="small text-gray-500">Chicken the Dog · 2w</div>
+              </div>
+            </a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+          </div>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        -->
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow" th:object="${admin}">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -239,78 +212,70 @@
               </a>
             </div>
           </li>
-
         </ul>
-
       </nav>
       <!-- End of Topbar -->
 
       <!-- Begin Page Content -->
       <div class="container-fluid">
-
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Active User Profiles</h1>
-
-
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <div class="d-flex">
-                <div class="p-2">
-                  <a th:href="@{/admin_page_active_users/export}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm "><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                </div>
-                <div class="ml-auto p-2">
-                  <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm " data-toggle="modal" data-target="#newUserModal" aria-required="true"><i class="fas fa-user"></i>
-                    Add New User
-                  </button>
-                </div>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <div class="d-flex">
+              <div class="p-2">
+                <a th:href="@{/admin_page_active_users/export}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm "><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
               </div>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                  <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>College</th>
-                    <th>Last Updated</th>
-                    <th>Actions</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr th:each="User : ${activeUsers}">
-                    <td th:text="${User.first_name}">First Name</td>
-                    <th th:text="${User.last_name}">Last Name</th>
-                    <td th:text="${User.email}">Email</td>
-                    <td th:text="${User.phone_number}">Phone Number</td>
-                    <td th:text="${User.granting_institution}">College</td>
-                    <td th:text="${User.last_updated}">Last Updated</td>
-                    <td>
-                      <div class="col">
-                        <div class="row">
-                          <a class="text-primary btn" data-toggle="modal" data-target=".edit-modal" th:attr="onclick=|getUserByCwid('${User.username}')|">
-                            <i class="fas fa-edit">Edit</i></a>
-                        </div>
-                        <div class="row">
-                          <a class="text-primary btn" data-toggle="modal" data-target=".delete-modal" th:attr="onclick=|setUserCwid('${User.username}')|">
-                            <i class="fas fa-trash">Delete</i></a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
+              <div class="ml-auto p-2">
+                <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm " data-toggle="modal" data-target="#newUserModal" aria-required="true"><i class="fas fa-user"></i>
+                  Add New User
+                </button>
               </div>
             </div>
           </div>
-
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>College</th>
+                  <th>Last Updated</th>
+                  <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="User : ${activeUsers}">
+                  <td th:text="${User.first_name}">First Name</td>
+                  <th th:text="${User.last_name}">Last Name</th>
+                  <td th:text="${User.email}">Email</td>
+                  <td th:text="${User.phone_number}">Phone Number</td>
+                  <td th:text="${User.granting_institution}">College</td>
+                  <td th:text="${User.last_updated}">Last Updated</td>
+                  <td>
+                    <div class="col">
+                      <div class="row">
+                        <a class="text-primary btn" data-toggle="modal" data-target=".edit-modal" th:attr="onclick=|getUserByCwid('${User.username}')|">
+                          <i class="fas fa-edit">Edit</i></a>
+                      </div>
+                      <div class="row">
+                        <a class="text-primary btn" data-toggle="modal" data-target=".delete-modal" th:attr="onclick=|setUserCwid('${User.username}')|">
+                          <i class="fas fa-trash">Delete</i></a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- /.container-fluid -->
-
     </div>
     <!-- End of Main Content -->
 
@@ -324,10 +289,8 @@
       </ul>
     </footer>
     <!-- End of Footer -->
-
   </div>
   <!-- End of Content Wrapper -->
-
 </div>
 <!-- End of Page Wrapper -->
 
@@ -335,6 +298,7 @@
 <a class="scroll-to-top rounded" href="#page-top">
   <i class="fas fa-angle-up"></i>
 </a>
+<!-- End of Scroll to top Button -->
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -356,196 +320,79 @@
     </div>
   </div>
 </div>
+<!-- End Of Logout Modal -->
 
 <!-- New User Modal -->
 <div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="newUsersLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-center" id="newUsersLabel">Add New User</h5>
+        <h5 class="col-md modal-title text-center" id="newUsersLabel">Add New User</h5>
         <button class="close" type="button" onclick="window.location.reload()" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="col-md-8 order-md-1 container-fluid">
+        <div class="col-md-10 order-md-1 container-fluid">
           <div class="row">
-
-              <div class="col-md-6 mb-3">
-                <label>CWID</label>
-                <input type="number" class="form-control" placeholder="CWID" id="newCwid" value="" required>
-                <div class="invalid-feedback">
-                  Valid cwid is required.
-                </div>
-              </div>
-
-              <div class="col-md-6 mb-3">
-                <label>Role</label>
-                <select class="custom-select d-block w-100" id="newRole" required>
-                  <option value="">Choose...</option>
-                  <div th:each="Role : ${roles}" >
-                    <option th:text="${Role.name}" th:value="${Role.name}">name</option>
-                  </div>
-                </select>
+            <div class="col-md-6 mb-3">
+              <label>CWID</label>
+              <input type="number" class="form-control" placeholder="CWID" id="newCwid" value="">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Email</label>
+              <input type="text" class="form-control" id="newEmail" placeholder="name@domain.com">
             </div>
           </div>
-
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>First Name</label>
-              <input type="text" class="form-control" placeholder="First Name" value="" id="newFirstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-              <div class="invalid-feedback" id="msg">
-                Valid first name is required.
-              </div>
+              <input type="text" class="form-control" placeholder="First Name" value="" id="newFirstName">
             </div>
-
             <div class="col-md-6 mb-3">
               <label>Last Name</label>
-              <input type="text" class="form-control" placeholder="Last Name" id="newLastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-              <div class="invalid-feedback">
-                Valid Last name is required.
-              </div>
+              <input type="text" class="form-control" placeholder="Last Name" id="newLastName" value="">
             </div>
           </div>
-
           <div class="row">
-            <div class="col-md-6 mb-3">
-              <label>Email</label>
-              <input type="text" class="form-control" id="newEmail" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
-            </div>
-
             <div class="col-md-6 mb-3">
               <label>Phone Number</label>
-              <input type="number" class="form-control" id="newPhoneNumber" placeholder="914-554-2354" required>
-              <div class="invalid-feedback">
-                Please enter your Phone Number.
-              </div>
+              <input type="number" class="form-control" id="newPhoneNumber" placeholder="914-554-2354">
             </div>
-          </div>
-          <hr class="mb-4">
-
-
-          <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Department</label>
-              <select class="custom-select d-block w-100" id="newDepartment" required>
+              <label>Department/School</label>
+              <select class="custom-select d-block w-100" id="newDepartment">
                 <option value="">Choose...</option>
                 <div th:each="Department : ${departments}">
                   <option th:text="${Department.name}" th:value="${Department.name}">name</option>
                 </div>
-
               </select>
-              <div class="invalid-feedback">
-                Please provide a valid Department.
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <label>Cap Size</label>
-              <select class="custom-select d-block w-100" id="newCapSize" required>
-                <option value="">Choose...</option>
-                <div th:each="CapSize : ${capSizes}">
-                  <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
-                </div>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid Cap Size.
-              </div>
             </div>
           </div>
-
-
+          <hr class="mb-4">
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Degree</label>
-              <select class="custom-select d-block w-100" id="newDegree" required>
+              <select class="custom-select d-block w-100" id="newDegree">
                 <option value="">Choose...</option>
                 <div th:each="Degree : ${degrees}">
                   <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
                 </div>
               </select>
-              <div class="invalid-feedback">
-                Please provide a valid Degree.
-              </div>
             </div>
-
-            <div class="col-md-6 mb-3">
-              <label>Ceremony Schedule</label>
-              <select class="custom-select d-block w-100" id="newCeremonyDate" required>
-                <option value="">Choose...</option>
-                <div th:each="Ceremony : ${ceremonies}">
-                  <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
-                </div>
-              </select>
-              <div class="invalid-feedback">
-                Please select a valid Day.
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label>Height Feet</label>
-              <select class="custom-select d-block w-100" id="newHeightFeet" required>
-                <option value=-1>Choose...</option>
-                <option value=4>4"</option>
-                <option value=5>5"</option>
-                <option value=6>6"</option>
-                <option value=7>7"</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid Height.
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <label>Height Inches</label>
-              <select class="custom-select d-block w-100" id="newHeightInches" required>
-                <option value=-1>Choose...</option>
-                <option value=0>0"</option>
-                <option value=1>1"</option>
-                <option value=2>2"</option>
-                <option value=3>3"</option>
-                <option value=4>4"</option>
-                <option value=5>5"</option>
-                <option value=6>6"</option>
-                <option value=7>7"</option>
-                <option value=8>8"</option>
-                <option value=9>9"</option>
-                <option value=10>10"</option>
-                <option value=11>11"</option>
-              </select>
-              <div class="invalid-feedback">
-                Please provide a valid Height.
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <label>Weight</label>
-              <input type="number" class="form-control" placeholder="Weight" id="newWeight" value="" required>
-              <div class="invalid-feedback">
-                Valid Weight is required.
-              </div>
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="row">
             <div class="col-md-6 mb-3">
               <label>Granting Institution</label>
-              <input type="text" class="form-control" id="newGrantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-              <div class="invalid-feedback">
-                Valid Granting Institution is required.
-              </div>
+              <input type="text" class="form-control" id="newGrantingInstitution" placeholder="Granting Institution" value="">
             </div>
-
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Institution City</label>
+              <input type="text" class="form-control" id="newInstitutionCity" placeholder="Institution City" value="">
+            </div>
             <div class="col-md-6 mb-3">
               <label>Institution State</label>
-              <select class="custom-select d-block w-100" id="newInstitutionState" required>
+              <select class="custom-select d-block w-100" id="newInstitutionState">
                 <option value="">Choose...</option>
                 <div th:each="State : ${states}">
                   <option th:text="${State.name}" th:value="${State.name}">name</option>
@@ -553,245 +400,289 @@
               </select>
             </div>
           </div>
-
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Ceremony Schedule</label>
+              <select class="custom-select d-block w-100" id="newCeremonyDate">
+                <option value="">Choose...</option>
+                <div th:each="Ceremony : ${ceremonies}">
+                  <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
+                </div>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Cap Size</label>
+              <select class="custom-select d-block w-100" id="newCapSize">
+                <option value="">Choose...</option>
+                <div th:each="CapSize : ${capSizes}">
+                  <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
+                </div>
+              </select>
+            </div>
+          </div>
+          <hr>
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 mb-3">
-              <label>Institution City</label>
-              <input type="text" class="form-control" id="newInstitutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-              <div class="invalid-feedback">
-                Valid Institution City is required.
-              </div>
+              <label>Height</label>
+              <select class="custom-select d-block w-100" id="newHeight">
+                <option value=-1>Choose...</option>
+                <option value="4-0"> 4'0"</option>
+                <option value="4-1"> 4'1"</option>
+                <option value="4-2"> 4'2"</option>
+                <option value="4-3"> 4'3"</option>
+                <option value="4-4"> 4'4"</option>
+                <option value="4-5"> 4'5"</option>
+                <option value="4-6"> 4'6"</option>
+                <option value="4-7"> 4'7"</option>
+                <option value="4-8"> 4'8"</option>
+                <option value="4-9"> 4'9"</option>
+                <option value="4-10"> 4'10"</option>
+                <option value="4-11"> 4'11"</option>
+                <option value="5-0"> 5'0"</option>
+                <option value="5-1"> 5'1"</option>
+                <option value="5-2"> 5'2"</option>
+                <option value="5-3"> 5'3"</option>
+                <option value="5-4"> 5'4"</option>
+                <option value="5-5"> 5'5"</option>
+                <option value="5-6"> 5'6"</option>
+                <option value="5-7"> 5'7"</option>
+                <option value="5-8"> 5'8"</option>
+                <option value="5-9"> 5'9"</option>
+                <option value="5-10"> 5'10"</option>
+                <option value="5-11"> 5'11"</option>
+                <option value="6-0"> 6'0"</option>
+                <option value="6-1"> 6'1"</option>
+                <option value="6-2"> 6'2"</option>
+                <option value="6-3"> 6'3"</option>
+                <option value="6-4"> 6'4"</option>
+                <option value="6-5"> 6'5"</option>
+                <option value="6-6"> 6'6"</option>
+                <option value="6-7"> 6'7"</option>
+                <option value="6-8"> 6'8"</option>
+                <option value="6-9"> 6'9"</option>
+                <option value="6-10"> 6'10"</option>
+                <option value="6-11"> 6'11"</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Weight</label>
+              <input type="number" class="form-control" placeholder="Weight" id="newWeight" value="">
+            </div>
+          </div>
+          <hr>
+          <div class="row" style="justify-content: center;">
+            <div class="col-md-6 mb-3">
+              <label>Role</label>
+              <select class="custom-select d-block w-100" id="newRole">
+                <option value="">Choose...</option>
+                <div th:each="Role : ${roles}" >
+                  <option th:text="${Role.name}" th:value="${Role.name}">name</option>
+                </div>
+              </select>
             </div>
           </div>
         </div>
-
-        <div class="modal-footer justify-content-center">
-          <div >
-            <div class="row">
-                <div class="col-md-4 mb-3 mr-1 mt-2 ">
-                  <button type="button" class="btn btn-secondary" onclick="window.location.reload()" data-dismiss="modal">Close</button>
-                </div>
-                <div class="col-lg-6 mb-3 ml-1 mt-2 text-nowrap">
-                  <button type="submit" class="btn btn-success" onclick="createNewUser()" data-toggle="modal" aria-required="true">
-                    Add User</button>
-                </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <div >
+          <div class="row">
+            <div class="col-md-4 mb-3 mr-1 mt-2 ">
+              <button type="button" class="btn btn-secondary" onclick="window.location.reload()" data-dismiss="modal">Close</button>
+            </div>
+            <div class="col-lg-6 mb-3 ml-1 mt-2 text-nowrap">
+              <button type="submit" class="btn btn-success" onclick="createNewUser()" data-toggle="modal" aria-required="true">
+                Add User</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div> <!-- End of New User Modal -->
-
-
-
+</div>
+</div>
+<!-- End of New User Modal -->
 
 <!-- Edit User Modal -->
 <div class="modal fade edit-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="col-12 modal-title text-center" id="editUserModal">User Order Information</h4>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <h5 class="col-md modal-title text-center" id="editUsersLabel">Edit User Information</h5>
+        <button class="close" type="button" onclick="window.location.reload()" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <div class="col-md-8 order-md-1 container-fluid">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>First Name</label>
-            <input type="text"  class="form-control" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback" id="msg">
-              Valid first name is required.
+      <div class="modal-body">
+        <div class="col-md-10 order-md-1 container-fluid">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>CWID</label>
+              <input type="number" class="form-control" placeholder="CWID" id="cwid" value="">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Email</label>
+              <input type="text"  class="form-control" id="email" placeholder="name@domain.com">
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label>Last Name</label>
-            <input type="text"  class="form-control" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback">
-              Valid Last name is required.
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>First Name</label>
+              <input type="text"  class="form-control" placeholder="First Name" value="" id="firstName">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Last Name</label>
+              <input type="text"  class="form-control" placeholder="Last Name" id="lastName" value="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Phone Number</label>
+              <input type="number"  class="form-control" id="phoneNumber" placeholder="914-554-2354">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Department/School</label>
+              <select class="custom-select d-block w-100" id="department">
+                <option value="">Choose...</option>
+                <div th:each="Department : ${departments}">
+                  <option th:text="${Department.name}" th:value="${Department.name}">name</option>
+                </div>
+              </select>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Highest Degree</label>
+              <select  class="custom-select d-block w-100" id="degree">
+                <option value="">Choose...</option>
+                <div th:each="Degree : ${degrees}">
+                  <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
+                </div>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Granting Institution</label>
+              <input type="text"  class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Institution City</label>
+              <input type="text"  class="form-control" id="institutionCity" placeholder="Institution City" value="">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Institution State</label>
+              <select class="custom-select d-block w-100" id="institutionState">
+                <option value="">Choose...</option>
+                <div th:each="State : ${states}">
+                  <option th:text="${State.name}" th:value="${State.name}">name</option>
+                </div>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Ceremony Schedule</label>
+              <select  class="custom-select d-block w-100" id="ceremonyDate">
+                <option value="">Choose...</option>
+                <div th:each="Ceremony : ${ceremonies}">
+                  <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
+                </div>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Cap Size</label>
+              <select  class="custom-select d-block w-100" id="capSize">
+                <option value="">Choose...</option>
+                <div th:each="CapSize : ${capSizes}">
+                  <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
+                </div>
+              </select>
+            </div>
+          </div>
+          <hr>
+          <div class="row" style="justify-content: center;">
+            <div class="col-md-6 mb-3">
+              <label>Height</label>
+              <select  class="custom-select d-block w-100" id="height">
+                <option value=-1>Choose...</option>
+                <option value="4-0"> 4'0"</option>
+                <option value="4-1"> 4'1"</option>
+                <option value="4-2"> 4'2"</option>
+                <option value="4-3"> 4'3"</option>
+                <option value="4-4"> 4'4"</option>
+                <option value="4-5"> 4'5"</option>
+                <option value="4-6"> 4'6"</option>
+                <option value="4-7"> 4'7"</option>
+                <option value="4-8"> 4'8"</option>
+                <option value="4-9"> 4'9"</option>
+                <option value="4-10"> 4'10"</option>
+                <option value="4-11"> 4'11"</option>
+                <option value="5-0"> 5'0"</option>
+                <option value="5-1"> 5'1"</option>
+                <option value="5-2"> 5'2"</option>
+                <option value="5-3"> 5'3"</option>
+                <option value="5-4"> 5'4"</option>
+                <option value="5-5"> 5'5"</option>
+                <option value="5-6"> 5'6"</option>
+                <option value="5-7"> 5'7"</option>
+                <option value="5-8"> 5'8"</option>
+                <option value="5-9"> 5'9"</option>
+                <option value="5-10"> 5'10"</option>
+                <option value="5-11"> 5'11"</option>
+                <option value="6-0"> 6'0"</option>
+                <option value="6-1"> 6'1"</option>
+                <option value="6-2"> 6'2"</option>
+                <option value="6-3"> 6'3"</option>
+                <option value="6-4"> 6'4"</option>
+                <option value="6-5"> 6'5"</option>
+                <option value="6-6"> 6'6"</option>
+                <option value="6-7"> 6'7"</option>
+                <option value="6-8"> 6'8"</option>
+                <option value="6-9"> 6'9"</option>
+                <option value="6-10"> 6'10"</option>
+                <option value="6-11"> 6'11"</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Weight</label>
+              <input type="number"  class="form-control" placeholder="Weight" id="weight" value="">
+              <div class="invalid-feedback">
+                Valid Weight is required.
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row" style="justify-content: center;">
+            <div class="col-md-6 mb-3">
+              <label>Role</label>
+              <select class="custom-select d-block w-100" id="role">
+                <option value="">Choose...</option>
+                <div th:each="Role : ${roles}" >
+                  <option th:text="${Role.name}" th:value="${Role.name}">name</option>
+                </div>
+              </select>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Email</label>
-            <input type="text"  class="form-control" id="email" placeholder="name@domain.com" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,50}" title="Only Characters" required>
-            <div class="invalid-feedback">
-              Please enter a valid email address for shipping updates.
+      </div>
+      <div >
+        <div class="modal-footer justify-content-center">
+          <div class="row justify-content-center" style="justify-content: center;">
+            <div class="col-md-4 mb-3 mr-1 mt-2 ">
+              <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
             </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label>Phone Number</label>
-            <input type="number"  class="form-control" id="phoneNumber" placeholder="914-554-2354" required>
-            <div class="invalid-feedback">
-              Please enter your Phone Number.
-            </div>
-          </div>
-        </div>
-        <hr class="mb-4">
-
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Department</label>
-            <select class="custom-select d-block w-100" id="department" required>
-              <option value="">Choose...</option>
-              <div th:each="Department : ${departments}">
-                <option th:text="${Department.name}" th:value="${Department.name}">name</option>
-              </div>
-
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid Department.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Cap Size</label>
-            <select  class="custom-select d-block w-100" id="capSize" required>
-              <option value="">Choose...</option>
-              <div th:each="CapSize : ${capSizes}">
-                <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
-              </div>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid Cap Size.
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Degree</label>
-            <select  class="custom-select d-block w-100" id="degree" required>
-              <option value="">Choose...</option>
-              <div th:each="Degree : ${degrees}">
-                <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
-              </div>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid Degree.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Ceremony Schedule</label>
-            <select  class="custom-select d-block w-100" id="ceremonyDate" required>
-              <option value="">Choose...</option>
-              <div th:each="Ceremony : ${ceremonies}">
-                <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
-              </div>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid Day.
-            </div>
-          </div>
-
-
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Height Inches</label>
-            <select  class="custom-select d-block w-100" id="heightFeet" required>
-              <option value=-1>Choose...</option>
-              <option value=4>4"</option>
-              <option value=5>5"</option>
-              <option value=6>6"</option>
-              <option value=7>7"</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid Height.
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label>Height Inches</label>
-            <select  class="custom-select d-block w-100" id="heightInches" required>
-              <option value=-1>Choose...</option>
-              <option value=0>0"</option>
-              <option value=1>1"</option>
-              <option value=2>2"</option>
-              <option value=3>3"</option>
-              <option value=4>4"</option>
-              <option value=5>5"</option>
-              <option value=6>6"</option>
-              <option value=7>7"</option>
-              <option value=8>8"</option>
-              <option value=9>9"</option>
-              <option value=10>10"</option>
-              <option value=11>11"</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid Height.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Weight</label>
-            <input type="number"  class="form-control" placeholder="Weight" id="weight" value="" required>
-            <div class="invalid-feedback">
-              Valid Weight is required.
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label>Granting Institution</label>
-            <input type="text"  class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback">
-              Valid Granting Institution is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Institution State</label>
-            <select class="custom-select d-block w-100" id="institutionState" required>
-              <option value="">Choose...</option>
-              <div th:each="State : ${states}">
-                <option th:text="${State.name}" th:value="${State.name}">name</option>
-              </div>
-            </select>
-          </div>
-        </div>
-        <div class="row" style="justify-content: center;">
-          <div class="col-md-6 mb-3">
-            <label>Institution City</label>
-            <input type="text"  class="form-control" id="institutionCity" placeholder="Institution City" value="" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-            <div class="invalid-feedback">
-              Valid Institution City is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Role</label>
-            <select class="custom-select d-block w-100" id="role" required>
-              <option value="">Choose...</option>
-              <div th:each="Role : ${roles}" >
-                <option th:text="${Role.name}" th:value="${Role.name}">name</option>
-              </div>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-6 mb-3" hidden>
-          <label>cwid</label>
-          <input type="text" id="cwid" pattern="[A-Za-z]{1,15}" title="Only Characters" required>
-        </div>
-        <div >
-          <div class="row justify-content-center">
-            <div class="row justify-content-center" style="justify-content: center;">
-              <div class="col-md-4 mb-3 mr-1 mt-2 ">
-                <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
-              </div>
-              <div class="col-md-6 mb-3 ml-1 mt-2">
-                <button type="submit" class="btn btn-success" onclick="updateUser()" data-dismiss="modal" >Update</button>
-              </div>
+            <div class="col-md-6 mb-3 ml-1 mt-2">
+              <button type="submit" class="btn btn-success" onclick="updateUser()" data-dismiss="modal" >Update</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div> <!--End of Edit User Modal -->
+</div>
+</div>
+<!--End of Edit User Modal -->
 
 <!-- Delete User Modal -->
 <div class="modal fade delete-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -809,7 +700,6 @@
       <div class="modal-footer">
         <div hidden>
           <label>CWID</label>
-
           <p th:field="*{username}" id="modelCwidValue"></p>
         </div>
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -822,25 +712,17 @@
 <!-- Bootstrap core JavaScript-->
 <script th:src="@{vendor/jquery/jquery.min.js}"></script>
 <script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
-
 <!-- Core plugin JavaScript-->
 <script th:src="@{vendor/jquery-easing/jquery.easing.min.js}"></script>
-
 <!-- Custom scripts for all pages-->
 <script th:src="@{js/sb-admin-2.min.js}"></script>
-
 <!-- Page level plugins -->
 <script th:src="@{vendor/datatables/jquery.dataTables.min.js}"></script>
 <script th:src="@{vendor/datatables/dataTables.bootstrap4.min.js}"></script>
-
 <!-- Page level custom scripts -->
 <script th:src="@{js/demo/datatables-demo.js}"></script>
+<!-- Script to remove the relative path of page -->
+<script>window.history.replaceState('','','/');</script>
 
-<script>
-       window.history.replaceState('','','/');
-</script>
-
-</div>
 </body>
-
 </html>

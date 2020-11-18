@@ -6,7 +6,7 @@ function setUserCwid(user){
 }
 
 function postDeleteUser(){
-    const route = 'https://regalia.capping.ecrl.marist.edu/user/delete/';
+    const route = 'http://localhost:8080/user/delete/';
     let id = document.getElementById("modelCwidValue").textContent;
     let url = route + id ;
 
@@ -32,7 +32,7 @@ function postDeleteUser(){
 
 function getUserByCwid(cwid){
 
-        const url = 'https://regalia.capping.ecrl.marist.edu/user/';
+        const url = 'http://localhost:8080/user/';
 
         let usersCwid = cwid;
 
@@ -48,8 +48,7 @@ function getUserByCwid(cwid){
         let capSize = document.getElementById("capSize");
         let degree = document.getElementById("degree");
         let weight = document.getElementById("weight");
-        let heightFeet = document.getElementById("heightFeet");
-        let heightInches = document.getElementById("heightInches");
+        let height = document.getElementById("height");
         let grantingInstitution = document.getElementById("grantingInstitution");
         let institutionState = document.getElementById("institutionState");
         let institutionCity = document.getElementById("institutionCity");
@@ -70,8 +69,7 @@ function getUserByCwid(cwid){
                 capSize.value = json.cap_size;
                 degree.value = json.degree;
                 weight.value = json.weight;
-                heightFeet.value = json.height_feet;
-                heightInches.value = json.height_inches;
+                height.value = json.height;
                 grantingInstitution.value = json.granting_institution;
                 institutionState.value = json.granting_state;
                 institutionCity.value = json.granting_city;
@@ -90,7 +88,7 @@ function getUserByCwid(cwid){
 function updateUser(){
 
         //Api Requirements
-        const url = 'https://regalia.capping.ecrl.marist.edu/user/edit/';
+        const url = 'http://localhost:8080/user/edit/';
 
         let usersCwid = document.getElementById("cwid").value;
 
@@ -105,14 +103,12 @@ function updateUser(){
         let capSizeDOM = document.getElementById("capSize").value;
         let degreeDOM = document.getElementById("degree").value;
         let weightDOM = document.getElementById("weight").value;
-        let heightFeetDOM = document.getElementById("heightFeet").value;
-        let heightInchesDOM = document.getElementById("heightInches").value;
+        let heightDOM = document.getElementById("height").value;
         let grantingInstitutionDOM = document.getElementById("grantingInstitution").value;
         let institutionStateDOM = document.getElementById("institutionState").value;
         let institutionCityDOM = document.getElementById("institutionCity").value;
         let ceremonyDateDOM = document.getElementById("ceremonyDate").value;
         let roleDOM = document.getElementById("role").value;
-
 
         const user = {
             first_name : firstNameDOM,
@@ -123,8 +119,7 @@ function updateUser(){
             cap_size : capSizeDOM,
             degree : degreeDOM,
             weight : weightDOM,
-            height_feet : heightFeetDOM,
-            height_inches : heightInchesDOM,
+            height : heightDOM,
             granting_institution : grantingInstitutionDOM,
             granting_state : institutionStateDOM,
             granting_city : institutionCityDOM,
@@ -157,7 +152,7 @@ function updateUser(){
 function createNewUser() {
 
     // Api Requirements
-    const route = 'https://regalia.capping.ecrl.marist.edu/user/add';
+    const route = 'http://localhost:8080/user/add';
     let url = route;
 
     let firstNameDOM = document.getElementById("newFirstName").value;
@@ -168,14 +163,13 @@ function createNewUser() {
     let capSizeDOM = document.getElementById("newCapSize").value;
     let degreeDOM = document.getElementById("newDegree").value;
     let weightDOM = document.getElementById("newWeight").value;
-    let heightFeetDOM = document.getElementById("newHeightFeet").value;
-    let heightInchesDOM = document.getElementById("newHeightInches").value;
+    let heightDOM = document.getElementById("newHeight").value;
     let grantingInstitutionDOM = document.getElementById("newGrantingInstitution").value;
     let institutionStateDOM = document.getElementById("newInstitutionState").value;
     let institutionCityDOM = document.getElementById("newInstitutionCity").value;
     let ceremonyDateDOM = document.getElementById("newCeremonyDate").value;
     let roleDOM = document.getElementById("newRole").value;
-    let usernameDom = document.getElementById("newCwid").value;
+    let usernameDOM = document.getElementById("newCwid").value;
 
 
     const user = {
@@ -187,14 +181,13 @@ function createNewUser() {
         cap_size : capSizeDOM,
         degree : degreeDOM,
         weight : weightDOM,
-        height_feet : heightFeetDOM,
-        height_inches : heightInchesDOM,
+        height : heightDOM,
         granting_institution : grantingInstitutionDOM,
         granting_state : institutionStateDOM,
         granting_city : institutionCityDOM,
         ceremony_date : ceremonyDateDOM,
         role : roleDOM,
-        username: usernameDom
+        username: usernameDOM
     };
 
     console.log(user);
@@ -217,5 +210,3 @@ function createNewUser() {
     window.location.href = "/admin_page_active_users"
 
 }
-
-
