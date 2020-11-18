@@ -3,12 +3,16 @@ package registrar.RegaliaOrderingSystem.Dto;
 import registrar.RegaliaOrderingSystem.Models.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 public class UserDto {
-
+    @NotNull(message = "Please enter a valid email")
+    @Email(message = "Please enter a valid email")
     private String email;
     private String username;
     private String first_name;
@@ -197,5 +201,27 @@ public class UserDto {
 
     public void setLast_updated(Date last_updated) {
         this.last_updated = last_updated;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", ceremony_date='" + ceremony_date + '\'' +
+                ", cap_size='" + cap_size + '\'' +
+                ", degree='" + degree + '\'' +
+                ", department='" + department + '\'' +
+                ", weight=" + weight +
+                ", height='" + height + '\'' +
+                ", granting_institution='" + granting_institution + '\'' +
+                ", granting_city='" + granting_city + '\'' +
+                ", granting_state='" + granting_state + '\'' +
+                ", last_updated=" + last_updated +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

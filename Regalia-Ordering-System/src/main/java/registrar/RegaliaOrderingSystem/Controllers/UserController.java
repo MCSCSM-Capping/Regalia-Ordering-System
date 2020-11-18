@@ -83,7 +83,7 @@ public class UserController {
 
 
 
-        model.addAttribute("user", userDto);
+        model.addAttribute("userDto", userDto);
 
         List<CapSize> capSizes = _capSizeService.listAll();
         model.addAttribute("capSizes", capSizes);
@@ -108,15 +108,12 @@ public class UserController {
         return "user/new_user_profile";
     }
 
-    
+
     //Form post request to update the user records
     @RequestMapping(value = "/user/updated", method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("user") UserDto userDto){
+    public String addUser(@ModelAttribute("userDto") UserDto userDto){
 
         User user = _userService.getUserByUsername(userDto.getUsername());
-        System.out.println(userDto.getUsername());
-
-
         user.setFirst_name(userDto.getFirst_name());
         user.setLast_name(userDto.getLast_name());
         user.setPhone_number(userDto.getPhone_number());
@@ -135,6 +132,11 @@ public class UserController {
         _userService.save(user);
 
         return "user/user_updated_redirect";
+    }
+
+    @RequestMapping("/test")
+    public String getTest(){
+        return "user/test";
     }
 
 
