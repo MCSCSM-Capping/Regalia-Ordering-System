@@ -1,4 +1,3 @@
-
 function setUserCwid(user){
     let username = user
     let ModalUsername = document.getElementById("modelCwidValue");
@@ -158,59 +157,173 @@ function createNewUser() {
     const route = 'http://localhost:8080/user/add';
     let url = route;
 
-    let firstNameDOM = document.getElementById("newFirstName").value;
-    let lastNameDOM = document.getElementById("newLastName").value;
-    let emailDOM = document.getElementById("newEmail").value;
-    let phoneNumberDOM = document.getElementById("newPhoneNumber").value;
-    let departmentDOM = document.getElementById("newDepartment").value;
-    let capSizeDOM = document.getElementById("newCapSize").value;
-    let degreeDOM = document.getElementById("newDegree").value;
-    let weightDOM = document.getElementById("newWeight").value;
-    let heightDOM = document.getElementById("newHeight").value;
-    let grantingInstitutionDOM = document.getElementById("newGrantingInstitution").value;
-    let institutionStateDOM = document.getElementById("newInstitutionState").value;
-    let institutionCityDOM = document.getElementById("newInstitutionCity").value;
-    let ceremonyDateDOM = document.getElementById("newCeremonyDate").value;
-    let roleDOM = document.getElementById("newRole").value;
-    let usernameDOM = document.getElementById("newCwid").value;
+    let firstNameDOM = document.getElementById("newFirstName");
+    let lastNameDOM = document.getElementById("newLastName");
+    let emailDOM = document.getElementById("newEmail");
+    let phoneNumberDOM = document.getElementById("newPhoneNumber");
+    let departmentDOM = document.getElementById("newDepartment");
+    let capSizeDOM = document.getElementById("newCapSize");
+    let degreeDOM = document.getElementById("newDegree");
+    let weightDOM = document.getElementById("newWeight");
+    let heightDOM = document.getElementById("newHeight");
+    let grantingInstitutionDOM = document.getElementById("newGrantingInstitution");
+    let institutionStateDOM = document.getElementById("newInstitutionState");
+    let institutionCityDOM = document.getElementById("newInstitutionCity");
+    let ceremonyDateDOM = document.getElementById("newCeremonyDate");
+    let roleDOM = document.getElementById("newRole");
+    let usernameDOM = document.getElementById("newCwid");
 
 
-    const user = {
-        first_name : firstNameDOM,
-        last_name : lastNameDOM,
-        email : emailDOM,
-        phone_number : phoneNumberDOM,
-        department : departmentDOM,
-        cap_size : capSizeDOM,
-        degree : degreeDOM,
-        weight : weightDOM,
-        height : heightDOM,
-        granting_institution : grantingInstitutionDOM,
-        granting_state : institutionStateDOM,
-        granting_city : institutionCityDOM,
-        ceremony_date : ceremonyDateDOM,
-        role : roleDOM,
-        username: usernameDOM
-    };
 
-    console.log(user);
+    function validUserData(){
 
-    // request options
-    const options = {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {
-            'Content-Type': 'application/json'
+            //Regular Expression For Client Side Validation
+            let nameFormat = /^([a-zA-Z]{2,})$/
+            let nameSpaceFormat = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
+            let emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            let phoneNumberFormat = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+
+            //Variables Used for testing each field
+            let firstNameTest = nameFormat.test(firstNameDOM.value);
+            let lastNameTest = nameFormat.test(lastNameDOM.value);
+            let phoneNumberTest = phoneNumberFormat.test(phoneNumberDOM.value);
+            let departmentTest = departmentDOM.value != '';
+            let capSizeTest = capSizeDOM.value != '';
+            let degreeTest = degreeDOM.value != '';
+            let grantInstTest = nameSpaceFormat.test(grantingInstitutionDOM.value);
+            let grantStateTest = institutionStateDOM.value != '';
+            let grantCityTest = nameSpaceFormat.test(institutionCityDOM.value);
+            let ceremonyTest = ceremonyDateDOM.value != '';
+            let heightTest = heightDOM.value != '';
+            let roleTest = roleDOM.value != '';
+            let emailTest = emailDOM.value != '';
+            let userNameTest = usernameDOM.value != '';
+
+            //Ugly If statement to check each test case
+            if(firstNameTest == true && lastNameTest == true && emailTest == true && phoneNumberTest == true &&
+                departmentTest == true && capSizeTest == true && degreeTest == true && heightTest == true && roleTest == true &&
+                weightDOM.value > 50 && weightDOM.value < 400 && grantInstTest == true && grantStateTest == true && grantCityTest == true &&  ceremonyTest == true &&
+                emailTest == true && userNameTest == true){
+
+                    const user = {
+                                    first_name : firstNameDOM.value,
+                                    last_name : lastNameDOM.value,
+                                    email : emailDOM.value,
+                                    phone_number : phoneNumberDOM.value,
+                                    department : departmentDOM.value,
+                                    cap_size : capSizeDOM.value,
+                                    degree : degreeDOM.value,
+                                    weight : weightDOM.value,
+                                    height : heightDOM.value,
+                                    granting_institution : grantingInstitutionDOM.value,
+                                    granting_state : institutionStateDOM.value,
+                                    granting_city : institutionCityDOM.value,
+                                    ceremony_date : ceremonyDateDOM.value,
+                                    role : roleDOM.value,
+                                    username: usernameDOM.value
+                                };
+
+                                console.log(user);
+
+                    // request options
+                    const options = {
+                        method: 'POST',
+                        body: JSON.stringify(user),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+
+                    // send POST request
+                    fetch(url, options)
+                        .then(res => res)
+                        .then(res => console.log(res));
+
+                    window.location.href = "/admin_page_active_users"
+
+            }else{
+                //Ugly if statement to update the errors on the DOM
+                if(firstNameTest == false){
+                    firstNameDOM.focus();
+                    firstNameDOM.blur();
+                }
+
+                if(lastNameTest == false){
+                    lastNameDOM.focus();
+                    lastNameDOM.blur();
+                }
+
+                if(phoneNumberTest == false){
+                    phoneNumberDOM.focus();
+                    phoneNumberDOM.blur();
+                }
+
+                if(departmentTest == false){
+                    departmentDOM.focus();
+                    departmentDOM.blur();
+                }
+
+                if(capSizeTest == false){
+                    capSizeDOM.focus();
+                    capSizeDOM.blur();
+                }
+
+                if(degreeTest == false){
+                    degreeDOM.focus();
+                    degreeDOM.blur();
+                }
+
+                if(heightTest == false){
+                    heightDOM.focus();
+                    heightDOM.blur();
+                }
+
+                if(weightDOM.value < 50 || weightDOM.value > 400){
+                    weightDOM.focus();
+                    weightDOM.blur();
+                }
+
+                if(grantInstTest == false){
+                    grantingInstitutionDOM.focus();
+                    grantingInstitutionDOM.blur();
+                }
+
+                if(grantStateTest == false){
+                    institutionStateDOM.focus();
+                    institutionStateDOM.blur();
+                }
+
+                if(grantCityTest == false){
+                    institutionCityDOM.focus();
+                    institutionCityDOM.blur();
+                }
+
+                if(ceremonyTest == false){
+                    ceremonyDateDOM.focus();
+                    ceremonyDateDOM.blur();
+                }
+
+                if(roleTest == false){
+                    roleDOM.focus();
+                    roleDOM.blur();
+                }
+
+                if(emailTest == false){
+                    emailDOM.focus();
+                    emailDOM.blur();
+                    newEmailTaken.style.display = "none";
+                }
+
+                if(userNameTest == false){
+                    usernameDOM.focus();
+                    usernameDOM.blur();
+                    newCwidTaken.style.display = "none";
+                }
+            }
+
         }
-    }
 
-    // send POST request
-    fetch(url, options)
-        .then(res => res.json())
-        .then(res => console.log(res));
-
-
-    window.location.href = "/admin_page_active_users"
+        validUserData();
 
 }
 
@@ -235,58 +348,70 @@ function createNewUser() {
     // Init a timeout variable to be used below
     let timeout = null;
 
-    // Listen for keystroke events
-    email.addEventListener('keyup', function (e) {
-      // Clear the timeout if it has already been set.
-      // This will prevent the previous task from executing
-      // if it has been less than <MILLISECONDS>
-      clearTimeout(timeout);
+    let emailValid = false;
 
-      // Make a new timeout set to go off in 1000ms (1 second)
-      timeout = setTimeout(function () {
-          const url = 'http://localhost:8080/user/email/'
-          let userEmail = email.value;
-          let fetchUrl = url + userEmail;
+   // Listen for keystroke events
+       email.addEventListener('keyup', function (e) {
+         // Clear the timeout if it has already been set.
+         // This will prevent the previous task from executing
+         // if it has been less than <MILLISECONDS>
+         clearTimeout(timeout);
 
-          fetch(fetchUrl)
-            .then(response => response.json())
-            .then(emailIsTaken => {
-                if(emailIsTaken == true){
-                    emailFormat.style.display = "none";
-                    emailTaken.style.display = "block";
-                    email.classList.remove('is-valid');
-                    email.classList.add('is-invalid');
-                    submit.disabled = true
+         // Make a new timeout set to go off in 1000ms (1 second)
+         timeout = setTimeout(function () {
+             const url = 'http://localhost:8080/user/email/'
+             let userEmail = email.value;
+             let fetchUrl = url + userEmail;
 
-                }else{
-                    if(email.checkValidity() === true){
-                        emailTaken.style.display = "none";
-                        emailFormat.style.display = "none";
-                        email.classList.remove('is-invalid')
-                        email.classList.add('is-valid');
-                    }else if(email.checkValidity() === false){
-                        email.classList.remove('is-valid');
-                        email.classList.add('is-invalid');
-                        emailTaken.style.display = "none";
-                        emailFormat.style.display = "none";
-                        submit.disabled = true
-                    }
+             fetch(fetchUrl)
+               .then(response => response.json())
+               .then(emailIsTaken => {
+                   if(emailIsTaken == true){
+                       emailFormat.style.display = "none";
+                       emailTaken.style.display = "block";
+                       email.classList.remove('is-valid');
+                       email.classList.add('is-invalid');
+                       submit.disabled = true;
+                       emailValid = false;
 
-                    if(email.value == ''){
-                        emailFormat.style.display = "block";
-                        emailTaken.style.display = "none";
-                        email.classList.remove('is-valid');
-                        email.classList.add('is-invalid');
-                        console.log("empty test")
-                    }
-                }
-            });
-      }, 1000);
-    });
+                   }else{
+                       if(email.checkValidity() === true){
+                           emailTaken.style.display = "none";
+                           emailFormat.style.display = "none";
+                           email.classList.remove('is-invalid')
+                           email.classList.add('is-valid');
+                           emailValid = true;
+                            if(emailValid == false){
+                               submit.disabled = true;
+                            }else{
+                               submit.disabled = false;
+                            }
+
+                       }else if(email.checkValidity() === false){
+                           email.classList.remove('is-valid');
+                           email.classList.add('is-invalid');
+                           emailTaken.style.display = "none";
+                           emailFormat.style.display = "none";
+                           submit.disabled = true
+                           emailValid = false;
+                       }
+
+                       if(email.value == ''){
+                           emailFormat.style.display = "block";
+                           emailTaken.style.display = "none";
+                           email.classList.remove('is-valid');
+                           email.classList.add('is-invalid');
+                           emailValid = false
+
+                       }
+                   }
+               });
+         }, 50);
+       });
 
 
     // fetch all the forms we want to apply custom style
-    var inputs = document.getElementsByClassName('edit-user-form')
+    var inputs = document.getElementsByClassName('validateForm')
 
 
     // loop over each input and watch blur event
@@ -316,7 +441,11 @@ function createNewUser() {
         }
         else {
             input.classList.add('is-valid')
-            submit.disabled = false;
+            if(emailValid == false || cwidValid == false){
+                submit.disabled = true;
+            }else{
+                submit.disabled = false;
+            }
         }
       }, false);
     });
@@ -346,10 +475,20 @@ function phoneFormat(input){
 }
 
 window.onload=function(){
+
+    let cwid = document.getElementById("newCwidTaken");
+    cwid.style.display = "none";
+
     document.getElementById('phoneNumber').addEventListener('keyup',function(evt){
             var phoneNumber = document.getElementById('phoneNumber');
             var charCode = (evt.which) ? evt.which : evt.keyCode;
             phoneNumber.value = phoneFormat(phoneNumber.value);
     });
-}
 
+
+    document.getElementById('newPhoneNumber').addEventListener('keyup',function(evt){
+            var phoneNumber = document.getElementById('newPhoneNumber');
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            phoneNumber.value = phoneFormat(phoneNumber.value);
+    });
+}
