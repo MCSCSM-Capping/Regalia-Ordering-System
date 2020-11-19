@@ -517,95 +517,118 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>CWID</label>
-              <input type="number" class="form-control" placeholder="CWID" id="cwid" value="">
+              <input type="number" class="form-control" placeholder="CWID" id="cwid" value="" readonly="readonly">
             </div>
             <div class="col-md-6 mb-3">
               <label>Email</label>
-              <input type="text"  class="form-control" id="email" placeholder="name@domain.com">
+              <input type="text" class="form-control" id="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{1,50}" placeholder="name@domain.com" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback" id="emailFormat">Please enter a valid email</div>
+              <div class="invalid-feedback" id="emailTaken">The entered email is already being used</div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>First Name</label>
-              <input type="text"  class="form-control" placeholder="First Name" value="" id="firstName">
+              <input type="text"  class="form-control edit-user-form" placeholder="First Name" value="" id="firstName" pattern="[A-Za-z]{1,15}" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter a valid first name</div>
             </div>
             <div class="col-md-6 mb-3">
               <label>Last Name</label>
-              <input type="text"  class="form-control" placeholder="Last Name" id="lastName" value="">
+              <input type="text"  class="form-control edit-user-form" placeholder="Last Name" id="lastName" value="" pattern="[A-Za-z]{1,15}" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter a valid last name</div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Phone Number</label>
-              <input type="number"  class="form-control" id="phoneNumber" placeholder="914-554-2354">
+              <input type="tel" class="form-control edit-user-form" id="phoneNumber" placeholder="914-554-2354" pattern="[(][0-9]{3}[)] [0-9]{3}-[0-9]{4}" maxlength="16" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter a valid phone number</div>
             </div>
             <div class="col-md-6 mb-3">
               <label>Department/School</label>
-              <select class="custom-select d-block w-100" id="department">
+              <select class="custom-select d-block w-100 edit-user-form" id="department" autocomplete="chrome-off" required >
                 <option value="">Choose...</option>
                 <div th:each="Department : ${departments}">
                   <option th:text="${Department.name}" th:value="${Department.name}">name</option>
                 </div>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a department</div>
             </div>
           </div>
           <hr class="mb-4">
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Highest Degree</label>
-              <select  class="custom-select d-block w-100" id="degree">
+              <select  class="custom-select d-block w-100 edit-user-form" id="degree" autocomplete="chrome-off" required >
                 <option value="">Choose...</option>
                 <div th:each="Degree : ${degrees}">
                   <option th:text="${Degree.name}" th:value="${Degree.name}">name</option>
                 </div>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a degree</div>
             </div>
             <div class="col-md-6 mb-3">
               <label>Granting Institution</label>
-              <input type="text"  class="form-control" id="grantingInstitution" placeholder="Granting Institution" value="">
+              <input type="text"  class="form-control edit-user-form" id="grantingInstitution" placeholder="Granting Institution" value="" pattern="[a-zA-Z\s]+" title="granting institution" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter a valid granting institution</div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Institution City</label>
-              <input type="text"  class="form-control" id="institutionCity" placeholder="Institution City" value="">
+              <input type="text"  class="form-control edit-user-form" id="institutionCity" placeholder="Institution City" value="" pattern="[a-zA-Z\s]+" title="granting city" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter a valid granting institution city</div>
             </div>
             <div class="col-md-6 mb-3">
               <label>Institution State</label>
-              <select class="custom-select d-block w-100" id="institutionState">
+              <select class="custom-select d-block w-100 edit-user-form" id="institutionState" autocomplete="chrome-off" required>
                 <option value="">Choose...</option>
                 <div th:each="State : ${states}">
                   <option th:text="${State.name}" th:value="${State.name}">name</option>
                 </div>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a valid granting institution state</div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label>Ceremony Schedule</label>
-              <select  class="custom-select d-block w-100" id="ceremonyDate">
+              <select  class="custom-select d-block w-100 edit-user-form" id="ceremonyDate" autocomplete="chrome-off" required>
                 <option value="">Choose...</option>
                 <div th:each="Ceremony : ${ceremonies}">
                   <option th:text="${Ceremony.name}" th:value="${Ceremony.name}">name</option>
                 </div>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a ceremony</div>
             </div>
             <div class="col-md-6 mb-3">
               <label>Cap Size</label>
-              <select  class="custom-select d-block w-100" id="capSize">
+              <select  class="custom-select d-block w-100 edit-user-form" id="capSize" autocomplete="chrome-off" required>
                 <option value="">Choose...</option>
                 <div th:each="CapSize : ${capSizes}">
                   <option th:text="${CapSize.fitted}" th:value="${CapSize.fitted}">name</option>
                 </div>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a valid cap size</div>
             </div>
           </div>
           <hr>
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 mb-3">
               <label>Height</label>
-              <select  class="custom-select d-block w-100" id="height">
-                <option value=-1>Choose...</option>
+              <select  class="custom-select d-block w-100 edit-user-form" id="height" autocomplete="chrome-off" required>
+                <option value="">Choose...</option>
                 <option value="4-0"> 4'0"</option>
                 <option value="4-1"> 4'1"</option>
                 <option value="4-2"> 4'2"</option>
@@ -643,25 +666,28 @@
                 <option value="6-10"> 6'10"</option>
                 <option value="6-11"> 6'11"</option>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a valid height</div>
             </div>
             <div class="col-md-6 mb-3">
               <label>Weight</label>
-              <input type="number"  class="form-control" placeholder="Weight" id="weight" value="">
-              <div class="invalid-feedback">
-                Valid Weight is required.
-              </div>
+              <input type="number"  class="form-control edit-user-form" placeholder="Weight" id="weight" value="" min="50" max="400" autocomplete="chrome-off" required>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter a valid weight</div>
             </div>
           </div>
           <hr>
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 mb-3">
               <label>Role</label>
-              <select class="custom-select d-block w-100" id="role">
+              <select class="custom-select d-block w-100 edit-user-form" id="role" autocomplete="chrome-off" required>
                 <option value="">Choose...</option>
                 <div th:each="Role : ${roles}" >
                   <option th:text="${Role.name}" th:value="${Role.name}">name</option>
                 </div>
               </select>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please select a valid role</div>
             </div>
           </div>
         </div>
@@ -673,7 +699,7 @@
               <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
             </div>
             <div class="col-md-6 mb-3 ml-1 mt-2">
-              <button type="submit" class="btn btn-success" onclick="updateUser()" data-dismiss="modal" >Update</button>
+              <button id="edit-submit" type="submit" class="btn btn-success" onclick="updateUser()" data-dismiss="modal" >Update</button>
             </div>
           </div>
         </div>

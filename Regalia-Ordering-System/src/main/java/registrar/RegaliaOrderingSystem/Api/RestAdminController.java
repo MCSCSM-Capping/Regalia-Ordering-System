@@ -171,4 +171,22 @@ public class RestAdminController {
         return "New user has been added";
     }
 
+    //Get Api request to see is a users email is already taken in the database
+    @GetMapping(path = "/user/email/{email}", produces = "application/json")
+    public Boolean doesUserEmailExist(@PathVariable(required = false) String email){
+
+        if(_userService.doesUserEmailExist(email)){
+            return true;
+        }
+        return false;
+    }
+
+    //Api to handle empty email request
+    //Get Api request to see is a users email is already taken in the database
+    @GetMapping(path = "/user/email/", produces = "application/json")
+    public Boolean emptyUserEmailRequest(){
+
+        return false;
+    }
+
 }

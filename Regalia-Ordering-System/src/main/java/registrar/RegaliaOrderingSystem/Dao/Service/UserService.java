@@ -100,6 +100,16 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public Boolean doesUserEmailExist(String email){
+        User user = userRepository.getUserByEmail(email);
+
+        if(Objects.isNull(user)){
+            return false;
+        }
+
+        return true;
+    }
+
 
 
 
