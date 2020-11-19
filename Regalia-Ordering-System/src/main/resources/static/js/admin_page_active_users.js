@@ -1,3 +1,4 @@
+
 function setUserCwid(user){
     let username = user
     let ModalUsername = document.getElementById("modelCwidValue");
@@ -27,8 +28,6 @@ function postDeleteUser(){
 
     window.location.href = "/admin_page_active_users"
 }
-
-
 
 function getUserByCwid(cwid){
 
@@ -83,68 +82,72 @@ function getUserByCwid(cwid){
 
 }
 
-
-
 function updateUser(){
 
-        //Api Requirements
-        const url = 'http://localhost:8080/user/edit/';
+    //Api Requirements
+    const url = 'http://localhost:8080/user/edit/';
 
-        let usersCwid = document.getElementById("cwid").value;
+    let usersCwid = document.getElementById("cwid").value;
 
-        let fetchUrl = url + usersCwid;
+    let fetchUrl = url + usersCwid;
 
-        //Build New user object for post request
-        let firstNameDOM = document.getElementById("firstName").value;
-        let lastNameDOM = document.getElementById("lastName").value;
-        let emailDOM = document.getElementById("email").value;
-        let phoneNumberDOM = document.getElementById("phoneNumber").value;
-        let departmentDOM = document.getElementById("department").value;
-        let capSizeDOM = document.getElementById("capSize").value;
-        let degreeDOM = document.getElementById("degree").value;
-        let weightDOM = document.getElementById("weight").value;
-        let heightDOM = document.getElementById("height").value;
-        let grantingInstitutionDOM = document.getElementById("grantingInstitution").value;
-        let institutionStateDOM = document.getElementById("institutionState").value;
-        let institutionCityDOM = document.getElementById("institutionCity").value;
-        let ceremonyDateDOM = document.getElementById("ceremonyDate").value;
-        let roleDOM = document.getElementById("role").value;
+    //Build New user object for post request
+    let firstNameDOM = document.getElementById("firstName");
+    let lastNameDOM = document.getElementById("lastName");
+    let emailDOM = document.getElementById("email");
+    let phoneNumberDOM = document.getElementById("phoneNumber");
+    let departmentDOM = document.getElementById("department");
+    let capSizeDOM = document.getElementById("capSize");
+    let degreeDOM = document.getElementById("degree");
+    let weightDOM = document.getElementById("weight");
+    let heightDOM = document.getElementById("height");
+    let grantingInstitutionDOM = document.getElementById("grantingInstitution");
+    let institutionStateDOM = document.getElementById("institutionState");
+    let institutionCityDOM = document.getElementById("institutionCity");
+    let ceremonyDateDOM = document.getElementById("ceremonyDate");
+    let roleDOM = document.getElementById("role");
 
-        const user = {
-            first_name : firstNameDOM,
-            last_name : lastNameDOM,
-            email : emailDOM,
-            phone_number : phoneNumberDOM,
-            department : departmentDOM,
-            cap_size : capSizeDOM,
-            degree : degreeDOM,
-            weight : weightDOM,
-            height : heightDOM,
-            granting_institution : grantingInstitutionDOM,
-            granting_state : institutionStateDOM,
-            granting_city : institutionCityDOM,
-            ceremony_date : ceremonyDateDOM,
-            role : roleDOM,
-            username: usersCwid
-        };
 
-        console.log(user);
+    const user = {
+           first_name : firstNameDOM.value,
+           last_name : lastNameDOM.value,
+           email : emailDOM.value,
+           phone_number : phoneNumberDOM.value,
+           department : departmentDOM.value,
+           cap_size : capSizeDOM.value,
+           degree : degreeDOM.value,
+           weight : weightDOM.value,
+           height : heightDOM.value,
+           granting_institution : grantingInstitutionDOM.value,
+           granting_state : institutionStateDOM.value,
+           granting_city : institutionCityDOM.value,
+           ceremony_date : ceremonyDateDOM.value,
+           role : roleDOM.value,
+           username: usersCwid
+       };
 
-        // request options
-        const options = {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {
-            'Content-Type': 'application/json'
-            }
-        }
+       console.log(user);
 
-        // send POST request
-        fetch(fetchUrl, options)
-        .then(res => res.json())
+       // request options
+       const options = {
+       method: 'POST',
+       body: JSON.stringify(user),
+       headers: {
+           'Content-Type': 'application/json'
+           }
+       }
 
-        window.location.href = "/admin_page_active_users"
+       // send POST request
+       fetch(fetchUrl, options)
+       .then(res => res)
+       .then(result => {
+         console.log('Success:', result);
+       })
+       .catch(error => {
+         console.error('Error:', error);
+       });
 
+       window.location.href = "/admin_page_active_users"
 
 
 }
@@ -210,3 +213,143 @@ function createNewUser() {
     window.location.href = "/admin_page_active_users"
 
 }
+
+//Method to check if a field if valid when the user clicks a field
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+
+
+    // Get the email field
+    let email = document.getElementById('email');
+
+    // Email taken div
+    let emailTaken = document.getElementById('emailTaken')
+    // Email format div
+    let emailFormat = document.getElementById('emailFormat')
+
+    // Submit Button
+    let submit = document.getElementById("edit-submit");
+
+
+    // Init a timeout variable to be used below
+    let timeout = null;
+
+    // Listen for keystroke events
+    email.addEventListener('keyup', function (e) {
+      // Clear the timeout if it has already been set.
+      // This will prevent the previous task from executing
+      // if it has been less than <MILLISECONDS>
+      clearTimeout(timeout);
+
+      // Make a new timeout set to go off in 1000ms (1 second)
+      timeout = setTimeout(function () {
+          const url = 'http://localhost:8080/user/email/'
+          let userEmail = email.value;
+          let fetchUrl = url + userEmail;
+
+          fetch(fetchUrl)
+            .then(response => response.json())
+            .then(emailIsTaken => {
+                if(emailIsTaken == true){
+                    emailFormat.style.display = "none";
+                    emailTaken.style.display = "block";
+                    email.classList.remove('is-valid');
+                    email.classList.add('is-invalid');
+                    submit.disabled = true
+
+                }else{
+                    if(email.checkValidity() === true){
+                        emailTaken.style.display = "none";
+                        emailFormat.style.display = "none";
+                        email.classList.remove('is-invalid')
+                        email.classList.add('is-valid');
+                    }else if(email.checkValidity() === false){
+                        email.classList.remove('is-valid');
+                        email.classList.add('is-invalid');
+                        emailTaken.style.display = "none";
+                        emailFormat.style.display = "none";
+                        submit.disabled = true
+                    }
+
+                    if(email.value == ''){
+                        emailFormat.style.display = "block";
+                        emailTaken.style.display = "none";
+                        email.classList.remove('is-valid');
+                        email.classList.add('is-invalid');
+                        console.log("empty test")
+                    }
+                }
+            });
+      }, 1000);
+    });
+
+
+    // fetch all the forms we want to apply custom style
+    var inputs = document.getElementsByClassName('edit-user-form')
+
+
+    // loop over each input and watch blur event
+    var clearWhenTyping = Array.prototype.filter.call(inputs, function(input) {
+
+      //gets rid of error message if a user types in a field
+      input.addEventListener('keydown', function(event) {
+
+        // reset
+        input.classList.remove('is-invalid')
+        input.classList.remove('is-valid')
+      }, false);
+    });
+
+
+    // loop over each input and watch blur event
+    var validation = Array.prototype.filter.call(inputs, function(input) {
+
+      input.addEventListener('blur', function(event) {
+        // reset
+        input.classList.remove('is-invalid')
+        input.classList.remove('is-valid')
+
+        if (input.checkValidity() === false) {
+            input.classList.add('is-invalid')
+            submit.disabled = true;
+        }
+        else {
+            input.classList.add('is-valid')
+            submit.disabled = false;
+        }
+      }, false);
+    });
+  }, false);
+})()
+
+// A function to format text to look like a phone number
+function phoneFormat(input){
+        // Strip all characters from the input except digits
+        input = input.replace(/\D/g,'');
+
+        // Trim the remaining input to ten characters, to preserve phone number format
+        input = input.substring(0,10);
+
+        // Based upon the length of the string, we add formatting as necessary
+        var size = input.length;
+        if(size == 0){
+                input = input;
+        }else if(size < 4){
+                input = '('+input;
+        }else if(size < 7){
+                input = '('+input.substring(0,3)+') '+input.substring(3,6);
+        }else{
+                input = '('+input.substring(0,3)+') '+input.substring(3,6)+'-'+input.substring(6,10);
+        }
+        return input;
+}
+
+window.onload=function(){
+    document.getElementById('phoneNumber').addEventListener('keyup',function(evt){
+            var phoneNumber = document.getElementById('phoneNumber');
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            phoneNumber.value = phoneFormat(phoneNumber.value);
+    });
+}
+
