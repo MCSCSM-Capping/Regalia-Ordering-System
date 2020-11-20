@@ -134,7 +134,7 @@ function getModalData(){
                 height.blur();
             }
 
-            if(weight.value < 50 && weight.value > 400){
+            if(weight.value < 50 || weight.value > 400){
                 weight.focus();
                 weight.blur();
             }
@@ -229,6 +229,39 @@ function phoneFormat(input){
                 input = '('+input.substring(0,3)+') '+input.substring(3,6)+'-'+input.substring(6,10);
         }
         return input;
+}
+
+
+function clearFormData(){
+
+    //Getting form data and storing it in block scope variables
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let email = document.getElementById("email");
+    let phoneNumber = document.getElementById("phoneNumber");
+    let department = document.getElementById("department");
+    let capSize = document.getElementById("capSize");
+    let degree = document.getElementById("degree");
+    let weight = document.getElementById("weight");
+    let height = document.getElementById("height");
+    let grantingInstitution = document.getElementById("grantingInstitution");
+    let institutionState = document.getElementById("institutionState");
+    let institutionCity = document.getElementById("institutionCity");
+    let ceremonyDate = document.getElementById("ceremonyDate");
+
+    firstName.value = '';
+    lastName.value = '';
+    email.value = '';
+    phoneNumber.value = '';
+    department.value = '';
+    capSize.value = '';
+    degree.value = '';
+    weight.value = '';
+    height.value = '';
+    grantingInstitution.value = '';
+    institutionState.value = '';
+    institutionCity.value = '';
+    ceremonyDate.value = '';
 }
 
 window.onload=function(){
