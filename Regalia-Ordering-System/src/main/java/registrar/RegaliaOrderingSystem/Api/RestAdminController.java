@@ -109,7 +109,6 @@ public class RestAdminController {
         return userDto;
     }
 
-
     //Post Api request to update user
     @PostMapping(path = "/user/edit/{id}", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
@@ -186,6 +185,22 @@ public class RestAdminController {
     @GetMapping(path = "/user/email/", produces = "application/json")
     public Boolean emptyUserEmailRequest(){
 
+        return false;
+    }
+
+    //APi to check and see if a users CWID is already in use
+    @GetMapping(path = "user/check/username/{username}", produces = "application/json")
+    public Boolean doesUserUsernameExist(@PathVariable(required = false) String username){
+
+        if(_userService.doesUserExist(username)){
+            return true;
+        }
+        return false;
+    }
+
+    //Api to handle a empty request to check if a users CWID already exists
+    @GetMapping(path = "user/check/username/" , produces = "application/json")
+    public Boolean emptyDoesUserExist(){
         return false;
     }
 
