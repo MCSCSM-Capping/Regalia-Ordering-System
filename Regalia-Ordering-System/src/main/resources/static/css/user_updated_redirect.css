@@ -27,23 +27,77 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #d93c27;
+  background-color: #fff;
+
 }
 
+
 body {
+  background-repeat: no-repeat;
+  background-position: 50% 5%;
+  background-blend-mode: normal;
+  background-image: url("../images/marist.jpeg");
+  background-size: 25%;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
   -ms-flex-pack: center;
   -webkit-box-pack: center;
   justify-content: center;
-  color: #fff;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+  color: rgb(0, 0, 0);
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 2rem rgb(0, 0, 0);
+  
+}
+
+body {
+ 
+  font-size: 21px;
+  text-align: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity:0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
 .cover-container {
   max-width: 42em;
+  height: 200px;
+  width: 400px;
+  
+
 }
 
 
@@ -68,7 +122,7 @@ body {
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+  border-bottom-color: rgba(41, 38, 38, 0.25);
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -76,8 +130,8 @@ body {
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: rgba(12, 10, 10, 0.514);
+  border-bottom-color: rgb(0, 0, 0);
 }
 
 @media (min-width: 48em) {
@@ -110,5 +164,5 @@ body {
  * Footer
  */
 .mastfoot {
-  color: rgba(255, 255, 255, .5);
+  color: rgba(14, 10, 10, 0.24);
 }
