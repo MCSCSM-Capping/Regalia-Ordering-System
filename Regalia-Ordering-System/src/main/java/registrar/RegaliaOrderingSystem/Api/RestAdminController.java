@@ -204,4 +204,13 @@ public class RestAdminController {
         return false;
     }
 
+    //Api to validate that the user is using the same email
+    @GetMapping(path = "user/check/email/{username}", produces = "application/json")
+    public User validateUserHasSameEmail(@PathVariable String username){
+
+        User user = _userService.getUserByUsername(username);
+
+        return user;
+    }
+
 }
