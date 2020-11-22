@@ -102,7 +102,7 @@ public class AuthController implements CasClientConfigurer {
         }
 
         //If a user is a Admin return the admin page
-        if((listOfRoles.contains("ADMIN") || listOfRoles.contains("DEV")) == true){
+        if(listOfRoles.contains("ADMIN")){
             return new ModelAndView("redirect:/admin_page_active_users");
         }
 

@@ -348,7 +348,10 @@ function createNewUser() {
     // Init a timeout variable to be used below
     let timeout = null;
 
-    let emailValid = false;
+    let emailValid = true;
+
+    // Variable used to store a ref to users stored email value
+    let usersStoredEmail = null;
 
    // Listen for keystroke events
        email.addEventListener('keyup', function (e) {
@@ -359,21 +362,47 @@ function createNewUser() {
 
          // Make a new timeout set to go off in 1000ms (1 second)
          timeout = setTimeout(function () {
+            const emailValidUrl = 'http://localhost:8080/user/check/email/';
+            let username = document.getElementById("cwid").value;
+            let emailFetchUrl = emailValidUrl + username;
+
+
+            fetch(emailFetchUrl)
+                .then(response => response.json())
+                .then(data => {
+                    localStorage.setItem('email', data.email)
+                })
+                .then(() => console.log(usersStoredEmail))
+
+             let usersStoredEmail = localStorage.getItem('email');
              const url = 'http://localhost:8080/user/email/'
-             let userEmail = email.value;
+             let userEmail = document.getElementById("email").value;
              let fetchUrl = url + userEmail;
 
              fetch(fetchUrl)
                .then(response => response.json())
                .then(emailIsTaken => {
                    if(emailIsTaken == true){
-                       emailFormat.style.display = "none";
-                       emailTaken.style.display = "block";
-                       email.classList.remove('is-valid');
-                       email.classList.add('is-invalid');
-                       submit.disabled = true;
-                       emailValid = false;
+                       if(userEmail == usersStoredEmail){
+                            emailTaken.style.display = "none";
+                            emailFormat.style.display = "none";
+                            email.classList.remove('is-invalid')
+                            email.classList.add('is-valid');
+                            emailValid = true;
+                             if(emailValid == false){
+                                submit.disabled = true;
+                             }else{
+                                submit.disabled = false;
+                             }
+                        }else{
 
+                           emailFormat.style.display = "none";
+                           emailTaken.style.display = "block";
+                           email.classList.remove('is-valid');
+                           email.classList.add('is-invalid');
+                           submit.disabled = true;
+                           emailValid = false;
+                        }
                    }else{
                        if(email.checkValidity() === true){
                            emailTaken.style.display = "none";
@@ -441,7 +470,7 @@ function createNewUser() {
         }
         else {
             input.classList.add('is-valid')
-            if(emailValid == false || cwidValid == false){
+            if(emailValid == false ){
                 submit.disabled = true;
             }else{
                 submit.disabled = false;
@@ -492,3 +521,4 @@ window.onload=function(){
             phoneNumber.value = phoneFormat(phoneNumber.value);
     });
 }
+
