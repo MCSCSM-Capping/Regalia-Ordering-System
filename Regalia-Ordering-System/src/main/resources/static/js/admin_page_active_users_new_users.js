@@ -33,7 +33,7 @@
 
       // Make a new timeout set to go off in 1000ms (1 second)
       timeout = setTimeout(function () {
-          const url = 'http://localhost:8080/user/email/'
+          const url = 'https://regalia.capping.ecrl.marist.edu/user/email/'
           let userEmail = email.value;
           let fetchUrl = url + userEmail;
 
@@ -97,7 +97,7 @@
 
           // Make a new timeout set to go off in 1000ms (1 second)
           timeout = setTimeout(function () {
-              const url = 'http://localhost:8080/user/check/username/'
+              const url = 'https://regalia.capping.ecrl.marist.edu/user/check/username/'
               let userCwid = cwid.value;
               let fetchUrl = url + userCwid;
 

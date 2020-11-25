@@ -8,7 +8,7 @@ function getUserCwid(user){
 }
 
 function postRestoreUser(){
-    const route = 'http://localhost:8080/user/restore/';
+    const route = 'https://regalia.capping.ecrl.marist.edu/user/restore/';
     let id = document.getElementById("modelCwidValue").textContent;
     let url = route + id;
     // request options

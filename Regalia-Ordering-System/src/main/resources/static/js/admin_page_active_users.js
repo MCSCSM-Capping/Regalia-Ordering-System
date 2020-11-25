@@ -6,7 +6,7 @@ function setUserCwid(user){
 }
 
 function postDeleteUser(){
-    const route = 'http://localhost:8080/user/delete/';
+    const route = 'https://regalia.capping.ecrl.marist.edu//user/delete/';
     let id = document.getElementById("modelCwidValue").textContent;
     let url = route + id ;
 
@@ -30,7 +30,7 @@ function postDeleteUser(){
 
 function getUserByCwid(cwid){
 
-        const url = 'http://localhost:8080/user/';
+        const url = 'https://regalia.capping.ecrl.marist.edu//user/';
 
         let usersCwid = cwid;
 
@@ -84,7 +84,7 @@ function getUserByCwid(cwid){
 function updateUser(){
 
     //Api Requirements
-    const url = 'http://localhost:8080/user/edit/';
+    const url = 'https://regalia.capping.ecrl.marist.edu/user/edit/';
 
     let usersCwid = document.getElementById("cwid").value;
 
@@ -154,7 +154,7 @@ function updateUser(){
 function createNewUser() {
 
     // Api Requirements
-    const route = 'http://localhost:8080/user/add';
+    const route = 'https://regalia.capping.ecrl.marist.edu/user/add';
     let url = route;
 
     let firstNameDOM = document.getElementById("newFirstName");
@@ -362,7 +362,7 @@ function createNewUser() {
 
          // Make a new timeout set to go off in 1000ms (1 second)
          timeout = setTimeout(function () {
-            const emailValidUrl = 'http://localhost:8080/user/check/email/';
+            const emailValidUrl = 'https://regalia.capping.ecrl.marist.edu/user/check/email/';
             let username = document.getElementById("cwid").value;
             let emailFetchUrl = emailValidUrl + username;
 
@@ -375,7 +375,7 @@ function createNewUser() {
                 .then(() => console.log(usersStoredEmail))
 
              let usersStoredEmail = localStorage.getItem('email');
-             const url = 'http://localhost:8080/user/email/'
+             const url = 'https://regalia.capping.ecrl.marist.edu/user/email/'
              let userEmail = document.getElementById("email").value;
              let fetchUrl = url + userEmail;
 
