@@ -270,6 +270,25 @@ window.onload=function(){
             var charCode = (evt.which) ? evt.which : evt.keyCode;
             phoneNumber.value = phoneFormat(phoneNumber.value);
     });
+
+    let firstName = document.getElementById("firstName");
+
+    firstName.addEventListener('keypress', function ( event ) {
+       var key = event.keyCode;
+        if (key === 32) {
+          event.preventDefault();
+        }
+    });
+
+
+    let lastName = document.getElementById("lastName");
+
+    lastName.addEventListener('keypress', function ( event ) {
+       var key = event.keyCode;
+        if (key === 32) {
+          event.preventDefault();
+        }
+    });
 }
 
 
