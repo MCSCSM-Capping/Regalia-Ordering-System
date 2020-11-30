@@ -255,6 +255,115 @@ Visit: 10.10.9.150
 ```
 11. You have successfully deployed the Regalia Ordering System application from Docker. 
 
+<!-- Application Update Process -->
+## Modify Running Application
+
+1. Clone the Regalia-Ordering-System repository to your local machine.
+```sh
+git clone https://github.com/StevenBuglione/Regalia-Ordering-System.git
+```
+
+
+2. Open the Regalia-Ordering-System repository in terminal. Make sure you are in the working directory of the project that contains the spring application.
+```sh
+~/Regalia-Ordering-System/Regalia-Ordering-System
+```
+
+
+3. Modify the Spring Regalia Ordering System application and make sure to save your changes.
+
+4. Repackage the Spring Regalia Ordering System application by issuing the following command.
+```sh
+~/Regalia-Ordering-System/Regalia-Ordering-System mvn clean
+```
+
+
+5. Once the Spring Regalia Ordering System application is repackaged and new jar file is built. We need to create a new docker image. To do so issue the following command.
+```sh
+~/Regalia-Ordering-System/Regalia-Ordering-System docker build . 
+```
+
+
+6. Once the docker image is created we need to tag the image so that we can push our new Spring Regalia Ordering System image to docker hub. To do so issue the following commands.
+```sh
+~/Regalia-Ordering-System/Regalia-Ordering-System docker images
+
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+none                                 latest              fa85d61d50ee        27 hours ago        685MB
+
+
+~/Regalia-Ordering-System/Regalia-Ordering-System docker tag fa85d61d50ee <yourdockerusername>/regalia-spring-image
+
+~/Regalia-Ordering-System/Regalia-Ordering-System docker push <yourdockerusername>/regalia-spring-image
+
+```
+
+
+7. Now that the updated docker image is on docker hub we can now redeploy the Regalia Spring application your server.
+
+
+8. Login to your server with super user privileges.
+
+
+9. Stop and remove the old regalia-spring container.
+```sh
+[root@Linux-Docker-Container user]# docker ps
+
+CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS              PORTS                               NAMES
+6b7392cfad80        <yourdockerusername>/regalia-spring-image   "java -jar regalia.j…"   27 hours ago        Up 27 hours         0.0.0.0:443->8443/tcp              regalia-spring
+4251e18cf0bc        <yourdockerusername>/regalia-mysql-image    "docker-entrypoint.s…"   41 hours ago        Up 41 hours         33060/tcp, 0.0.0.0:3307->3306/tcp  regalia-mysql
+
+[root@Linux-Docker-Container user]# docker stop 6b7392cfad80
+
+[root@Linux-Docker-Container user]# docker rm 6b7392cfad80
+
+[root@Linux-Docker-Container user]# docker ps
+
+CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS              PORTS                               NAMES
+4251e18cf0bc        <yourdockerusername>/regalia-mysql-image    "docker-entrypoint.s…"   41 hours ago        Up 41 hours         33060/tcp, 0.0.0.0:3307->3306/tcp  regalia-mysql
+```
+
+10. Remove the the old spring Regalia image
+```sh
+[root@Linux-Docker-Container user]# docker images
+
+REPOSITORY                                   TAG                 IMAGE ID            CREATED             SIZE
+<yourdockerusername>/regalia-spring-image   latest              fa85d61d50ee        27 hours ago        685MB
+<yourdockerusername>/regalia-mysql-image    latest              8cfb6d71082e        9 days ago          545MB
+
+[root@Linux-Docker-Container user]# docker rmi fa85d61d50ee
+
+[root@Linux-Docker-Container user]# docker images
+
+REPOSITORY                                   TAG                 IMAGE ID            CREATED             SIZE
+<yourdockerusername>/regalia-mysql-image    latest              8cfb6d71082e        9 days ago          545MB
+```
+
+
+11. Pull the updated Regalia Spring Image from docker hub.
+```sh
+[root@Linux-Docker-Container user]# docker pull <yourdockerusername>/regalia-spring-image
+```
+
+
+12. Redeploy regalia spring image
+```sh
+[root@Linux-Docker-Container user]# docker run -p 443:8443 --name regalia-spring --link regalia-mysql:mysql -d <yourdockerusername>/regalia-spring-image
+```
+
+
+13. Verify that both containers are up and running.
+```sh
+[root@Linux-Docker-Container user]# docker ps
+
+CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS              PORTS                               NAMES
+6b7392cfad80        <yourdockerusername>/regalia-spring-image   "java -jar regalia.j…"   27 hours ago        Up 27 hours         0.0.0.0:443->8443/tcp              regalia-spring
+4251e18cf0bc        <yourdockerusername>/regalia-mysql-image    "docker-entrypoint.s…"   41 hours ago        Up 41 hours         33060/tcp, 0.0.0.0:3307->3306/tcp  regalia-mysql
+```
+
+14. You have successfully updated the Regalia Spring Application on a live server.
+
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
