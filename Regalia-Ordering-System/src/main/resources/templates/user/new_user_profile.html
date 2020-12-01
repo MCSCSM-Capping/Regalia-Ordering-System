@@ -7,6 +7,7 @@
     <meta name="description" content="Regalia Ordering System">
     <meta name="author" content="Steven Buglione">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/vendor/fontawesome-free/css/all.min.css}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/new_faculty_order_form.css" th:href="@{/css/new_faculty_order_form.css}">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
@@ -62,7 +63,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label>Department</label>
+                        <label>Department / School</label>
                         <select th:field="*{department}" class="custom-select d-block w-100 form-control" id="department" autocomplete="chrome-off" required >
                             <option value="">Choose...</option>
                             <div th:each="Department : ${departments}">
@@ -176,7 +177,7 @@
                 </div>
                 <div class="row" style="justify-content: center;">
                     <div class="col-md-6 mb-3">
-                        <label>Cap Size</label>
+                        <label>Cap Size</label><a data-toggle="modal" data-target="#hatSizeModal"><i class="far fa-question-circle btn"></i></a>
                         <select th:field="*{cap_size}" class="custom-select d-block w-100 form-control" id="capSize" autocomplete="chrome-off" required>
                             <option value="">Choose...</option>
                             <div th:each="CapSize : ${capSizes}">
@@ -247,7 +248,7 @@
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                                             <div >
-                                                <h6 class="my-0">Department</h6>
+                                                <h6 class="my-0">Department / School</h6>
                                             </div>
                                             <span class="text-muted" id="Department"></span>
                                         </li>
@@ -309,13 +310,33 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Hat Size Guide Modal -->
+                <div class="modal fade" id="hatSizeModal" tabindex="-1" aria-labelledby="hatSizeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="hatSizeModalLabel">Hat Sizing Chart</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img id="hatSizeImg" src="@{../static/images/HatSizingChart.png}" alt="Hat Sizing Chart" th:src="@{images/HatSizingChart.png}">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
             <footer class="my-5 pt-5 text-muted text-center text-small">
                 <p class="mb-1">&copy; Marist Regalia Team</p>
                 <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#">Documentation</a></li>
+                    <li class="list-inline-item"><a href="https://github.com/StevenBuglione/Regalia-Ordering-System">Documentation</a></li>
                     <li class="list-inline-item"><a href="https://github.com/StevenBuglione/Regalia-Ordering-System">GitHub</a></li>
-                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="https://github.com/StevenBuglione/Regalia-Ordering-System">About</a></li>
                 </ul>
             </footer>
         </div>
