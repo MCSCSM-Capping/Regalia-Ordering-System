@@ -6,7 +6,7 @@ function setUserCwid(user){
 }
 
 function postDeleteUser(){
-    const route = 'https://regalia.capping.ecrl.marist.edu//user/delete/';
+    const route = 'https://regalia.capping.ecrl.marist.edu/user/delete/';
     let id = document.getElementById("modelCwidValue").textContent;
     let url = route + id ;
 
@@ -30,7 +30,7 @@ function postDeleteUser(){
 
 function getUserByCwid(cwid){
 
-        const url = 'https://regalia.capping.ecrl.marist.edu//user/';
+        const url = 'https://regalia.capping.ecrl.marist.edu/user/';
 
         let usersCwid = cwid;
 

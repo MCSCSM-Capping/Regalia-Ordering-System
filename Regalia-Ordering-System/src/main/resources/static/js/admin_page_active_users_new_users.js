@@ -97,7 +97,7 @@
 
           // Make a new timeout set to go off in 1000ms (1 second)
           timeout = setTimeout(function () {
-              const url = 'https://regalia.capping.ecrl.marist.edu/user/check/username/'
+              const url = 'https://regalia.capping.ecrl.marist.edu/check/username/'
               let userCwid = cwid.value;
               let fetchUrl = url + userCwid;
 

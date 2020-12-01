@@ -18,6 +18,8 @@ import registrar.RegaliaOrderingSystem.Dto.UserDto;
 import registrar.RegaliaOrderingSystem.Models.Role;
 import registrar.RegaliaOrderingSystem.Models.User;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.Set;
 
@@ -85,6 +87,8 @@ public class RestAdminController {
         //Take the role name and store in variable to send in request
         String stringRole = userRole.getName();
 
+        DateFormat dateFormatterUser = new SimpleDateFormat("yyyy-MM-dd");
+
         UserDto userDto = new UserDto(
                 user.getEmail(),
                 user.getUsername(),
@@ -100,7 +104,7 @@ public class RestAdminController {
                 user.getGranting_institution(),
                 user.getGranting_city(),
                 user.getGranting_state().getName(),
-                user.getLast_updated(),
+                dateFormatterUser.format(user.getLast_updated()),
                 stringRole
 
         );
