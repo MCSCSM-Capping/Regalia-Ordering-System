@@ -27,10 +27,10 @@ public class UserDto {
     private String granting_institution;
     private String granting_city;
     private String granting_state;
-    private Date last_updated;
+    private String last_updated;
     private String role;
 
-    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, String height, String granting_institution, String granting_city, String granting_state, Date last_updated) {
+    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, String height, String granting_institution, String granting_city, String granting_state, String last_updated) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -48,7 +48,7 @@ public class UserDto {
         this.last_updated = last_updated;
     }
 
-    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, String height, String granting_institution, String granting_city, String granting_state, Date last_updated, String role) {
+    public UserDto(String email, String username, String first_name, String last_name, String phone_number, String ceremony_date, String cap_size, String degree, String department, Integer weight, String height, String granting_institution, String granting_city, String granting_state, String last_updated, String role) {
         this.email = email;
         this.username = username;
         this.first_name = first_name;
@@ -195,11 +195,11 @@ public class UserDto {
         this.granting_state = granting_state;
     }
 
-    public Date getLast_updated() {
+    public String getLast_updated() {
         return last_updated;
     }
 
-    public void setLast_updated(Date last_updated) {
+    public void setLast_updated(String last_updated) {
         this.last_updated = last_updated;
     }
 
