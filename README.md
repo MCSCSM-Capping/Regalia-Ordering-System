@@ -364,6 +364,22 @@ CONTAINER ID        IMAGE                                COMMAND                
 14. You have successfully updated the Regalia Spring Application on a live server.
 
 
+<!-- Potential Project Extentions -->
+## Potential Project Extentions Ideas
+
+1. Integrations with the new Marist Authentication System.
+
+2. Integrate Email Client that is configured to work with Marist Email System.
+
+3. Automatically remind users to update there profile after a certain date.
+
+4. Integrate with external database to look up United States Colleges.
+
+5. Ability to set a default "view" .. once I've sorted by say last name, and shrunk the left nav bar, I'd like it to open up in that configuration the next time I log in
+
+6. Look into using the commented out HTML features on the active/archived user pages. 
+
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
@@ -381,29 +397,10 @@ The following are documents related to the construction of the application.
 
 See the [open issues](https://github.com/StevenBuglione/Regalia-Ordering-System/issues) for a list of proposed features (and known issues).
 
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Follow instructions below to create a fork. 
-
- **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -418,7 +415,6 @@ Our Team:
 
 
 Project Link: [https://github.com/StevenBuglione/Regalia-Ordering-System](https://github.com/StevenBuglione/Regalia-Ordering-System)
-
 
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -436,9 +432,6 @@ Project Link: [https://github.com/StevenBuglione/Regalia-Ordering-System](https:
 * [Font Awesome](https://fontawesome.com)
 
 
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
@@ -454,28 +447,3 @@ Project Link: [https://github.com/StevenBuglione/Regalia-Ordering-System](https:
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-
-Additonal Resources:
->'https://angular.io/'
-
->'https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1'
-
->'https://apereo.github.io/cas/4.2.x/protocol/CAS-Protocol.html'
-
->'https://iam.harvard.edu/resources/cas-integration'
-
->'https://docs.microsoft.com/en-us/aspnet/core/data/entity-framework-6?view=aspnetcore-3.1'
-
->'https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-3.1'
-
->'https://app.lucidchart.com/documents/edit/9f3bc75f-50ca-4b0f-8ef6-2c42177f211e/0_0?beaconFlowId=40E049242CD471F5'
-
->'https://auth0.com/docs/tokens/json-web-tokens'
-
->'https://www.docker.com/'
-
->'https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/'
-
->'https://github.com/StevenBuglione/Dating-App'
-
->'https://chsakell.com/2018/04/28/asp-net-core-identity-series-getting-started/'
