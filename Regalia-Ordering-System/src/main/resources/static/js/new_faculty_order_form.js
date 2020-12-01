@@ -33,21 +33,18 @@ function getModalData(){
     let CeremonyDate = document.getElementById("CeremonyDate");
 
     //A dirty method to parse the height value to correct format
-    console.log(height.value);
     if(height.value.length == 3){
             var feet = height.value.slice(0,1)
             var inches = height.value.slice(2)
             var height_feet_inches = feet + "'" + inches +'"';
-
             Height.textContent = height_feet_inches;
-
-        }else{
+    }
+    if(height.value.length == 4){
             var feet = height.value.slice(0,1)
-            var inches = height.value.slice(2,3)
+            var inches = height.value.slice(2,4)
             var height_feet_inches = feet + "'" + inches +'"';
-
             Height.textContent = height_feet_inches;
-        }
+    }
 
     //Setting the Modal Data with the form Data
     FirstName.textContent = firstName.value;
