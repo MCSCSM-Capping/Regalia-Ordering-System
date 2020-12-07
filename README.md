@@ -193,13 +193,13 @@ Use the below guide to install the application. This must be done AFTER the abov
 ### Install Guide
 1. Login
 ```sh
-Login to rsantiag@10.10.9.150
-Password: Regalia20
+Login to <username>@<ip-address>
+Password: <password>
 ```
 2. Enter Super User Mode
 ```sh
 [rsantiago@Linux-Docker-Container ~]$ su
-Password: Regalia20
+Password: <password>
 ```
 3. Login to Docker
 ```sh
@@ -250,8 +250,8 @@ CONTAINER ID               IMAGE                             COMMAND            
 ```
 10. Verify the application is accessible online. 
 ```sh
-Visit: 10.10.9.150
-     : https://regalia.capping.ecrl.marist.edu
+Visit: <IPaddress>
+     : https://<fqdn>.com
 ```
 11. You have successfully deployed the Regalia Ordering System application from Docker. 
 
