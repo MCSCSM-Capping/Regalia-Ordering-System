@@ -147,7 +147,7 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
   * CPU - 4 cores and 4 cores per socket. This means you have 1 processor with 4 cores verses 4 processors with 1 core.
   * Memory (RAM) - 4 GB.
   * Hard Drive (New Hard Disk) - 16 GB. Ensure it's on Thin Provisioned. 
-  * Network (New Network) - 10.10.9.0/24
+  * Network (New Network) - <subnet>/24
   * Mounting the ISO (New CD/DVD Drive) - click Datastore ISO -> ISO - Repo -> click on the folder for the chosen OS. Click OK. Click the checkbox to ensure it connects when powered on. 
   * Next and then Finish. 
   * To edit when VM is off: Right click on VM and then Edit. 
@@ -158,8 +158,8 @@ the local port listed at towards the bottom of the generated report (i.e. port 8
 15. <b>Configuring the Network:</b> 
   Click Network and Hostname -> Configure -> IPv4 Settings -> Method = Manual -> Add. 
   * Our Projects Info: 
-  Address(Server IP): 10.10.9.150   Netmask: 24   Gateway: 10.10.9.1
-  DNS: 10.11.12.2, 10.11.12.3
+  Address(Server IP): <ip address>   Netmask: <netmask>   Gateway: <gateway>
+  DNS: <dns-1>, <dns-2>
       Then save. Enable Ethernet Connectivity.
       You can create a Hostname if desired. Ours is Linux Docker Container.
 16. Click Begin Installation. 
