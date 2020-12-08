@@ -168,7 +168,6 @@ public class AdminController {
 
         //Map Users to UserDto
         for(User user : listUsers){
-            DateFormat dateFormatterUser = new SimpleDateFormat("yyyy-MM-dd");
             listOfUserForCSV.add(new UserDto(
                     user.getEmail(),
                     user.getUsername(),
@@ -184,7 +183,7 @@ public class AdminController {
                     user.getGranting_institution(),
                     user.getGranting_city(),
                     user.getGranting_state().getName(),
-                    dateFormatterUser.format(user.getLast_updated())
+                    formatLastUpdated(user.getLast_updated())
 
             ));
         }
@@ -223,6 +222,12 @@ public class AdminController {
             inches = height.substring(2,4)+"''";
         }
         return feet + inches;
+    }
+
+    //Function to format user last updated
+    public String formatLastUpdated(Date lastUpdated){
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        return dateFormatter.format(lastUpdated);
     }
 
 }
